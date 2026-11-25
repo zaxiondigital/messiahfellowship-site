@@ -9,6 +9,16 @@ while ($l.IsListening) {
   $ctx = $l.GetContext()
   try {
     $p = [Uri]::UnescapeDataString($ctx.Request.Url.AbsolutePath)
+    # Local-only upload used by the optimisation tools: PUT /__upload/images/<file>
+    if ($ctx.Request.HttpMethod -eq 'PUT') {
+      if ($ctx.Request.IsLocal -and $p -match '^/__upload/(images/[A-Za-z0-9_.-]+\.(mp4|jpg|png|webp))$') {
+        $dest = Join-Path $Root ($Matches[1] -replace '/', '\')
+        $ms = New-Object IO.MemoryStream; $ctx.Request.InputStream.CopyTo($ms)
+        [IO.File]::WriteAllBytes($dest, $ms.ToArray())
+        $ctx.Response.StatusCode = 201; Write-Host "SAVED $dest ($($ms.Length) bytes)"
+      } else { $ctx.Response.StatusCode = 403 }
+      continue
+    }
     $f = Join-Path $Root ($p.TrimStart('/') -replace '/', '\')
     $status = 200
     if (Test-Path $f -PathType Container) {
