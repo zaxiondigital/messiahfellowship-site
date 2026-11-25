@@ -215,3 +215,7 @@
   .navbar-ministries::after { height: 27px; }
   .navbar-ministries .ministries-content { top: calc(100% + 27px) !important; }
 }
+
+/* a drop-down closes as soon as one of its links is chosen (see /nav-menu.js) */
+.nav-links .navbar-ministries.dd-closed .ministries-content { display: none !important; }
+.nav-links .navbar-ministries.dd-closed > .drop-btn::after { transform: rotate(45deg) translateY(-2px) !important; }
