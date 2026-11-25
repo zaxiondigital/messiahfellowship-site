@@ -201,15 +201,15 @@ app-root li, .desc, .doctor-content, .text-content, .sub-text, .desc-give {
 .service-card strong { font-weight: 600 !important; }
 
 /* ---------- Buttons: one style of text ---------- */
+/* (size, colour and shape live in buttons.css) */
 .cta-btn, .meet-pastor, .give-btn, .btn-outline, .button-outline, .submit-btn,
 .hero-content button, .course-container .card button, .course-container .card a,
-.contact-right button, app-root button:not(.menu-icon) {
+.mission-content a, .offer-bottom a, .watch-btn,
+.contact-right button, app-root button:not(.menu-icon):not(.nav-buttons button) {
   font-family: var(--font-body) !important;
   font-size: var(--fs-button) !important;
   font-weight: 600 !important;
   line-height: 1 !important;
   letter-spacing: 0.04em !important;
   white-space: nowrap !important;
-  width: auto !important;
-  min-width: max-content !important;
 }

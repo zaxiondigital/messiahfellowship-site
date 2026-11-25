@@ -1,0 +1,154 @@
+/* =====================================================================
+   Messiah Fellowship – button system
+   One shape, one height, three variants. Loaded after typography.css.
+
+   Shape    pill (fully rounded), 1.5px border
+   Size     default 48px tall (phones 44px+, the minimum comfortable tap size)
+            small   40px tall – inside cards and the header
+   Text     Inter 14px, semibold, UPPERCASE, 0.04em tracking (from typography.css)
+
+   Variant        Background        Text / border      Hover
+   Primary        maroon            white              darker maroon
+   Secondary      transparent       maroon             maroon fill, white text
+   Light          transparent       white              white fill, maroon text   (on maroon / gold / photos)
+   Icon           maroon circle 44px, white arrow       darker maroon
+
+   States: hover · focus ring (gold) · pressed · disabled (faded, not grey)
+   ===================================================================== */
+
+:root {
+  --btn-maroon: #6e0f4a;
+  --btn-maroon-dark: #4f0834;
+  --btn-gold: #c9a227;
+  --btn-light: #ffffff;
+  --btn-h: 48px;
+  --btn-h-sm: 40px;
+  --btn-px: 28px;
+  --btn-px-sm: 20px;
+  --btn-radius: 999px;
+  --btn-border: 1.5px;
+  --btn-gap: 8px;
+}
+
+/* ---------- Base: shared by every button ---------- */
+.cta-btn, .hero-content button, .submit-btn, .contact-right form button,
+.meet-pastor, .btn-outline, .button-outline, .mission-content a, .course-container .card button,
+.give-btn, .offer-bottom a,
+.watch-btn {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: var(--btn-gap) !important;
+  box-sizing: border-box !important;
+  height: var(--btn-h) !important;
+  min-height: 0 !important;
+  width: fit-content !important;
+  min-width: 0 !important;
+  max-width: 100% !important;
+  padding: 0 var(--btn-px) !important;
+  border-radius: var(--btn-radius) !important;
+  border: var(--btn-border) solid transparent !important;
+  text-transform: uppercase !important;
+  text-decoration: none !important;
+  white-space: nowrap !important;
+  cursor: pointer !important;
+  box-shadow: none !important;
+  transition: background-color .2s ease, color .2s ease, border-color .2s ease, transform .1s ease !important;
+}
+
+/* ---------- Primary: the main action in a section ---------- */
+.cta-btn, .hero-content button, .submit-btn, .contact-right form button {
+  background: var(--btn-maroon) !important;
+  border-color: var(--btn-maroon) !important;
+  color: #fff !important;
+}
+.cta-btn:hover, .hero-content button:hover, .submit-btn:hover, .contact-right form button:hover {
+  background: var(--btn-maroon-dark) !important;
+  border-color: var(--btn-maroon-dark) !important;
+  color: #fff !important;
+}
+
+/* ---------- Secondary: supporting actions on light backgrounds ---------- */
+.meet-pastor, .btn-outline, .button-outline, .mission-content a, .course-container .card button,
+.watch-btn {
+  background: transparent !important;
+  border-color: var(--btn-maroon) !important;
+  color: var(--btn-maroon) !important;
+}
+.meet-pastor:hover, .btn-outline:hover, .button-outline:hover, .mission-content a:hover,
+.course-container .card button:hover, .watch-btn:hover {
+  background: var(--btn-maroon) !important;
+  border-color: var(--btn-maroon) !important;
+  color: #fff !important;
+}
+
+/* ---------- Light: on maroon, gold or photo backgrounds ---------- */
+.give-btn, .offer-bottom a {
+  background: transparent !important;
+  border-color: var(--btn-light) !important;
+  color: var(--btn-light) !important;
+}
+.give-btn:hover, .offer-bottom a:hover {
+  background: var(--btn-light) !important;
+  border-color: var(--btn-light) !important;
+  color: var(--btn-maroon) !important;
+}
+
+/* ---------- Small size: inside cards and the header ---------- */
+.course-container .card button, .watch-btn {
+  height: var(--btn-h-sm) !important;
+  padding: 0 var(--btn-px-sm) !important;
+}
+.watch-btn { font-size: 12px !important; }
+
+/* ---------- Icon buttons: carousel arrows ---------- */
+.nav-buttons button {
+  width: 44px !important;
+  height: 44px !important;
+  min-width: 44px !important;
+  padding: 0 !important;
+  border-radius: 50% !important;
+  border: none !important;
+  background: var(--btn-maroon) !important;
+  color: #fff !important;
+  font-size: 24px !important;
+  line-height: 1 !important;
+  letter-spacing: 0 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  cursor: pointer !important;
+  transition: background-color .2s ease !important;
+}
+.nav-buttons button:hover { background: var(--btn-maroon-dark) !important; }
+
+/* ---------- States shared by all buttons ---------- */
+:is(.cta-btn, .hero-content button, .submit-btn, .contact-right form button, .meet-pastor,
+    .btn-outline, .button-outline, .mission-content a, .course-container .card button,
+    .give-btn, .offer-bottom a, .watch-btn, .nav-buttons button):focus-visible {
+  outline: 3px solid var(--btn-gold) !important;
+  outline-offset: 3px !important;
+}
+:is(.cta-btn, .hero-content button, .submit-btn, .contact-right form button, .meet-pastor,
+    .btn-outline, .button-outline, .mission-content a, .course-container .card button,
+    .give-btn, .offer-bottom a, .watch-btn, .nav-buttons button):active {
+  transform: translateY(1px) !important;
+}
+/* Disabled (form not filled in yet): faded maroon instead of grey */
+.submit-btn:disabled, .submit-btn:disabled:hover,
+.contact-right form button:disabled, .contact-right form button:disabled:hover {
+  background: var(--btn-maroon) !important;
+  border-color: var(--btn-maroon) !important;
+  color: #fff !important;
+  opacity: .45 !important;
+  cursor: not-allowed !important;
+  transform: none !important;
+}
+
+/* ---------- Placement ---------- */
+/* Form submit buttons stay centred like before */
+.submit-btn { display: flex !important; margin-left: auto !important; margin-right: auto !important; }
+/* Phones: form buttons full width, other buttons never wider than the screen */
+@media (max-width: 768px) {
+  .submit-btn, .contact-right form button { width: 100% !important; }
+}
