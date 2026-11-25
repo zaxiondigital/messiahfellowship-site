@@ -1,0 +1,77 @@
+# Content corrections applied by tools/apply-content-fixes.pl
+# columns (TAB separated): pages | html_nth | js_nth | old text | new text
+#   pages:    all  or comma list of page folders (home = index.html)
+#   html_nth: 0 = every match in each html file, k = only the k-th match, - = skip html
+#   js_nth:   0 = every match in the app script, k = only the k-th match, - = skip script
+#
+# ---- Navigation & footer: consistent ministry names ----
+all	0	0	Children Ministry Sunday School	Children’s Ministry & Sunday School
+all	0	0	Children Ministry/Sunday School	Children’s Ministry & Sunday School
+all	0	0	Men Ministry	Men’s Ministry
+all	0	0	Women Ministry	Women’s Ministry
+all	0	0	Children Ministry	Children’s Ministry
+all	0	0	WidowCare Ministry	Widow Care Ministry
+all	0	0	Kamala Art and Craft	Kamala Arts & Craft
+all	0	-	>Vegetables<	>Vegetable Distribution<
+all	-	0	"Vegetables"	"Vegetable Distribution"
+all	0	0	AutoNagar Gate	Autonagar Gate
+all	0	0	+91-9494 76 76 33	+91 94947 67633
+# ---- Home ----
+home	0	0	First service	First Service
+home	0	0	TRaising a generation rooted in Christ and bold in faith	Teaching children to know, love, and follow Jesus
+home	0	0	Building men of faith, character and purpose	Building men of faith, character, and purpose
+home	0	0	grow in grace, strength and spiritual confidence	grow in grace, strength, and spiritual confidence
+home	0	0	Enquire: 9494 7676 33	Second Tuesday monthly
+home	0	0	Everyday 7:00am to 7:00pm	Every day 7:00am to 7:00pm
+home	0	0	Equipping Leaders. Strengthening the Church	Equipping Leaders. Strengthening the Church.
+home	0	0	make a lasting impact in our community	make a lasting impact in our community.
+# ---- About: beliefs ----
+about	1	1	We believe in one God, eternally existing in three persons: Father, Son, and Holy Spirit co equal and eternal. Jesus Christ is the Word made flesh, and the Holy Spirit proceeds from the Father and the Son.	We believe the Bible is the inspired, infallible, and authoritative Word of God. It is our final authority for faith, doctrine, and daily living.
+about	0	0	Holy Spirit co equal and eternal.	Holy Spirit, co-equal and eternal.
+about	0	0	John 14:26 John 15:26	John 14:26; John 15:26
+about	0	0	by His sacrifice It is received	by His sacrifice. It is received
+about	2	2	Matthew 28:19; Romans 6:4	1 Corinthians 15:51–52; 1 Thessalonians 4:16–17
+# ---- Bible College ----
+bible-college	0	0	Spirit filled leaders	Spirit-filled leaders
+bible-college	0	0	1 Years	1 Year
+bible-college	0	0	TAKE YOUR ADMISSION	APPLY FOR ADMISSION
+bible-college	0	0	World Class Library	World-Class Library
+bible-college	0	0	God's Kingdom	God’s Kingdom
+# ---- Events ----
+events	0	0	UPCOMMING EVENTS COME HERE	Upcoming events will be announced here soon. Follow us on YouTube, Facebook, and Instagram for the latest updates.
+# ---- Flood Relief ----
+floodrelief	0	0	During such times many families especially those in low lying areas, are	During such times, many families, especially those in low-lying areas, are
+floodrelief	0	0	Drinking water from bottles for safe consumption	Bottled drinking water for safe consumption
+floodrelief	0	0	Immediate relief is provided during critical conditions	Immediate relief during critical conditions
+floodrelief	0	0	Hope and encouragement are shared with those in distress	Hope and encouragement for those in distress
+floodrelief	0	0	stood alongside people with care, prayer, and compassion	stood alongside people with care, prayer, and compassion.
+floodrelief	0	0	He will reward them for what they have done.	He will reward them for what they have done. – Proverbs 19:17
+# ---- Give ----
+give	0	0	all that He has done in our lives 	all that He has done in our lives. 
+give	0	0	the work of God’s kingdom	the work of God’s Kingdom
+give	0	0	God loves a cheerful giver	God loves a cheerful giver – 2 Corinthians 9:7
+# ---- Medical ----
+medical	0	0	commitment to serve with love, equality, and compassion	commitment to serve with love, equality, and compassion.
+medical	0	0	basic healthcare due to financial limitations	basic healthcare due to financial limitations.
+medical	0	0	much-needed medical attention and health awareness	much-needed medical attention and health awareness.
+medical	0	0	make a meaningful difference in people’s lives	make a meaningful difference in people’s lives.
+medical	0	0	you will fulfill the law of Christ	you will fulfill the law of Christ. – Galatians 6:2
+# ---- Men ----
+men	0	0	Morning Prayer& 	Morning Prayer &
+# ---- Prayer ----
+prayer	0	0	love, faith, and commitment believing	love, faith, and commitment, believing
+# ---- Vegetables ----
+vegetables	0	0	Providing daily essentials with love	Providing daily essentials with love,
+vegetables	0	0	with compassion one family, one meal	with compassion, one family, one meal
+# ---- Women (fix grammar; replace 3 lines copied from the Men page) ----
+women,youth	0	0	second Tuesday of every month creating	second Tuesday of every month, creating
+women,youth	0	0	Women from all ages	Women of all ages
+women	0	2	We seek to lead men into a deeper relationship with Jesus Christ, helping them grow spiritually and live out their faith in everyday life. 	We seek to lead women into a deeper relationship with Jesus Christ, helping them grow spiritually and live out their faith in everyday life.
+women	0	0	Through teaching, fellowship, and accountability, men are encouraged to strengthen their walk with God and become responsible leaders. 	Through teaching, fellowship, and prayer, women are encouraged to strengthen their walk with God and become godly influences in their homes and communities.
+women	0	0	At Messiah Fellowship, men from all backgrounds come together to support one another and build strong families and communities.	At Messiah Fellowship, women from all backgrounds come together to support one another and build strong families and communities.
+# ---- Youth (page showed the Women's Ministry text) ----
+youth	0	0	YOUTH MINISTRIES	YOUTH MINISTRY
+youth	1	2	The Women’s Ministry at Messiah Fellowship provides a meaningful space for women to grow in faith, build relationships, and encourage one another in their walk with God.	The Youth Ministry at Messiah Fellowship is a place where young people can grow in faith, build lasting friendships, and discover God’s purpose for their lives.
+youth	1	2	We meet on the second Tuesday of every month, creating a time of fellowship, prayer, and spiritual enrichment. These gatherings are designed to strengthen women through the Word of God and help them grow deeper in their relationship with Christ.	We meet every second Saturday at 6:00pm for worship, Bible teaching, prayer, and fellowship. These gatherings help young people build a strong foundation in God’s Word and a personal relationship with Jesus Christ.
+youth	1	2	Women of all ages and backgrounds come together to share life, support one another, and learn how to apply biblical principles in everyday living. Through worship, teaching, and fellowship, the ministry nurtures spiritual growth and unity.	Students and young professionals from all backgrounds come together to encourage one another, ask honest questions, and learn how to apply biblical principles to everyday life, studies, and careers.
+youth	1	2	This ministry also focuses on practical aspects of life, helping women grow in faith, family, and purpose, while encouraging them to live confidently in God’s calling.	Our goal is to raise a generation rooted in Christ and bold in faith, equipped to lead, serve others, and make a lasting impact in their families, church, and communities.
