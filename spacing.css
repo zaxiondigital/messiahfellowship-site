@@ -369,3 +369,11 @@ section.outreach > .row, section.outreach > .row1, section.outreach > .rows,
    section – separate them by one section rhythm (was 0px) */
 .outreach-section .college-box { margin-bottom: var(--section-y) !important; }
 .outreach-section .section-title { margin-top: 0 !important; }
+
+/* Home: the Bible College box is the link to the Bible College page */
+.outreach-section .college-box { cursor: pointer; }
+.outreach-section .college-box:focus-visible { outline: 3px solid var(--color-gold-400, #c8a23a); outline-offset: 4px; }
+
+/* Home: the ‹ › buttons above the outreach cards had no function in the original code
+   (all 3 cards are always visible) – hidden so they don't mislead visitors */
+.outreach-section .nav-buttons { display: none !important; }
