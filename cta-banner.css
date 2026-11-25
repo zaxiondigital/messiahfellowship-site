@@ -127,3 +127,91 @@ app-medicalministries:not(#_) .quote-section .button-outline:hover {
 @media (max-width: 768px) {
   :root { --cta-overlay: linear-gradient(160deg, rgba(79, 8, 52, .95) 0%, rgba(110, 15, 74, .90) 60%, rgba(17, 17, 17, .88) 100%); }
 }
+
+/* =====================================================================
+   Medical "Join us": the client's split-card design (same as the
+   "Be Part of the Mission" card) – text panel left, photo right
+   ===================================================================== */
+app-medicalministries:not(#_) .quote-section {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr !important;
+  grid-template-rows: minmax(var(--pad-box, 48px), 1fr) auto auto auto minmax(var(--pad-box, 48px), 1fr) !important;
+  min-height: 440px !important;
+  padding: 0 !important;
+  border-radius: 12px !important;
+  text-align: left !important;
+  color: var(--color-text, #333) !important;
+  background: var(--color-surface, #f5f5f5) !important;   /* no photo behind the text */
+}
+app-medicalministries:not(#_) .quote-section::before { content: none !important; }
+/* the photo */
+app-medicalministries:not(#_) .quote-section::after {
+  content: "";
+  grid-column: 2;
+  grid-row: 1 / -1;
+  background: url("/images/medical1.jpg") center / cover no-repeat;
+}
+/* text column */
+app-medicalministries:not(#_) .quote-section > * {
+  grid-column: 1 !important;
+  margin-left: var(--pad-box, 48px) !important;
+  margin-right: var(--pad-box, 48px) !important;
+  justify-self: start !important;
+}
+app-medicalministries:not(#_) .quote-section .quote-small {
+  grid-row: 2 !important;
+  color: var(--color-maroon-700, #6e0f4a) !important;
+  margin-bottom: var(--sp-3, 12px) !important;
+}
+app-medicalministries:not(#_) .quote-section .quote-main {
+  grid-row: 3 !important;
+  max-width: none !important;
+  margin-top: 0 !important;
+  margin-bottom: var(--sp-5, 24px) !important;
+  font-family: var(--font-heading) !important;
+  font-size: var(--fs-h3) !important;
+  font-style: normal !important;
+  font-weight: 600 !important;
+  line-height: 1.2 !important;
+  color: var(--color-ink, #111) !important;
+  text-shadow: none !important;
+}
+app-medicalministries:not(#_) .quote-section .quote-main::after { content: none !important; }
+/* button = the site's Secondary (maroon outline) style, like the design */
+app-medicalministries:not(#_) .quote-section .button-outline {
+  grid-row: 4 !important;
+  margin-top: 0 !important;
+  background: transparent !important;
+  border-color: var(--color-maroon-700, #6e0f4a) !important;
+  color: var(--color-maroon-700, #6e0f4a) !important;
+}
+app-medicalministries:not(#_) .quote-section .button-outline:hover {
+  background: var(--color-maroon-700, #6e0f4a) !important;
+  color: #fff !important;
+}
+
+/* phones/tablets: text first, photo below (same as the design card) */
+@media (max-width: 768px) {
+  app-medicalministries:not(#_) .quote-section {
+    grid-template-columns: 1fr !important;
+    grid-template-rows: var(--pad-box, 24px) auto auto auto var(--pad-box, 24px) auto !important;
+    min-height: 0 !important;
+    padding: 0 !important;
+    border-radius: 12px !important;
+  }
+  app-medicalministries:not(#_) .quote-section::after {
+    grid-column: 1;
+    grid-row: 6;
+    aspect-ratio: 4 / 3;
+  }
+}
+/* side padding for each text element (the banner rule above sets margin: 0 auto) */
+app-medicalministries:not(#_) .quote-section .quote-small,
+app-medicalministries:not(#_) .quote-section .quote-main,
+app-medicalministries:not(#_) .quote-section .button-outline {
+  margin-left: var(--pad-box, 48px) !important;
+  margin-right: var(--pad-box, 48px) !important;
+  max-width: 460px !important;
+}
+app-medicalministries:not(#_) .quote-section .quote-small,
+app-medicalministries:not(#_) .quote-section .quote-main { text-align: left !important; }
