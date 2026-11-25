@@ -1,0 +1,25 @@
+icon1 bed-double
+icon2 school
+icon3 library
+icon4 book-open-text
+icon5 air-vent
+icon6 graduation-cap
+logo3 heart
+logo9 award
+logo8 sprout
+logo7 book-open
+logo5 users
+logo4 hand-heart
+logo6 latin-cross (custom, Lucide style)
+calender calendar-clock
+arrow circle-arrow-right
+icons1 youtube
+icons2 facebook
+icons3 instagram
+icons4 mail
+icons5 phone
+Frame mail-white
+Frame1 phone-white
+Frame2 youtube-white
+Frame3 instagram-white
+Frame4 facebook-white

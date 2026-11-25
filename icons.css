@@ -1,0 +1,74 @@
+/* =====================================================================
+   Messiah Fellowship – icon system
+   One icon set: Lucide (ISC licence) – line icons on a 24px grid,
+   1.75px stroke, rounded ends. Files live in /images/icons/:
+     <name>.svg        maroon  (#6E0F4A) – on light backgrounds
+     <name>-white.svg  white               – on dark / maroon / gold backgrounds
+   Mapping from the old PNGs is in tools/icon-map.txt.
+
+   Size      Icon    Used for
+   sm        20px    inline with text: dates/times, footer contact, card arrows
+   md        24px    social media links
+   feature   64px    tinted circle with a 32px icon: facilities, values
+   ===================================================================== */
+
+:root {
+  --icon-sm: 20px;
+  --icon-md: 24px;
+  --icon-feature: 64px;
+  --icon-feature-glyph: 32px;
+  --icon-feature-bg: var(--color-maroon-50, #f8eef4);
+  --icon-gap: 8px;
+}
+
+/* Base: every icon keeps its shape and never stretches */
+img[src*="images/icons/"] {
+  object-fit: contain !important;
+  flex-shrink: 0 !important;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+/* ---------- sm: inline with text ---------- */
+.time img[src*="images/icons/"],
+.day-time img[src*="images/icons/"],
+.footer-col .contact img[src*="images/icons/"],
+.contact-info img[src*="images/icons/"] {
+  width: var(--icon-sm) !important;
+  height: var(--icon-sm) !important;
+  margin-right: var(--icon-gap) !important;
+}
+
+/* ---------- md: social links ---------- */
+.social-context img[src*="images/icons/"],
+.social-links img[src*="images/icons/"] {
+  width: var(--icon-md) !important;
+  height: var(--icon-md) !important;
+  margin-right: var(--icon-gap) !important;
+}
+
+/* ---------- feature: facilities & values ---------- */
+.facility-grid .box img[src*="images/icons/"],
+.value-card .icon img[src*="images/icons/"],
+.plus-icon img[src*="images/icons/"] {
+  width: var(--icon-feature) !important;
+  height: var(--icon-feature) !important;
+  padding: calc((var(--icon-feature) - var(--icon-feature-glyph)) / 2) !important;
+  box-sizing: border-box !important;
+  background: var(--icon-feature-bg) !important;
+  border-radius: 50% !important;
+  margin: 0 0 var(--sp-4, 16px) 0 !important;
+}
+.value-card .icon, .plus-icon { height: auto !important; width: auto !important; }
+/* On tinted cards the badge is white so it stays visible */
+.value-card .icon img[src*="images/icons/"] { background: var(--color-white, #fff) !important; }
+
+/* Icon + text rows line up on the text's centre */
+.time, .day-time, .footer-col .contact, .social-context {          /* rows (block level) */
+  display: flex !important;
+  align-items: center !important;
+}
+.contact-info span, .social-links a {                               /* items inside a row */
+  display: inline-flex !important;
+  align-items: center !important;
+}
