@@ -1,0 +1,113 @@
+/* =====================================================================
+   Messiah Fellowship – responsive fixes
+   Loaded after the original styles on every page. Uses !important
+   because the original Angular component styles use scoped selectors
+   (.class[_ngcontent-xxx]) that would otherwise win.
+   ===================================================================== */
+
+/* ---------- 0. Always a white page (some browsers/apps default to dark) ---------- */
+html, body { background-color: #fff; }
+
+/* ---------- 1. Images: never stretch or squash, never overflow ---------- */
+img {
+  max-width: 100%;
+  object-fit: cover;
+}
+/* Logos, icons and signatures must never be cropped */
+img[src*="logo"],
+img[src*="icon"],
+img[src*="signature"],
+img[src*="arrow"],
+img[src*="Frame"] {
+  object-fit: contain;
+}
+video { max-width: 100%; }
+
+/* ---------- 2. Sections that spilled off the screen ---------- */
+.pastor-content,
+.pastor-contents-1 {
+  box-sizing: border-box !important;
+  max-width: 100% !important;
+}
+.children-image,
+.chairman-img,
+.prayer-content,
+.chairman-img img {
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+}
+/* Original design: text column + 420px image column. minmax(0,…) stops a
+   long heading from pushing the image off-screen. */
+.children-container,
+.prayer-container {
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 420px) !important;
+}
+@media (max-width: 992px) {
+  .children-container,
+  .prayer-container { grid-template-columns: minmax(0, 1fr) !important; }
+}
+/* long words / names must wrap instead of overflowing */
+h1, h2, h3, .main-heading, p, li { overflow-wrap: break-word; }
+
+/* ---------- 3. Tablet & small laptop (≤ 1024px): tame huge headings ---------- */
+@media (max-width: 1024px) {
+  .text-box h2,                 /* Give: "Tithe" 98px */
+  .men-head > div,              /* Men: 100px */
+  .offer-top h2,
+  .womens-content h1,
+  .youth-content h1,
+  .children-content h1,
+  .prayer-content h1,
+  .content > h2,
+  .chairman-msg,
+  .top-section .text > div {
+    font-size: clamp(36px, 6.5vw, 64px) !important;
+    line-height: 1.1 !important;
+  }
+}
+
+/* ---------- 4. Mobile & small tablet (≤ 768px) ---------- */
+@media (max-width: 768px) {
+  /* Hero banner titles (ABOUT US, CONTACT US, …) */
+  .main-heading {
+    font-size: clamp(28px, 8vw, 42px) !important;
+    line-height: 1.15 !important;
+  }
+  /* Hero sub-titles under the banner title */
+  .floodrelief-text2, .medical-text2, .vegetable-text2, .widowcare-text2 {
+    font-size: clamp(18px, 5vw, 26px) !important;
+    line-height: 1.3 !important;
+  }
+
+  /* Section headings */
+  h1,
+  .content > h2, .text-box h2, .offer-top h2, .give-content h2,
+  .men-head > div, .womens-content h1, .youth-content h1,
+  .community-outreach, .sharing-god,
+  .vision > div, .mission > div, .course-title, .teaching, .facilities-left h2, .chairman-msg,
+  .flood-relief, .our-response, .free-medical, .our-mission, .ourmission,
+  .mainhead, .subhead, .quote-main, .form-heading,
+  .top-section .text > div {
+    font-size: clamp(28px, 7.5vw, 40px) !important;
+    line-height: 1.15 !important;
+  }
+
+  /* Smaller headings */
+  .head, .mission-content h3, .quote-small, .widow-care .quote > div,
+  .pastor-sajja, .college-name, .upcoming-content, .giving-container .quote {
+    font-size: clamp(22px, 6vw, 30px) !important;
+    line-height: 1.2 !important;
+  }
+}
+
+/* ---------- 5. Phones (≤ 480px) ---------- */
+@media (max-width: 480px) {
+  /* Bible College faculty: one card per row so names and photos fit */
+  .faculty-container { grid-template-columns: minmax(0, 1fr) !important; }
+  .faculty-info > div:first-child { font-size: 22px !important; }
+}
+
+/* ---------- 6. Small phones (≤ 400px) ---------- */
+@media (max-width: 400px) {
+  .top-bar { font-size: 12px !important; line-height: 1.5 !important; }
+}
