@@ -299,3 +299,12 @@ app-footer:not(#_) .footer-bottom.footer-bottom {
 @media (max-width: 380px) {
   app-footer:not(#_) .footer .social-context { padding: 0 12px 0 10px !important; font-size: 13px !important; }
 }
+
+/* Fields must shrink to the card width (the grid column was sizing to the
+   inputs' natural width and pushing them past the right padding) */
+app-footer:not(#_) .footer .form-fields { grid-template-columns: minmax(0, 1fr) !important; }
+app-footer:not(#_) .footer .left-fields,
+app-footer:not(#_) .footer .right-fields,
+app-footer:not(#_) .footer .phone-group,
+app-footer:not(#_) .footer .prayer-form input,
+app-footer:not(#_) .footer .prayer-form textarea { min-width: 0 !important; max-width: 100% !important; }
