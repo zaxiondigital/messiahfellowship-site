@@ -49,65 +49,22 @@ video { max-width: 100%; }
 /* long words / names must wrap instead of overflowing */
 h1, h2, h3, .main-heading, p, li { overflow-wrap: break-word; }
 
-/* ---------- 3. Tablet & small laptop (≤ 1024px): tame huge headings ---------- */
-@media (max-width: 1024px) {
-  .text-box h2,                 /* Give: "Tithe" 98px */
-  .men-head > div,              /* Men: 100px */
-  .offer-top h2,
-  .womens-content h1,
-  .youth-content h1,
-  .children-content h1,
-  .prayer-content h1,
-  .content > h2,
-  .chairman-msg,
-  .top-section .text > div {
-    font-size: clamp(36px, 6.5vw, 64px) !important;
-    line-height: 1.1 !important;
-  }
-}
-
-/* ---------- 4. Mobile & small tablet (≤ 768px) ---------- */
-@media (max-width: 768px) {
-  /* Hero banner titles (ABOUT US, CONTACT US, …) */
-  .main-heading {
-    font-size: clamp(28px, 8vw, 42px) !important;
-    line-height: 1.15 !important;
-  }
-  /* Hero sub-titles under the banner title */
-  .floodrelief-text2, .medical-text2, .vegetable-text2, .widowcare-text2 {
-    font-size: clamp(18px, 5vw, 26px) !important;
-    line-height: 1.3 !important;
-  }
-
-  /* Section headings */
-  h1,
-  .content > h2, .text-box h2, .offer-top h2, .give-content h2,
-  .men-head > div, .womens-content h1, .youth-content h1,
-  .community-outreach, .sharing-god,
-  .vision > div, .mission > div, .course-title, .teaching, .facilities-left h2, .chairman-msg,
-  .flood-relief, .our-response, .free-medical, .our-mission, .ourmission,
-  .mainhead, .subhead, .quote-main, .form-heading,
-  .top-section .text > div {
-    font-size: clamp(28px, 7.5vw, 40px) !important;
-    line-height: 1.15 !important;
-  }
-
-  /* Smaller headings */
-  .head, .mission-content h3, .quote-small, .widow-care .quote > div,
-  .pastor-sajja, .college-name, .upcoming-content, .giving-container .quote {
-    font-size: clamp(22px, 6vw, 30px) !important;
-    line-height: 1.2 !important;
-  }
-}
+/* Heading sizes now come from typography.css */
 
 /* ---------- 5. Phones (≤ 480px) ---------- */
 @media (max-width: 480px) {
   /* Bible College faculty: one card per row so names and photos fit */
   .faculty-container { grid-template-columns: minmax(0, 1fr) !important; }
-  .faculty-info > div:first-child { font-size: 22px !important; }
 }
 
 /* ---------- 6. Small phones (≤ 400px) ---------- */
 @media (max-width: 400px) {
   .top-bar { font-size: 12px !important; line-height: 1.5 !important; }
+}
+
+/* ---------- 7. Footer prayer-request form fits small phones ---------- */
+.footer-form .prayer-card { box-sizing: border-box !important; max-width: 100% !important; }
+@media (max-width: 768px) {
+  .footer-form { padding-right: 0 !important; box-sizing: border-box !important; max-width: 100% !important; }
+  .footer-form .prayer-card { padding: 24px !important; }
 }

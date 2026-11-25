@@ -1,0 +1,215 @@
+/* =====================================================================
+   Messiah Fellowship – typography system
+   Rule: headings = Playfair Display, everything else = Inter.
+   Every size comes from the scale below; sizes shrink smoothly from
+   desktop (max) to phone (min) with clamp(). Loaded last on every page.
+
+   Role        Font               Size (phone → desktop)   Weight  Line
+   Display     Playfair           36 → 80                  400     1.05   banner titles
+   H1          Playfair           38 → 64                  400     1.1    page title
+   H2          Playfair           30 → 48                  500     1.15   section title
+   H3          Playfair           24 → 32                  500     1.2    sub-section / box title
+   H4          Playfair           20 → 22                  600     1.3    card title
+   Quote       Playfair italic    26 → 44                  400     1.25   big italic statements
+   Quote S     Playfair italic    18 → 22                  400     1.5    verses, small quotes
+   Lead        Inter              18 → 20                  400     1.55   intro / subtitle text
+   Body        Inter              16                       400     1.65   paragraphs, lists
+   Small       Inter              14                       400/500 1.45   meta, qualifications
+   Eyebrow     Inter              13 → 14  UPPERCASE       600     1.3    labels above headings
+   Button      Inter              14                       600     1      all buttons
+   ===================================================================== */
+
+:root {
+  --font-heading: "Playfair Display", Georgia, "Times New Roman", serif;
+  --font-body: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+
+  --fs-display: clamp(36px, 6vw, 80px);
+  --fs-h1: clamp(38px, 5vw, 64px);
+  --fs-h2: clamp(30px, 3.6vw, 48px);
+  --fs-h3: clamp(24px, 2.4vw, 32px);
+  --fs-h4: clamp(20px, 1.7vw, 22px);
+  --fs-quote: clamp(26px, 3.2vw, 44px);
+  --fs-quote-s: clamp(18px, 1.7vw, 22px);
+  --fs-lead: clamp(18px, 1.5vw, 20px);
+  --fs-body: 16px;
+  --fs-small: 14px;
+  --fs-eyebrow: clamp(13px, 1vw, 14px);
+  --fs-button: 14px;
+
+  --lh-display: 1.05;
+  --lh-heading: 1.15;
+  --lh-body: 1.65;
+  --ls-heading: -0.01em;
+  --ls-eyebrow: 0.12em;
+}
+
+/* ---------- Base: one body font everywhere (replaces Segoe UI, Poppins, Arial, Georgia) ---------- */
+body, app-root, app-root * {
+  font-family: var(--font-body) !important;
+}
+button, input, textarea, select { font-family: var(--font-body) !important; }
+
+/* ---------- Display: banner titles on photos ---------- */
+.main-heading,
+.news-overlay h1,
+.hero-content h1 {
+  font-family: var(--font-heading) !important;
+  font-size: var(--fs-display) !important;
+  font-weight: 400 !important;
+  font-style: normal !important;
+  line-height: var(--lh-display) !important;
+  letter-spacing: -0.02em !important;
+}
+
+/* ---------- H1: page title in the content ---------- */
+.children-content h1, .womens-content h1, .youth-content h1, .prayer-content h1,
+.vegetable-content h1, .men-head > div,
+.flood-relief, .free-medical, .mainhead, .subhead,
+.widow-care .top-section .text > div:first-child,
+section.bible-college .content > h2,
+.text-box h2, .offer-top h2 {
+  font-family: var(--font-heading) !important;
+  font-size: var(--fs-h1) !important;
+  font-weight: 400 !important;
+  font-style: normal !important;
+  line-height: 1.1 !important;
+  letter-spacing: -0.02em !important;
+}
+
+/* ---------- H2: section titles ---------- */
+.section-header h2, .community-outreach, .mission-section > h2, .values-section .section-title,
+.belief-text h2, .course-title, .teaching, .facilities-left h2, .chairman-msg,
+.our-response, .our-mission, .ourmission, .relief-section .container > h2,
+.news-content > h2, .give-content h2, .vision > div, .mission > div,
+.form-heading, .upcoming-content, .college-name, .pastor-sajja {
+  font-family: var(--font-heading) !important;
+  font-size: var(--fs-h2) !important;
+  font-weight: 500 !important;
+  font-style: normal !important;
+  line-height: var(--lh-heading) !important;
+  letter-spacing: var(--ls-heading) !important;
+  text-transform: none !important;
+}
+
+/* ---------- H3: sub-sections & coloured-box titles ---------- */
+.info-box .head, .mission-content h3, .mission-grid .card h3, .value-card h3,
+.offer-bottom h3, .banner-card h3, .about-section .sub-heading {
+  font-family: var(--font-heading) !important;
+  font-size: var(--fs-h3) !important;
+  font-weight: 500 !important;
+  font-style: normal !important;
+  line-height: 1.2 !important;
+  letter-spacing: var(--ls-heading) !important;
+}
+
+/* ---------- H4: card titles ---------- */
+.card-content h3, .course-name, .faculty-info > div, .belief-card h4 {
+  font-family: var(--font-heading) !important;
+  font-size: var(--fs-h4) !important;
+  font-weight: 600 !important;
+  font-style: normal !important;
+  line-height: 1.3 !important;
+  letter-spacing: 0 !important;
+}
+
+/* ---------- Quote: large italic statements ---------- */
+.main-headings, .about-intro h1, .sharing-god, .quote-main,
+.giving-container > .quote, .widow-care .quote > div:not(.small), .belief-text h3 {
+  font-family: var(--font-heading) !important;
+  font-size: var(--fs-quote) !important;
+  font-weight: 400 !important;
+  font-style: italic !important;
+  line-height: 1.25 !important;
+  letter-spacing: var(--ls-heading) !important;
+}
+
+/* ---------- Quote S: verses, short quotes, names in italics ---------- */
+.verse, .vegetable-section .quote-small, .widow-care .quote .small, .follow, .highlight,
+.doctor-name, .thithes-content, .thithes-content2 {
+  font-family: var(--font-heading) !important;
+  font-size: var(--fs-quote-s) !important;
+  font-weight: 400 !important;
+  font-style: italic !important;
+  line-height: 1.5 !important;
+  letter-spacing: 0 !important;
+}
+
+/* ---------- Lead: intro and subtitle text ---------- */
+.section-header p, .sub-title, p.subtitle, p.description, .mission-grid .card p,
+.mission-content p, .hero-content p,
+.floodrelief-text2, .medical-text2, .vegetable-text2, .widowcare-text2 {
+  font-family: var(--font-body) !important;
+  font-size: var(--fs-lead) !important;
+  font-weight: 400 !important;
+  font-style: normal !important;
+  line-height: 1.55 !important;
+  letter-spacing: 0 !important;
+}
+
+/* ---------- Body: paragraphs and lists ---------- */
+main p, app-root p:not(.subtitle):not(.description):not(.verse):not(.follow):not(.tagline),
+app-root li,
+.desc, .doctor-content, .text-content, .sub-text, .desc-give, .with-bless {
+  font-family: var(--font-body);
+  font-size: var(--fs-body) !important;
+  line-height: var(--lh-body) !important;
+  letter-spacing: 0 !important;
+}
+app-root p:not(.subtitle):not(.description):not(.verse):not(.follow):not(.tagline),
+app-root li, .desc, .doctor-content, .text-content, .sub-text, .desc-give {
+  font-weight: 400 !important;
+  font-style: normal;
+}
+/* Paragraphs that are part of a lead/quote role keep that role */
+.section-header p, .mission-grid .card p, .mission-content p, .hero-content p { font-size: var(--fs-lead) !important; line-height: 1.55 !important; }
+
+/* ---------- Small: meta information ---------- */
+.degree, .faculty-info > span, .duration, .year, small, .pastor-founder, .pastor-name,
+.banner-card .overlays span {
+  font-family: var(--font-body) !important;
+  font-size: var(--fs-small) !important;
+  line-height: 1.45 !important;
+  letter-spacing: 0 !important;
+}
+.time, .through {
+  font-family: var(--font-body) !important;
+  font-size: var(--fs-body) !important;
+  font-weight: 500 !important;
+  line-height: 1.45 !important;
+  letter-spacing: 0 !important;
+}
+
+/* ---------- Eyebrow: small labels above headings ---------- */
+.tagline, .mini-title, .our-pastor, app-medicalministries .quote-section > .quote-small {
+  font-family: var(--font-body) !important;
+  font-size: var(--fs-eyebrow) !important;
+  font-weight: 600 !important;
+  font-style: normal !important;
+  line-height: 1.3 !important;
+  letter-spacing: var(--ls-eyebrow) !important;
+  text-transform: uppercase !important;
+}
+
+/* ---------- Service-time badges (home) ---------- */
+.service-card span, .service-card strong {
+  font-family: var(--font-body) !important;
+  font-size: clamp(16px, 1.4vw, 18px) !important;
+  line-height: 1.3 !important;
+  letter-spacing: 0 !important;
+}
+.service-card span { font-weight: 700 !important; }
+.service-card strong { font-weight: 600 !important; }
+
+/* ---------- Buttons: one style of text ---------- */
+.cta-btn, .meet-pastor, .give-btn, .btn-outline, .button-outline, .submit-btn,
+.hero-content button, .course-container .card button, .course-container .card a,
+.contact-right button, app-root button:not(.menu-icon) {
+  font-family: var(--font-body) !important;
+  font-size: var(--fs-button) !important;
+  font-weight: 600 !important;
+  line-height: 1 !important;
+  letter-spacing: 0.04em !important;
+  white-space: nowrap !important;
+  width: auto !important;
+  min-width: max-content !important;
+}

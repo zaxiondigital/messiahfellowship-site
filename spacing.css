@@ -68,7 +68,7 @@ section.chairman,
 section.outreach,
 .relief-section,
 .mens-section,
-.prayer-section,
+section.prayer-section,
 .vegetable-section,
 .widow-care,
 .womens-section,
@@ -235,7 +235,7 @@ section.outreach > .row, section.outreach > .row1, section.outreach > .rows,
     .mission-section, .values-section, .belief-section, section.bible-college, section.courses,
     section.faculty, section.facilities, section.chairman, .vision-mission, .children-section,
     .contact-section, .giving-section, .news-section, section.outreach, .info-section,
-    .relief-section, .mens-section, .prayer-section, .vegetable-section, .widow-care,
+    .relief-section, .mens-section, section.prayer-section, .vegetable-section, .widow-care,
     .womens-section, .youth-section, .quote-section) :is(h1, h2) {
   margin-top: 0 !important;
   margin-bottom: var(--sp-5) !important;
@@ -244,7 +244,7 @@ section.outreach > .row, section.outreach > .row1, section.outreach > .rows,
     .mission-section, .values-section, .belief-section, section.bible-college, section.courses,
     section.faculty, section.facilities, section.chairman, .vision-mission, .children-section,
     .contact-section, .giving-section, .news-section, section.outreach, .info-section,
-    .relief-section, .mens-section, .prayer-section, .vegetable-section, .widow-care,
+    .relief-section, .mens-section, section.prayer-section, .vegetable-section, .widow-care,
     .womens-section, .youth-section, .quote-section) h3 {
   margin-top: 0 !important;
   margin-bottom: var(--sp-4) !important;
@@ -269,12 +269,12 @@ section.outreach > .row, section.outreach > .row1, section.outreach > .rows,
     .mission-section, .values-section, .belief-section, section.bible-college, section.courses,
     section.faculty, section.facilities, section.chairman, .vision-mission, .children-section,
     .contact-section, .giving-section, .news-section, section.outreach, .info-section,
-    .relief-section, .mens-section, .prayer-section, .vegetable-section, .widow-care,
+    .relief-section, .mens-section, section.prayer-section, .vegetable-section, .widow-care,
     .womens-section, .youth-section) p {
   margin-top: 0 !important;
   margin-bottom: var(--sp-4) !important;
 }
-:is(.children-section, .mens-section, .womens-section, .youth-section, .prayer-section,
+:is(.children-section, .mens-section, .womens-section, .youth-section, section.prayer-section,
     .vegetable-section, .giving-section, section.outreach, .relief-section, .about-section) p:last-child {
   margin-bottom: 0 !important;
 }
