@@ -374,6 +374,32 @@ section.outreach > .row, section.outreach > .row1, section.outreach > .rows,
 .outreach-section .college-box { cursor: pointer; }
 .outreach-section .college-box:focus-visible { outline: 3px solid var(--color-gold-400, #c8a23a); outline-offset: 4px; }
 
-/* Home: the ‹ › buttons above the outreach cards had no function in the original code
-   (all 3 cards are always visible) – hidden so they don't mislead visitors */
+
+/* =====================================================================
+   Home – Community Outreach carousel (behaviour in /outreach-carousel.js)
+   Desktop: 3 cards side by side (arrows hidden unless they don't fit)
+   Tablet/phone: swipeable row, one card per step, arrows scroll it
+   ===================================================================== */
 .outreach-section .nav-buttons { display: none !important; }
+.outreach-section.is-carousel .nav-buttons { display: flex !important; gap: var(--sp-3) !important; }
+.outreach-section .nav-buttons button:disabled { opacity: .35 !important; cursor: default !important; }
+
+@media (max-width: 1024px) {
+  .outreach-section .outreach-grid {
+    display: flex !important;
+    overflow-x: auto !important;
+    scroll-snap-type: x mandatory !important;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none !important;
+    gap: var(--grid-gap) !important;
+  }
+  .outreach-section .outreach-grid::-webkit-scrollbar { display: none; }
+  .outreach-section .outreach-card {
+    flex: 0 0 calc((100% - var(--grid-gap)) / 2) !important;   /* tablet: 2 visible */
+    scroll-snap-align: start !important;
+  }
+}
+@media (max-width: 768px) {
+  .outreach-section .outreach-card { flex-basis: 85% !important; }  /* phone: 1 + a peek of the next */
+}
