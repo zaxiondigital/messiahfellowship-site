@@ -1,0 +1,301 @@
+/* =====================================================================
+   Messiah Fellowship – footer redesign
+   Layout only (the footer's HTML is unchanged, so the prayer form keeps
+   working). Uses the spacing, type, colour, button and icon systems.
+
+   Desktop (≥1025px)                         Tablet (769–1024)      Phone (≤768)
+   ┌──────────────────────────┬──────────┐   brand bar              brand bar
+   │ [logo]        ○YT ○FB ○IG │  Prayer  │   ─────────              ─────────
+   │ ───────────────────────── │  request │   info | min | inv       info
+   │ Info  │ Ministries │ Get  │  card    │   prayer card (full)     min | inv
+   └──────────────────────────┴──────────┘   bottom bar             prayer card
+   © 2026 Messiah Fellowship. All rights reserved.                   bottom bar
+   ===================================================================== */
+
+:root {
+  --ft-bg: var(--color-ink, #111111);
+  --ft-bg-deep: #0a0a0a;
+  --ft-card: #1a1a1a;
+  --ft-field: #111111;
+  --ft-line: #2a2a2a;
+  --ft-line-strong: #3a3a3a;
+  --ft-text: var(--color-on-dark, #cccccc);
+  --ft-heading: var(--color-gold-600, #a3832e);
+  --ft-muted: #8c8c8c;
+}
+
+/* ---------- Shell ---------- */
+app-footer:not(#_) .footer {
+  background: var(--ft-bg) !important;
+  color: var(--ft-text) !important;
+  padding: var(--sp-9, 80px) var(--gutter, 32px) var(--sp-8, 64px) !important;
+  font-family: var(--font-body) !important;
+}
+app-footer:not(#_) .footer .footer-container {
+  max-width: var(--container, 1200px) !important;
+  margin: 0 auto !important;
+  padding: 0 !important;
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) minmax(340px, 1.35fr) !important;
+  grid-template-areas:
+    "brand brand brand form"
+    "line  line  line  form"
+    "info  min   inv   form" !important;
+  grid-template-rows: auto auto 1fr !important;
+  column-gap: var(--sp-7, 48px) !important;
+  row-gap: var(--sp-6, 32px) !important;
+  align-items: start !important;
+}
+/* flatten the wrapper so its children join the grid */
+app-footer:not(#_) .footer .footer-left { display: contents !important; }
+app-footer:not(#_) .footer .footer-left > .footer-col:nth-of-type(1) { grid-area: info; }
+app-footer:not(#_) .footer .footer-left > .footer-col:nth-of-type(2) { grid-area: min; }
+app-footer:not(#_) .footer .footer-left > .footer-col:nth-of-type(3) { grid-area: inv; }
+app-footer:not(#_) .footer .footer-line { grid-area: line; }
+app-footer:not(#_) .footer .footer-social { grid-area: brand; }
+app-footer:not(#_) .footer .footer-form { grid-area: form; }
+
+app-footer:not(#_) br { display: none !important; }   /* stray line breaks */
+
+/* ---------- Brand bar: logo + social ---------- */
+app-footer:not(#_) .footer .footer-social {
+  display: flex !important;
+  flex-direction: row-reverse !important;          /* logo first, social links second */
+  justify-content: space-between !important;
+  align-items: center !important;
+  gap: var(--sp-5, 24px) !important;
+  width: auto !important;
+  flex-wrap: wrap !important;
+}
+app-footer:not(#_) .footer .footer-social > div[style] { padding: 0 !important; }
+app-footer:not(#_) .footer .img-context {
+  display: block !important;
+  width: auto !important;
+  height: 72px !important;
+  padding: 10px 16px !important;
+  background: #fff !important;
+  border-radius: 12px !important;
+  box-sizing: content-box !important;
+  object-fit: contain !important;
+}
+app-footer:not(#_) .footer .footer-col.social {
+  min-width: 0 !important;
+  display: flex !important;
+  flex-wrap: wrap !important;
+  align-items: center !important;
+  gap: var(--sp-3, 12px) !important;
+}
+app-footer:not(#_) .footer .social-text {
+  width: auto !important;
+  font-family: var(--font-body) !important;
+  font-style: normal !important;
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.12em !important;
+  text-transform: uppercase !important;
+  color: var(--ft-heading) !important;
+  margin: 0 var(--sp-1, 4px) 0 0 !important;
+}
+app-footer:not(#_) .footer .social-context {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: var(--sp-2, 8px) !important;
+  height: 40px !important;
+  padding: 0 16px 0 12px !important;
+  border: 1px solid var(--ft-line-strong) !important;
+  border-radius: 999px !important;
+  color: #fff !important;
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  text-decoration: none !important;
+  transition: background-color .2s ease, border-color .2s ease !important;
+}
+app-footer:not(#_) .footer .social-context:hover {
+  background: var(--color-maroon-700, #6e0f4a) !important;
+  border-color: var(--color-maroon-700, #6e0f4a) !important;
+  text-decoration: none !important;
+}
+app-footer:not(#_) .footer .social-context img { width: 20px !important; height: 20px !important; margin: 0 !important; top: 0 !important; }
+app-footer:not(#_) .footer .social-context:focus-visible { outline: 3px solid var(--color-gold-400, #c8a23a) !important; outline-offset: 3px !important; }
+
+/* ---------- Divider ---------- */
+app-footer:not(#_) .footer .footer-line {
+  height: 1px !important;
+  margin: 0 !important;
+  border: 0 !important;
+  background: var(--ft-line) !important;
+}
+
+/* ---------- Link columns ---------- */
+app-footer:not(#_) .footer .footer-col { min-width: 0 !important; }
+app-footer:not(#_) .footer .footer-col h4 {
+  font-family: var(--font-body) !important;
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.12em !important;
+  text-transform: uppercase !important;
+  line-height: 1.3 !important;
+  color: var(--ft-heading) !important;
+  margin: 0 0 var(--sp-4, 16px) !important;
+}
+app-footer:not(#_) .footer .footer-col p,
+app-footer:not(#_) .footer .footer-col .details {
+  font-family: var(--font-body) !important;
+  font-size: 15px !important;
+  line-height: 1.5 !important;
+  color: var(--ft-text) !important;
+  margin: 0 0 var(--sp-3, 12px) !important;
+  text-decoration: none !important;
+  cursor: default !important;
+  width: fit-content !important;
+}
+app-footer:not(#_) .footer .footer-col .details { margin-bottom: 2px !important; }
+/* items that actually go somewhere */
+app-footer:not(#_) .footer .footer-col p[routerlink],
+app-footer:not(#_) .footer .footer-col a p { cursor: pointer !important; transition: color .15s ease !important; }
+app-footer:not(#_) .footer .footer-col p[routerlink]:hover,
+app-footer:not(#_) .footer .footer-col a:hover p,
+app-footer:not(#_) .footer .footer-col p[routerlink]:focus-visible {
+  color: #fff !important;
+  text-decoration: underline !important;
+  text-underline-offset: 4px !important;
+  text-decoration-color: var(--ft-heading) !important;
+}
+app-footer:not(#_) .footer .footer-col p:not([routerlink]):hover { color: var(--ft-text) !important; text-decoration: none !important; }
+app-footer:not(#_) .footer .footer-col a { text-decoration: none !important; }
+
+/* contact lines under the address */
+app-footer:not(#_) .footer .footer-col .contact {
+  display: flex !important;
+  align-items: center !important;
+  gap: var(--sp-2, 8px) !important;
+  margin: var(--sp-4, 16px) 0 0 !important;
+  color: #fff !important;
+}
+app-footer:not(#_) .footer .footer-col .contact + .contact { margin-top: var(--sp-2, 8px) !important; }
+app-footer:not(#_) .footer .footer-col .contact img { width: 18px !important; height: 18px !important; margin: 0 !important; top: 0 !important; opacity: .85; }
+
+/* ---------- Prayer request card ---------- */
+app-footer:not(#_) .footer .footer-form { padding: 0 !important; display: block !important; min-width: 0 !important; }
+app-footer:not(#_) .footer .prayer-section { padding: 0 !important; }
+app-footer:not(#_) .footer .prayer-card {
+  background: var(--ft-card) !important;
+  border: 1px solid var(--ft-line) !important;
+  border-top: 3px solid var(--color-maroon-700, #6e0f4a) !important;
+  border-radius: 16px !important;
+  padding: var(--sp-6, 32px) !important;
+  box-sizing: border-box !important;
+}
+app-footer:not(#_) .footer .prayer-card h2 {
+  font-family: var(--font-heading) !important;
+  font-size: clamp(22px, 2vw, 26px) !important;
+  font-weight: 500 !important;
+  line-height: 1.2 !important;
+  color: #fff !important;
+  margin: 0 0 var(--sp-2, 8px) !important;
+}
+app-footer:not(#_) .footer .prayer-card .desc {
+  font-size: 14px !important;
+  line-height: 1.6 !important;
+  color: var(--ft-text) !important;
+  margin: 0 0 var(--sp-5, 24px) !important;
+}
+app-footer:not(#_) .footer .form-fields {
+  display: grid !important;
+  grid-template-columns: 1fr !important;          /* one column: the card is narrow */
+  gap: var(--sp-3, 12px) !important;
+}
+app-footer:not(#_) .footer .left-fields { display: flex !important; flex-direction: column !important; gap: var(--sp-3, 12px) !important; }
+app-footer:not(#_) .footer .right-fields { display: flex !important; }
+app-footer:not(#_) .footer .phone-group { display: flex !important; gap: var(--sp-2, 8px) !important; }
+app-footer:not(#_) .footer .prayer-form input,
+app-footer:not(#_) .footer .prayer-form textarea,
+app-footer:not(#_) .footer .prayer-form select {
+  background: var(--ft-field) !important;
+  border: 1px solid var(--ft-line-strong) !important;
+  border-radius: 10px !important;
+  color: #fff !important;
+  font-size: 14px !important;
+  height: 44px !important;
+  padding: 0 14px !important;
+  text-indent: 0 !important;
+  box-sizing: border-box !important;
+  width: 100% !important;
+}
+app-footer:not(#_) .footer .prayer-form select { padding: 0 8px !important; }
+/* country code + phone number on one line */
+app-footer:not(#_) .footer .prayer-form .phone-group select { width: 84px !important; flex: 0 0 84px !important; }
+app-footer:not(#_) .footer .prayer-form .phone-group input { flex: 1 1 auto !important; min-width: 0 !important; width: auto !important; }
+app-footer:not(#_) .footer .prayer-form textarea { min-height: 112px !important; }
+app-footer:not(#_) .footer .prayer-form textarea {
+  height: auto !important;
+  min-height: 112px !important;
+  flex: 1 !important;
+  padding: 12px 14px !important;
+  resize: vertical !important;
+}
+app-footer:not(#_) .footer .prayer-form input::placeholder,
+app-footer:not(#_) .footer .prayer-form textarea::placeholder { color: var(--ft-muted) !important; }
+app-footer:not(#_) .footer .prayer-form input:focus,
+app-footer:not(#_) .footer .prayer-form textarea:focus,
+app-footer:not(#_) .footer .prayer-form select:focus {
+  border-color: var(--color-gold-400, #c8a23a) !important;
+  outline: 2px solid rgba(200, 162, 58, .25) !important;
+  outline-offset: 0 !important;
+}
+app-footer:not(#_) .footer .prayer-form .submit-btn {
+  width: 100% !important;
+  margin: var(--sp-5, 24px) 0 0 !important;
+}
+app-footer:not(#_) .footer .msg-wait, app-footer:not(#_) .footer .msg-success { margin-top: var(--sp-3, 12px) !important; font-size: 14px !important; }
+app-footer:not(#_) .footer .msg-success { color: #7fd18b !important; }
+
+/* ---------- Bottom bar ---------- */
+app-footer:not(#_) .footer-bottom.footer-bottom {
+  background: var(--ft-bg-deep) !important;
+  border-top: 1px solid var(--ft-line) !important;
+  color: var(--ft-muted) !important;
+  font-family: var(--font-body) !important;
+  font-size: 13px !important;
+  line-height: 1.5 !important;
+  padding: var(--sp-5, 24px) var(--gutter, 32px) !important;
+  text-align: center !important;
+}
+
+/* ---------- Tablet ---------- */
+@media (max-width: 1024px) {
+  app-footer:not(#_) .footer .footer-container {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    grid-template-areas:
+      "brand brand brand"
+      "line  line  line"
+      "info  min   inv"
+      "form  form  form" !important;
+    grid-template-rows: none !important;
+  }
+}
+
+/* ---------- Phone ---------- */
+@media (max-width: 768px) {
+  app-footer:not(#_) .footer { padding: var(--sp-7, 48px) var(--gutter, 20px) var(--sp-6, 32px) !important; }
+  app-footer:not(#_) .footer .footer-container {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    grid-template-areas:
+      "brand brand"
+      "line  line"
+      "info  info"
+      "min   inv"
+      "form  form" !important;
+    column-gap: var(--sp-5, 24px) !important;
+  }
+  app-footer:not(#_) .footer .footer-social { flex-direction: column !important; align-items: flex-start !important; }
+  app-footer:not(#_) .footer .footer-social > div[style] { order: -1 !important; }   /* logo on top */
+  app-footer:not(#_) .footer .social-text { width: 100% !important; margin: 0 !important; }
+  app-footer:not(#_) .footer .img-context { height: 56px !important; }
+  app-footer:not(#_) .footer .form-fields { grid-template-columns: 1fr !important; }
+  app-footer:not(#_) .footer .prayer-form textarea { min-height: 120px !important; }
+  app-footer:not(#_) .footer .prayer-card { padding: var(--sp-5, 24px) !important; }
+}
+@media (max-width: 380px) {
+  app-footer:not(#_) .footer .social-context { padding: 0 12px 0 10px !important; font-size: 13px !important; }
+}
