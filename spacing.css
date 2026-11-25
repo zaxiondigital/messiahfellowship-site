@@ -1,0 +1,286 @@
+/* =====================================================================
+   Messiah Fellowship – spacing system
+   One 8px-based scale used everywhere. Change a token here and the whole
+   site follows. Loaded after the original styles and responsive-fixes.css.
+
+   Scale:   4 · 8 · 12 · 16 · 24 · 32 · 48 · 64 · 80
+   Section: 80px desktop · 64px tablet · 48px mobile (top & bottom)
+   Gutter:  32px desktop · 24px tablet · 20px mobile (left & right)
+   Content width: 1200px max, centred
+   ===================================================================== */
+
+:root {
+  --sp-1: 4px;
+  --sp-2: 8px;
+  --sp-3: 12px;
+  --sp-4: 16px;
+  --sp-5: 24px;
+  --sp-6: 32px;
+  --sp-7: 48px;
+  --sp-8: 64px;
+  --sp-9: 80px;
+
+  --section-y: var(--sp-9);   /* space above & below every section */
+  --gutter: var(--sp-6);      /* left/right page margin */
+  --container: 1200px;        /* max content width */
+  --block-gap: var(--sp-7);   /* between blocks inside a section (heading → grid, text → gallery) */
+  --grid-gap: var(--sp-5);    /* between cards / gallery images */
+  --split-gap: var(--sp-8);   /* between text column and image column */
+  --card-pad: var(--sp-7);    /* inside coloured boxes / cards */
+}
+@media (max-width: 1024px) {
+  :root {
+    --section-y: var(--sp-8);
+    --gutter: var(--sp-5);
+    --split-gap: var(--sp-7);
+    --card-pad: var(--sp-6);
+  }
+}
+@media (max-width: 768px) {
+  :root {
+    --section-y: var(--sp-7);
+    --gutter: 20px;
+    --block-gap: var(--sp-6);
+    --grid-gap: var(--sp-4);
+    --split-gap: var(--sp-6);
+    --card-pad: var(--sp-5);
+  }
+}
+
+/* ---------- 1. Sections: same top/bottom rhythm and side gutter ---------- */
+.about-section,
+.ministries-section,
+.outreach-section,
+.give-section,
+.about-intro,
+.mission-section,
+.values-section,
+.belief-section,
+section.bible-college,
+section.courses,
+section.faculty,
+section.facilities,
+section.chairman,
+.children-section,
+.contact-section,
+.giving-section,
+.news-section,
+section.outreach,
+.relief-section,
+.mens-section,
+.prayer-section,
+.vegetable-section,
+.widow-care,
+.womens-section,
+.youth-section {
+  padding: var(--section-y) var(--gutter) !important;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+  box-sizing: border-box !important;
+}
+/* Quote blocks that close a page */
+.quote-section {
+  padding: var(--section-y) var(--gutter) !important;
+  margin: 0 !important;
+  box-sizing: border-box !important;
+}
+/* Stand-alone gallery band (Kamala Arts): same gutter, quote section below supplies the gap */
+.info-section + .medical-gallery {
+  padding: var(--section-y) var(--gutter) 0 !important;
+  margin: 0 auto !important;
+  max-width: calc(var(--container) + 2 * var(--gutter)) !important;
+  box-sizing: border-box !important;
+}
+/* Full-width two-colour bands: no outer padding, cards carry the spacing */
+.vision-mission,
+div.info-section,
+section.info-section {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* ---------- 2. Containers: one content width, centred ---------- */
+.ministries-section > .container,
+.outreach-section > .container,
+.values-section > .container,
+.belief-section > .container,
+.relief-section > .container,
+section.bible-college > .container,
+.course-container,
+.faculty-container,
+.facilities-container,
+.chairman-container,
+.children-container,
+.mens-container,
+.womens-container,
+.youth-container,
+.vegetable-container,
+.prayer-container,
+.giving-container,
+.news-content,
+section.outreach > .row,
+section.outreach > .row1,
+section.outreach > .rows,
+.widow-care > .top-section,
+.widow-care > .gallery,
+.widow-care > .quote,
+.children-gallery,
+.mens-gallery,
+.womens-gallery,
+.youth-gallery,
+.prayer-gallery,
+.vegetable-gallery {
+  max-width: var(--container) !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  box-sizing: border-box !important;
+}
+.about-intro { max-width: none !important; }
+.about-intro > *,
+.mission-section > * { max-width: var(--container); margin-left: auto; margin-right: auto; }
+.widow-care > .top-section { padding-top: 0 !important; padding-bottom: 0 !important; }
+
+/* Boxed containers (have a background) keep inner padding from the scale */
+.give-container,
+.contact-container {
+  max-width: var(--container) !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  padding: var(--card-pad) !important;
+  box-sizing: border-box !important;
+}
+
+/* ---------- 3. Space between blocks inside a section ---------- */
+/* text block → gallery / grid below it */
+.children-gallery,
+.mens-gallery,
+.womens-gallery,
+.youth-gallery,
+.prayer-gallery,
+.vegetable-gallery,
+.widow-care > .gallery,
+.relief-section .gallery,
+.relief-section .medical-gallery,
+.medical-gallery {
+  margin-top: var(--block-gap) !important;
+  margin-bottom: 0 !important;
+}
+.vegetable-container,
+.vegetable-section > .info-section,
+section.outreach > .row,
+section.outreach > .row1,
+.widow-care > .quote,
+.relief-section .mission-box,
+.giving-container > .top-grid,
+.about-section .services,
+.contact-section .social-links {
+  margin-bottom: var(--block-gap) !important;
+}
+.vegetable-section > .info-section { margin-top: 0 !important; }
+section.outreach > :last-child,
+.widow-care > :last-child,
+.vegetable-section > :last-child { margin-bottom: 0 !important; }
+
+/* Section headers sitting above a grid */
+.section-header,
+.ministries-section .section-header,
+.outreach-section .section-title,
+.course-title,
+section.faculty > .subtitle,
+.values-section .section-title,
+.news-content > h2,
+.mission-section .plus-icon {
+  margin-top: 0 !important;
+  margin-bottom: var(--block-gap) !important;
+}
+.outreach-section .nav-buttons { margin-bottom: var(--sp-5) !important; }
+
+/* ---------- 4. Grids & galleries: one gap ---------- */
+.cards-grid, .card1-grid, .outreach-grid, .values-grid, .mission-grid, .bottom-cards,
+.news-grid, .course-container, .faculty-container, .facility-grid,
+.children-gallery, .mens-gallery, .womens-gallery, .youth-gallery, .prayer-gallery,
+.vegetable-gallery, .gallery, .medical-gallery {
+  gap: var(--grid-gap) !important;
+}
+.news-card { margin-bottom: 0 !important; }
+.card1-grid { margin-top: var(--grid-gap) !important; }
+
+/* Text column + image column */
+.children-container, .mens-container, .womens-container, .youth-container,
+.vegetable-container, .prayer-container, .facilities-container, .chairman-container,
+section.bible-college > .container, .top-layout, .widow-care > .top-section,
+section.outreach > .row, section.outreach > .row1, section.outreach > .rows,
+.giving-container > .top-grid {
+  gap: var(--split-gap) !important;
+}
+
+/* ---------- 5. Cards & coloured boxes: one inner padding ---------- */
+.info-box,
+.vision-mission .vision,
+.vision-mission .mission,
+.mission-content,
+.college-content,
+.contact-right {
+  padding: var(--card-pad) !important;
+  box-sizing: border-box !important;
+}
+.info-box { padding-left: max(var(--card-pad), var(--gutter)) !important; padding-right: max(var(--card-pad), var(--gutter)) !important; }
+.text-box { padding: 0 !important; }
+.info-box2 { padding-left: 0 !important; }   /* yellow box content lines up with the maroon box */
+
+/* ---------- 6. Typography rhythm (content only — hero banners untouched) ---------- */
+:is(.about-section, .ministries-section, .outreach-section, .give-section, .about-intro,
+    .mission-section, .values-section, .belief-section, section.bible-college, section.courses,
+    section.faculty, section.facilities, section.chairman, .vision-mission, .children-section,
+    .contact-section, .giving-section, .news-section, section.outreach, .info-section,
+    .relief-section, .mens-section, .prayer-section, .vegetable-section, .widow-care,
+    .womens-section, .youth-section, .quote-section) :is(h1, h2) {
+  margin-top: 0 !important;
+  margin-bottom: var(--sp-5) !important;
+}
+:is(.about-section, .ministries-section, .outreach-section, .give-section, .about-intro,
+    .mission-section, .values-section, .belief-section, section.bible-college, section.courses,
+    section.faculty, section.facilities, section.chairman, .vision-mission, .children-section,
+    .contact-section, .giving-section, .news-section, section.outreach, .info-section,
+    .relief-section, .mens-section, .prayer-section, .vegetable-section, .widow-care,
+    .womens-section, .youth-section, .quote-section) h3 {
+  margin-top: 0 !important;
+  margin-bottom: var(--sp-4) !important;
+}
+/* Headings built from <div>s */
+.main-headings, .men-head, .community-outreach, .flood-relief, .our-response, .free-medical,
+.our-mission, .ourmission, .mainhead, .chairman-msg, .form-heading,
+.vision > div:first-child, .mission > div:first-child, .widow-care .top-section .text > div:first-child {
+  margin-top: 0 !important;
+  margin-bottom: var(--sp-5) !important;
+}
+.subhead, .sharing-god { margin-bottom: var(--sp-5) !important; }
+.mainhead:has(+ .subhead), .community-outreach:has(+ .sharing-god) { margin-bottom: var(--sp-2) !important; }
+.info-box .head { margin: 0 0 var(--sp-4) !important; }
+.time, .tagline, .mini-title, .our-pastor, .quote-small, .widow-care .quote .small {
+  margin-top: 0 !important;
+  margin-bottom: var(--sp-4) !important;
+}
+
+/* Paragraphs: one spacing */
+:is(.about-section, .ministries-section, .outreach-section, .give-section, .about-intro,
+    .mission-section, .values-section, .belief-section, section.bible-college, section.courses,
+    section.faculty, section.facilities, section.chairman, .vision-mission, .children-section,
+    .contact-section, .giving-section, .news-section, section.outreach, .info-section,
+    .relief-section, .mens-section, .prayer-section, .vegetable-section, .widow-care,
+    .womens-section, .youth-section) p {
+  margin-top: 0 !important;
+  margin-bottom: var(--sp-4) !important;
+}
+:is(.children-section, .mens-section, .womens-section, .youth-section, .prayer-section,
+    .vegetable-section, .giving-section, section.outreach, .relief-section, .about-section) p:last-child {
+  margin-bottom: 0 !important;
+}
+.info-box ul { margin: 0 !important; }
+
+/* Buttons after text: same distance everywhere */
+.cta-btn, .meet-pastor, .give-btn, .button-outline, .hero-content button {
+  margin-top: var(--sp-5) !important;
+}
