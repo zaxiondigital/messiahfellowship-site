@@ -1,0 +1,139 @@
+/* =====================================================================
+   Messiah Fellowship – header & top bar alignment
+   Desktop: unchanged layout; top-bar separators drawn with CSS.
+   Phones/tablets (≤810px, where the ☰ menu appears):
+     • top bar = one tidy line you can swipe sideways (no 4–5 line wrap)
+     • ☰ button = 44×44 tap area, icon still aligned to the 20px gutter
+     • menu = full-width panel directly BELOW the header (no overlap),
+       44px tap rows with dividers, sub-menus expand in place
+   ===================================================================== */
+
+/* ---------- Top bar ---------- */
+.top-bar span + span::before {
+  content: "";
+  display: inline-block;
+  width: 1px;
+  height: 12px;
+  margin: 0 12px;
+  background: var(--color-border-strong, #ccc);
+  vertical-align: -1px;
+}
+
+@media (max-width: 810px) {
+  .top-bar {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    gap: 0 !important;
+    overflow-x: auto !important;
+    white-space: nowrap !important;
+    text-align: left !important;
+    padding: 8px var(--gutter, 20px) !important;
+    font-size: 12px !important;
+    line-height: 1.5 !important;
+    scrollbar-width: none !important;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x proximity;
+    /* soft fade on the right hints there is more to swipe */
+    -webkit-mask-image: linear-gradient(to right, #000 85%, transparent);
+            mask-image: linear-gradient(to right, #000 85%, transparent);
+  }
+  .top-bar::-webkit-scrollbar { display: none; }
+  .top-bar span { flex: 0 0 auto; scroll-snap-align: start; }
+  .top-bar span:last-child { padding-right: var(--gutter, 20px); }
+
+  /* ---------- Header row ---------- */
+  .navbar { position: relative !important; min-height: 64px !important; }
+  .menu-icon {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 44px !important;
+    height: 44px !important;
+    margin-right: -8px !important;         /* keeps the ☰ glyph on the 20px gutter */
+    font-size: 28px !important;
+    line-height: 1 !important;
+    border-radius: 8px !important;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .menu-icon:active { background: var(--color-surface, #f5f5f5) !important; }
+
+  /* ---------- Menu panel: below the header, full width ---------- */
+  .nav-links {
+    position: absolute !important;
+    top: 100% !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: auto !important;
+    max-height: calc(100vh - 140px) !important;
+    overflow-y: auto !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 0 !important;
+    padding: var(--sp-2, 8px) var(--gutter, 20px) var(--sp-5, 24px) !important;
+    background: #fff !important;
+    border-top: 1px solid var(--color-border, #e5e5e5) !important;
+    box-shadow: 0 16px 32px rgba(0, 0, 0, .12) !important;
+    transform: translateY(-8px) !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+    transition: transform .2s ease, opacity .2s ease, visibility 0s linear .2s !important;
+    z-index: 10000 !important;
+    box-sizing: border-box !important;
+  }
+  .nav-links.active {
+    transform: translateY(0) !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+    transition: transform .2s ease, opacity .2s ease !important;
+  }
+
+  /* rows: 44px tap targets with dividers */
+  .nav-links > a,
+  .nav-links .navbar-ministries > .drop-btn {
+    display: flex !important;
+    align-items: center !important;
+    min-height: 48px !important;
+    padding: 0 !important;
+    font-size: 16px !important;
+    font-weight: 500 !important;
+    color: var(--color-ink, #111) !important;
+    border-bottom: 1px solid var(--color-border, #e5e5e5) !important;
+  }
+  .nav-links .navbar-ministries { width: 100% !important; top: 0 !important; }
+  .nav-links .navbar-ministries > .drop-btn::after {
+    content: "";
+    margin-left: auto;
+    width: 8px; height: 8px;
+    border-right: 1.75px solid currentColor;
+    border-bottom: 1.75px solid currentColor;
+    transform: rotate(45deg) translateY(-3px);
+    transition: transform .2s ease;
+  }
+  .nav-links .navbar-ministries:hover > .drop-btn::after,
+  .nav-links .navbar-ministries:focus-within > .drop-btn::after { transform: rotate(-135deg); }
+
+  .nav-links .navbar-ministries:focus-within .ministries-content { display: block !important; }
+  /* sub-menu expands in place instead of floating over the next items */
+  .nav-links .ministries-content {
+    position: static !important;
+    min-width: 0 !important;
+    box-shadow: none !important;
+    padding: var(--sp-1, 4px) 0 var(--sp-2, 8px) var(--sp-4, 16px) !important;
+    background: transparent !important;
+    border-bottom: 1px solid var(--color-border, #e5e5e5) !important;
+  }
+  .nav-links .ministries-content a {
+    display: flex !important;
+    align-items: center !important;
+    min-height: 44px !important;
+    padding: 0 !important;
+    font-size: 15px !important;
+    color: var(--color-text, #333) !important;
+    white-space: normal !important;
+  }
+
+  /* Watch Live button sits below the list */
+  .nav-links > div:last-child { margin-top: var(--sp-5, 24px) !important; }
+}
