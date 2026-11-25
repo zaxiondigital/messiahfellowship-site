@@ -409,3 +409,41 @@ section.outreach > .row, section.outreach > .row1, section.outreach > .rows,
 /* Widow Care: the original section was capped at 1100px, so the whole page sat narrower
    and further in than every other page. Full width + 1200px content column like the rest. */
 .widow-care { max-width: none !important; width: auto !important; }
+
+/* =====================================================================
+   Bible College – faculty cards: one structure for every card
+   (long names wrapped to 2 lines and the shorter cards showed a white strip)
+   ===================================================================== */
+.faculty-container { align-items: stretch !important; }
+.faculty-card {
+  display: flex !important;
+  flex-direction: column !important;
+  height: 100% !important;
+  overflow: hidden !important;
+  border-radius: 16px !important;
+  background: var(--color-maroon-900, #4f0834) !important;   /* no white behind the info panel */
+  box-shadow: 0 8px 24px rgba(0, 0, 0, .12) !important;
+}
+.faculty-card > img {
+  display: block !important;
+  width: 100% !important;
+  height: auto !important;
+  aspect-ratio: 9 / 10 !important;           /* same photo shape on every card */
+  object-fit: cover !important;
+  object-position: center top !important;    /* never crop faces */
+  border-radius: 0 !important;
+}
+.faculty-info {
+  flex: 1 1 auto !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: var(--sp-1) !important;
+  padding: var(--sp-4) var(--sp-5) var(--sp-5) !important;
+  background: transparent !important;
+}
+.faculty-info > div {
+  min-height: calc(2 * 1.3em) !important;    /* room for a 2-line name on every card */
+  text-wrap: balance;
+  margin: 0 !important;
+}
+.faculty-info > span { margin-top: auto !important; }   /* degree lines up across a row */
