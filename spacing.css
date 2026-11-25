@@ -364,3 +364,8 @@ section.outreach > .row, section.outreach > .row1, section.outreach > .rows,
 @media (max-width: 1200px) {
   .pastor-row .pastor-content { width: 100% !important; margin: 0 !important; }
 }
+
+/* Home: the Bible College box and "Community Outreach & Impact" are two topics in one
+   section – separate them by one section rhythm (was 0px) */
+.outreach-section .college-box { margin-bottom: var(--section-y) !important; }
+.outreach-section .section-title { margin-top: 0 !important; }
