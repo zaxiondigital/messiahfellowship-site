@@ -405,3 +405,7 @@ section.outreach > .row, section.outreach > .row1, section.outreach > .rows,
 @media (max-width: 768px) {
   .outreach-section .outreach-card { flex-basis: 85% !important; }  /* phone: 1 + a peek of the next */
 }
+
+/* Widow Care: the original section was capped at 1100px, so the whole page sat narrower
+   and further in than every other page. Full width + 1200px content column like the rest. */
+.widow-care { max-width: none !important; width: auto !important; }
