@@ -19,7 +19,7 @@
   vertical-align: -1px;
 }
 
-@media (max-width: 810px) {
+@media (max-width: 1024px) {
   .top-bar {
     display: flex !important;
     flex-wrap: nowrap !important;
@@ -40,6 +40,10 @@
   .top-bar::-webkit-scrollbar { display: none; }
   .top-bar span { flex: 0 0 auto; scroll-snap-align: start; }
   .top-bar span:last-child { padding-right: var(--gutter, 20px); }
+}
+
+/* ☰ menu for phones AND portrait tablets (the full bar is cramped below ~960px) */
+@media (max-width: 960px) {
 
   /* ---------- Header row ---------- */
   .navbar { position: relative !important; min-height: 64px !important; }
@@ -136,4 +140,17 @@
 
   /* Watch Live button sits below the list */
   .nav-links > div:last-child { margin-top: var(--sp-5, 24px) !important; }
+}
+
+/* ---------- Header edges line up with the page content ----------
+   phones 20px · tablets 24px · desktop 32px, and on wide screens the logo and
+   menu align with the 1200px content column (same rule the sections use) */
+.navbar,
+.top-bar {
+  padding-left: max(var(--gutter, 20px), calc((100% - var(--container, 1200px)) / 2)) !important;
+  padding-right: max(var(--gutter, 20px), calc((100% - var(--container, 1200px)) / 2)) !important;
+  box-sizing: border-box !important;
+}
+@media (max-width: 960px) {
+  .nav-links { padding-left: var(--gutter, 20px) !important; padding-right: var(--gutter, 20px) !important; }
 }
