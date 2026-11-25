@@ -1,0 +1,75 @@
+/* =====================================================================
+   Messiah Fellowship – colour system
+   Every colour on the site comes from this palette. The original page
+   colours (≈80 shades) are mapped onto it by colors-map.css.
+
+   BRAND
+     maroon-900  #4F0834  large maroon bands, info boxes, hover of maroon buttons
+     maroon-700  #6E0F4A  primary brand colour: buttons, links, quotes, accents
+     maroon-100  #F1DDE8  light maroon tint (badges, soft highlights)
+     maroon-50   #F8EEF4  lightest tint (subtle backgrounds)
+     gold-700    #876B22  gold backgrounds (bands, boxes, badges) – passes contrast with white text
+     gold-600    #A3832E  gold text on dark backgrounds (footer headings), banner titles
+     gold-400    #C8A23A  gold on dark backgrounds, nav hover, focus ring
+     cream       #FFFBF0  text/borders on gold
+
+   NEUTRALS
+     ink         #111111  headings, dark sections, footer background
+     text        #333333  body text
+     muted       #5C5C5C  secondary text (meta, captions, top bar)
+     on-dark     #CCCCCC  secondary text on dark backgrounds
+     border-dark #333333  borders on dark backgrounds
+     border-strong #CCCCCC  input borders, dividers that must be visible
+     border      #E5E5E5  light dividers, card outlines
+     surface-2   #EBEBEB  grey panels and cards
+     surface     #F5F5F5  light grey sections
+     white       #FFFFFF  page background, text on maroon
+
+   STATUS
+     error       #B91C1C  form errors
+     notice      #C2410C  "please wait" / pending messages
+   ===================================================================== */
+
+:root {
+  --color-maroon-900: #4f0834;
+  --color-maroon-700: #6e0f4a;
+  --color-maroon-100: #f1dde8;
+  --color-maroon-50:  #f8eef4;
+  --color-gold-700:   #876b22;
+  --color-gold-600:   #a3832e;
+  --color-gold-400:   #c8a23a;
+  --color-cream:      #fffbf0;
+
+  --color-ink:           #111111;
+  --color-text:          #333333;
+  --color-muted:         #5c5c5c;
+  --color-on-dark:       #cccccc;
+  --color-border-dark:   #333333;
+  --color-border-strong: #cccccc;
+  --color-border:        #e5e5e5;
+  --color-surface-2:     #ebebeb;
+  --color-surface:       #f5f5f5;
+  --color-white:         #ffffff;
+
+  --color-error:  #b91c1c;
+  --color-notice: #c2410c;
+}
+
+/* ---------- Global roles ---------- */
+html, body { background-color: var(--color-white); color: var(--color-text); }
+::selection { background: var(--color-maroon-700); color: var(--color-white); }
+
+/* Form fields: one border colour and a maroon focus */
+app-root input, app-root textarea, app-root select {
+  border-color: var(--color-border-strong) !important;
+  color: var(--color-text) !important;
+}
+app-root input::placeholder, app-root textarea::placeholder { color: var(--color-muted) !important; opacity: 1; }
+app-root input:focus, app-root textarea:focus, app-root select:focus {
+  border-color: var(--color-maroon-700) !important;
+  outline: 2px solid var(--color-maroon-100) !important;
+  outline-offset: 0 !important;
+}
+
+/* Status messages */
+.msg-wait { color: var(--color-notice) !important; }

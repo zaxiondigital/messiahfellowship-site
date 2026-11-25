@@ -17,10 +17,10 @@
    ===================================================================== */
 
 :root {
-  --btn-maroon: #6e0f4a;
-  --btn-maroon-dark: #4f0834;
-  --btn-gold: #c9a227;
-  --btn-light: #ffffff;
+  --btn-maroon: var(--color-maroon-700);
+  --btn-maroon-dark: var(--color-maroon-900);
+  --btn-gold: var(--color-gold-400);
+  --btn-light: var(--color-white);
   --btn-h: 48px;
   --btn-h-sm: 40px;
   --btn-px: 28px;
