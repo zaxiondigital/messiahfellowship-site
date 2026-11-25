@@ -284,3 +284,72 @@ section.outreach > .row, section.outreach > .row1, section.outreach > .rows,
 .cta-btn, .meet-pastor, .give-btn, .button-outline, .hero-content button {
   margin-top: var(--sp-5) !important;
 }
+
+/* =====================================================================
+   7. Section-to-section rhythm
+   Two touching sections with the SAME background would show 80 + 80 = 160px
+   of space. The second one drops its top padding so the gap is one
+   --section-y, the same as everywhere else.
+   ===================================================================== */
+.outreach-section + .give-section,
+.relief-section + .quote-section,
+.medical-gallery + .quote-section {
+  padding-top: 0 !important;
+}
+
+/* =====================================================================
+   8. Inside spacing of cards and boxes – three sizes only
+     --pad-box    48 / 32 / 24   large coloured panels and boxed areas
+     --pad-card   32 / 24 / 24   text cards (values, pastors, offering)
+     --pad-body   24 / 20 / 20   text area under a card photo
+     --pad-chip   12 x 20        small badges (service times)
+   ===================================================================== */
+:root { --pad-box: var(--sp-7); --pad-card: var(--sp-6); --pad-body: var(--sp-5); }
+@media (max-width: 1024px) { :root { --pad-box: var(--sp-6); --pad-card: var(--sp-5); --pad-body: 20px; } }
+@media (max-width: 768px)  { :root { --pad-box: var(--sp-5); --pad-card: var(--sp-5); --pad-body: 20px; } }
+
+/* large panels (already 48 → now one token) */
+.info-box, .vision-mission .vision, .vision-mission .mission, .mission-content, .college-content,
+.contact-right, .give-container, .contact-container, .offer-top, .offer-bottom {
+  padding: var(--pad-box) !important;
+}
+.info-box { padding-left: max(var(--pad-box), var(--gutter)) !important; padding-right: max(var(--pad-box), var(--gutter)) !important; }
+.offer-top, .offer-bottom { box-sizing: border-box !important; }
+
+/* text cards */
+.value-card, .pastor-content, .mission-grid .card, .belief-card {
+  padding: var(--pad-card) !important;
+  box-sizing: border-box !important;
+}
+.pastor-content { align-self: center !important; }
+
+/* text area under a photo */
+.card-content, .course-container .card > :not(img), .news-card > :not(img) {
+  padding-left: var(--pad-body) !important;
+  padding-right: var(--pad-body) !important;
+}
+.card-content { padding-top: var(--sp-4) !important; padding-bottom: var(--pad-body) !important; }
+.course-container .card { padding: 0 0 var(--pad-body) !important; overflow: hidden !important; }
+.course-container .card > img { margin: 0 0 var(--sp-4) !important; width: 100% !important; }
+.course-container .card button { margin-left: var(--pad-body) !important; margin-top: var(--sp-4) !important; }
+.faculty-info { padding: var(--sp-4) var(--sp-5) !important; }
+
+/* small badges */
+.service-card { padding: var(--sp-3) 20px !important; }
+
+/* the last item inside any box never adds extra space at the bottom */
+:is(.info-box, .vision, .mission, .mission-content, .college-content, .contact-right, .give-container,
+    .contact-container, .offer-top, .offer-bottom, .value-card, .pastor-content, .mission-grid .card,
+    .belief-card, .card-content, .faculty-info, .prayer-card) > :last-child,
+:is(.info-box, .vision, .mission, .info-box2) ul:last-child,
+:is(.info-box, .vision, .mission) li:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* Card internals: icon → title → text on the same scale */
+.value-card .icon { margin: 0 0 var(--sp-5) !important; padding: 0 !important; }
+.value-card .icon img { margin: 0 !important; }
+.value-card h3 { margin: 0 0 var(--sp-3) !important; }
+.belief-card h4 { margin: 0 0 var(--sp-2) !important; }
+.belief-card small { display: block !important; margin: 0 0 var(--sp-4) !important; }
+.pastor-content .meet-pastor { margin-top: var(--sp-5) !important; }
