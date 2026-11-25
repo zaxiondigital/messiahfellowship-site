@@ -219,3 +219,7 @@
 /* a drop-down closes as soon as one of its links is chosen (see /nav-menu.js) */
 .nav-links .navbar-ministries.dd-closed .ministries-content { display: none !important; }
 .nav-links .navbar-ministries.dd-closed > .drop-btn::after { transform: rotate(45deg) translateY(-2px) !important; }
+
+/* header logo links to Home (behaviour in /nav-menu.js) */
+.navbar .logo { cursor: pointer; border-radius: 6px; }
+.navbar .logo:focus-visible { outline: 3px solid var(--color-gold-400, #c8a23a); outline-offset: 4px; }
