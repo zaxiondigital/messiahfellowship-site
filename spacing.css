@@ -353,3 +353,14 @@ section.outreach > .row, section.outreach > .row1, section.outreach > .rows,
 .belief-card h4 { margin: 0 0 var(--sp-2) !important; }
 .belief-card small { display: block !important; margin: 0 0 var(--sp-4) !important; }
 .pastor-content .meet-pastor { margin-top: var(--sp-5) !important; }
+
+/* Pastors text box (home): empty <br> spacers removed, one rhythm instead */
+.pastor-content > br { display: none !important; }
+.pastor-content .our-pastor { margin: 0 0 var(--sp-4) !important; }
+.pastor-content .doctor-name { margin: 0 !important; }
+.pastor-content .highlight { margin: 0 0 var(--sp-5) !important; }
+.pastor-content .doctor-content { margin: 0 0 var(--sp-4) !important; }
+.pastor-content .meet-pastor { margin-top: var(--sp-4) !important; align-self: flex-start !important; }
+@media (max-width: 1200px) {
+  .pastor-row .pastor-content { width: 100% !important; margin: 0 !important; }
+}

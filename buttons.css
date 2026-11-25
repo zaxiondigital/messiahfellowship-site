@@ -45,6 +45,7 @@
   width: fit-content !important;
   min-width: 0 !important;
   max-width: 100% !important;
+  flex-shrink: 0 !important;            /* never squeezed inside flex columns */
   padding: 0 var(--btn-px) !important;
   border-radius: var(--btn-radius) !important;
   border: var(--btn-border) solid transparent !important;
