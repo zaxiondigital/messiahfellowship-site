@@ -447,3 +447,13 @@ section.outreach > .row, section.outreach > .row1, section.outreach > .rows,
   margin: 0 !important;
 }
 .faculty-info > span { margin-top: auto !important; }   /* degree lines up across a row */
+
+/* "A Message of Compassion" / "Be Part of the Mission" cards: text centred vertically
+   beside the photo (was stuck to the top with empty space below) */
+.mission-box .mission-content {
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  align-items: flex-start !important;
+}
+.mission-box .mission-content > :last-child { margin-bottom: 0 !important; }
