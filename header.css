@@ -154,3 +154,64 @@
 @media (max-width: 960px) {
   .nav-links { padding-left: var(--gutter, 20px) !important; padding-right: var(--gutter, 20px) !important; }
 }
+
+/* =====================================================================
+   Desktop (≥961px) menu bar refinements
+   ===================================================================== */
+@media (min-width: 961px) {
+  /* top bar: slightly tighter dividers so it stays on one line from 1025px */
+  .top-bar span + span::before { margin: 0 10px; }
+
+  /* readable hover colour (gold on white was ~2.3:1) */
+  .nav-links a:hover, .nav-links .drop-btn:hover { color: var(--color-maroon-700, #6e0f4a) !important; }
+
+  /* drop-down groups: chevron so they read as menus */
+  .navbar-ministries { position: relative !important; top: -2px !important; }   /* optical: matches other items */
+  .navbar-ministries > .drop-btn { display: inline-flex !important; align-items: center !important; gap: 6px !important; cursor: pointer !important; }
+  .navbar-ministries > .drop-btn::after {
+    content: "";
+    width: 6px; height: 6px;
+    border-right: 1.5px solid currentColor;
+    border-bottom: 1.5px solid currentColor;
+    transform: rotate(45deg) translateY(-2px);
+    transition: transform .2s ease;
+  }
+  .navbar-ministries:hover > .drop-btn::after,
+  .navbar-ministries:focus-within > .drop-btn::after { transform: rotate(-135deg) translateY(-1px); }
+
+  /* panel opens at the header's bottom edge (not inside it) and its text lines
+     up with the group label; an invisible bridge keeps hover while moving down */
+  .navbar-ministries::after {
+    content: "";
+    position: absolute;
+    left: -16px; right: -16px; top: 100%;
+    height: 29px;                                   /* (header 74 − label 17) / 2 */
+  }
+  .navbar-ministries .ministries-content {
+    top: calc(100% + 29px) !important;
+    left: -16px !important;
+    min-width: 240px !important;
+    padding: 8px 0 !important;
+    background: #fff !important;
+    border: 1px solid var(--color-border, #e5e5e5) !important;
+    border-top: 2px solid var(--color-maroon-700, #6e0f4a) !important;
+    border-radius: 0 0 12px 12px !important;
+    box-shadow: 0 16px 32px rgba(0, 0, 0, .10) !important;
+  }
+  .navbar-ministries:focus-within .ministries-content { display: flex !important; }
+  .navbar-ministries .ministries-content a {
+    padding: 10px 16px !important;
+    font-size: 14px !important;
+    line-height: 1.4 !important;
+    color: var(--color-text, #333) !important;
+  }
+  .navbar-ministries .ministries-content a:hover {
+    background: var(--color-maroon-50, #f8eef4) !important;
+    color: var(--color-maroon-700, #6e0f4a) !important;
+  }
+}
+/* the header row is 70px tall at 961–1024px (74px above) */
+@media (min-width: 961px) and (max-width: 1024px) {
+  .navbar-ministries::after { height: 27px; }
+  .navbar-ministries .ministries-content { top: calc(100% + 27px) !important; }
+}
