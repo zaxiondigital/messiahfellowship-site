@@ -609,3 +609,21 @@ section.outreach > .row, section.outreach > .row1, section.outreach > .rows,
 }
 /* matrimony card now sits inside the outreach container, after the Bible College box */
 .outreach-section .mt-home:not(#_) { padding: 0; margin: 0 0 var(--section-y, 80px); background: transparent; }
+
+/* =====================================================================
+   Page banners (top of every inner page): were 720px tall, filling a whole
+   laptop screen. Now they fit the screen so content shows on first view:
+   480px on large screens · ~55% of the screen height on laptops (≈400px on
+   a 720px-tall laptop) · 360px tablets · 300px phones.
+   ===================================================================== */
+.main-imgs:not(#_) {
+  height: clamp(360px, 55vh, 480px) !important;
+  object-fit: cover !important;
+  object-position: center 40% !important;
+}
+@media (max-width: 900px) { .main-imgs:not(#_) { height: 360px !important; } }
+@media (max-width: 600px) { .main-imgs:not(#_) { height: 300px !important; } }
+
+/* Bible College banner (heading, text and a button on the photo) */
+app-bible-college:not(#_) .hero { height: clamp(440px, 62vh, 540px) !important; min-height: 0 !important; }
+@media (max-width: 600px) { app-bible-college:not(#_) .hero { height: auto !important; min-height: 440px !important; } }
