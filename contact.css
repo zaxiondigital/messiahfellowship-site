@@ -1,0 +1,123 @@
+/* =====================================================================
+   Contact page – middle section redesign (styles only; the form and its
+   behaviour are unchanged).
+   Desktop: left column = maroon "reach us" card (phone, email, social)
+            + map and church building side by side; right = form card.
+   Phones:  reach-us card → form → map + building.
+   :not(#_) gives priority over the original component styles.
+   ===================================================================== */
+.contact-section:not(#_) {
+  background: #fff !important;
+  padding: var(--section-y, 80px) max(var(--gutter, 20px), calc((100% - var(--container, 1200px)) / 2)) !important;
+}
+.contact-section:not(#_) .contact-container {
+  display: grid !important;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr) !important;
+  grid-template-areas: "reach form" "media form" !important;
+  align-items: start;
+  gap: var(--sp-6, 32px) var(--sp-7, 48px) !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  background: transparent !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+/* ---------- reach-us card (was the grey strip at the bottom) ---------- */
+.contact-section:not(#_) .contact-bottom {
+  grid-area: reach;
+  display: flex !important; flex-direction: column !important; align-items: stretch !important;
+  gap: var(--sp-5, 24px);
+  margin: 0 !important; padding: var(--pad-card, 32px) !important;
+  border-radius: 16px;
+  background: linear-gradient(135deg, var(--color-maroon-900, #4f0834), var(--color-maroon-700, #6e0f4a)) !important;
+  color: #fff !important; text-align: left !important;
+}
+.contact-section:not(#_) .contact-bottom hr { display: none !important; }
+.contact-section:not(#_) .contact-info {
+  order: -1;
+  display: flex !important; flex-direction: column !important; align-items: stretch !important; gap: var(--sp-3, 12px) !important;
+  margin: 0 !important; padding: 0 !important;
+}
+.contact-section:not(#_) .contact-info span {
+  display: flex !important; align-items: center !important; gap: 14px !important;
+  min-height: 56px; padding: 0 var(--sp-4, 16px) !important;
+  border-radius: 12px; background: rgba(255, 255, 255, .1);
+  font-size: 18px !important; font-weight: 600 !important; color: #fff !important;
+  word-break: break-word;
+  transition: background .2s;
+}
+.contact-section:not(#_) .contact-info span:hover { background: rgba(255, 255, 255, .18); }
+.contact-section:not(#_) .contact-info img { top: 0 !important; width: 22px !important; height: 22px !important; filter: brightness(0) invert(1); }
+.contact-section:not(#_) .follow {
+  margin: var(--sp-2, 8px) 0 0 !important;
+  font-family: var(--font-body) !important; font-style: normal !important;
+  font-size: 12px !important; font-weight: 600 !important; letter-spacing: .12em !important; text-transform: uppercase !important;
+  color: var(--color-gold-400, #c8a23a) !important; text-align: left !important;
+}
+.contact-section:not(#_) .social-links { display: flex !important; flex-direction: row !important; flex-wrap: wrap !important; justify-content: flex-start !important; gap: var(--sp-2, 8px) !important; margin: 0 !important; }
+.contact-section:not(#_) .social-links a {
+  display: inline-flex !important; align-items: center !important; gap: 8px !important;
+  width: auto !important; flex: 0 0 auto !important;
+  min-height: 40px; padding: 0 14px !important;
+  border: 1.5px solid rgba(255, 255, 255, .55); border-radius: 999px;
+  color: #fff !important; font-size: 14px !important; font-weight: 500 !important; text-decoration: none !important;
+  transition: background .2s, color .2s;
+}
+.contact-section:not(#_) .social-links a:hover { background: #fff; color: var(--color-maroon-700, #6e0f4a) !important; }
+.contact-section:not(#_) .social-links a:hover img { filter: none; }
+.contact-section:not(#_) .social-links img { top: 0 !important; width: 18px !important; height: 18px !important; filter: brightness(0) invert(1); }
+
+/* ---------- map + church building ---------- */
+.contact-section:not(#_) .contact-left {
+  grid-area: media;
+  display: grid !important; grid-template-columns: 1fr 1fr !important; gap: var(--sp-4, 16px) !important;
+  width: auto !important; margin: 0 !important; padding: 0 !important;
+}
+.contact-section:not(#_) .contact-left img {
+  display: block; width: 100% !important; height: 100% !important; aspect-ratio: 1 / 1; object-fit: cover;
+  margin: 0 !important; border-radius: 16px !important;
+  box-shadow: 0 16px 32px -24px rgba(17, 17, 17, .45);
+}
+
+/* ---------- form card ---------- */
+.contact-section:not(#_) .contact-right {
+  grid-area: form;
+  width: auto !important; margin: 0 !important;
+  padding: var(--pad-box, 48px) !important;
+  background: #fff !important;
+  border: 1px solid var(--color-border, #e5e5e5) !important;
+  border-radius: 16px !important;
+  box-shadow: 0 32px 64px -40px rgba(17, 17, 17, .35) !important;
+}
+.contact-section:not(#_) .form-heading { margin: 0 0 var(--sp-2, 8px) !important; }
+.contact-section:not(#_) .contact-right::after { content: none; }
+.contact-section:not(#_) .contact-right form { display: flex !important; flex-direction: column !important; gap: var(--sp-4, 16px) !important; margin-top: var(--sp-5, 24px) !important; }
+.contact-section:not(#_) .contact-right input,
+.contact-section:not(#_) .contact-right textarea {
+  box-sizing: border-box !important; width: 100% !important; min-height: 52px; margin: 0 !important;
+  padding: 12px 16px !important;
+  border: 1.5px solid var(--color-border-strong, #ccc) !important; border-radius: 10px !important;
+  background: #fff !important; color: var(--color-ink, #111) !important;
+  font-size: 16px !important; line-height: 1.4 !important;
+  transition: border-color .15s, box-shadow .15s;
+}
+.contact-section:not(#_) .contact-right textarea { min-height: 150px; resize: vertical; }
+.contact-section:not(#_) .contact-right input:focus,
+.contact-section:not(#_) .contact-right textarea:focus { outline: none !important; border-color: var(--color-maroon-700, #6e0f4a) !important; box-shadow: 0 0 0 3px var(--color-maroon-100, #f1dde8) !important; }
+.contact-section:not(#_) .contact-right input::placeholder,
+.contact-section:not(#_) .contact-right textarea::placeholder { color: var(--color-muted, #5c5c5c); }
+.contact-section:not(#_) .contact-right form button { align-self: flex-start; margin-top: var(--sp-2, 8px) !important; }
+
+/* ---------- tablet & phone ---------- */
+@media (max-width: 960px) {
+  .contact-section:not(#_) .contact-container { grid-template-columns: 1fr !important; grid-template-areas: "reach" "form" "media" !important; }
+}
+@media (max-width: 600px) {
+  .contact-section:not(#_) .contact-right { padding: var(--sp-6, 32px) var(--sp-5, 20px) !important; }
+  .contact-section:not(#_) .contact-bottom { padding: var(--sp-5, 24px) var(--sp-5, 20px) !important; }
+  .contact-section:not(#_) .contact-info span { font-size: 16px !important; }
+  .contact-section:not(#_) .contact-left img { aspect-ratio: 4 / 3.4; }
+  .contact-section:not(#_) .contact-right form button { align-self: stretch; }
+}
