@@ -238,8 +238,29 @@
       else if (/^[^@\s]+@[^@\s]+\.[a-z]+$/i.test(t)) { el.dataset.mfHref = 'mailto:' + t; asLink(el, 'Email ' + t); }
     });
     // Contact page map → Google Maps directions
-    var map = document.querySelector('.contact-left .map-img');
+    // (only while it is still a picture; the live Google Map handles its own clicks)
+    var map = document.querySelector('.contact-left img.map-img');
     if (map && !map.dataset.mfLink) { map.dataset.mfOpen = MAPS; asLink(map, 'Open directions to Messiah Fellowship in Google Maps'); map.alt = 'Map: Messiah Fellowship, 100 Feet Road, Autonagar Gate, Vijayawada'; }
+    addressRow();
+  }
+  // Contact page: full address under phone & email in the maroon card; tap = directions.
+  // On app pages it waits until the app owns the card (hydration), like the other additions.
+  function addressRow() {
+    var ci = document.querySelector('.contact-section .contact-info');
+    if (!ci || ci.querySelector('.mf-address')) return;
+    var host = ci.closest('app-contact');                 // the page component is marked once the app owns it
+    if (document.querySelector('script[src*="main-"]') && (!host || host.__ngContext__ === undefined)) return;
+    var s = document.createElement('span');
+    s.className = 'mf-address';
+    s.dataset.mfOpen = MAPS;
+    var icon = document.createElement('img');
+    icon.src = 'images/icons/map-pin.svg'; icon.alt = ''; icon.width = 25;
+    var txt = document.createElement('span');
+    txt.className = 'mf-address-text';
+    txt.innerHTML = 'Messiah Fellowship, 55-1-5, 100 Feet Road, Near Autonagar Gate, Auto Nagar, Vijayawada, Andhra Pradesh 520007<small>Get directions ›</small>';
+    s.appendChild(icon); s.appendChild(txt);
+    ci.appendChild(s);
+    asLink(s, 'Get directions to Messiah Fellowship, 100 Feet Road, Auto Nagar, Vijayawada, in Google Maps');
   }
   document.addEventListener('click', function (e) {
     var el = e.target.closest && e.target.closest('[data-mf-href],[data-mf-open],[data-mf-go]');
@@ -287,7 +308,8 @@
     return true;
   }
   var legalTries = 0, legalTimer = setInterval(function () {
-    if (privacyLink() || ++legalTries > 40) clearInterval(legalTimer);
+    addressRow();
+    if ((privacyLink() && !document.querySelector('.contact-section .contact-info:not(:has(.mf-address))')) || ++legalTries > 40) clearInterval(legalTimer);
   }, 250);
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', prepareLogo); else prepareLogo();
 })();
