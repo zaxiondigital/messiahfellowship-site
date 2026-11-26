@@ -218,3 +218,17 @@
 /* header logo links to Home (behaviour in /nav-menu.js) */
 .navbar .logo { cursor: pointer; border-radius: 6px; }
 .navbar .logo:focus-visible { outline: 3px solid var(--color-gold-400, #c8a23a); outline-offset: 4px; }
+
+/* visually hidden text: read by screen readers and search engines, not shown
+   (used for the page H1 on pages whose design has no visible H1) */
+.sr-only {
+  position: absolute !important;
+  width: 1px !important; height: 1px !important;
+  margin: -1px !important; padding: 0 !important;
+  overflow: hidden !important;
+  clip: rect(0 0 0 0) !important; clip-path: inset(50%) !important;
+  white-space: nowrap !important; border: 0 !important;
+}
+
+/* phone, email and map act as links (see /nav-menu.js): show the link cursor */
+[data-mf-link] { cursor: pointer; }

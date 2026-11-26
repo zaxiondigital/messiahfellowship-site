@@ -115,10 +115,75 @@
     'women': "Women's Ministry | Messiah Fellowship Vijayawada",
     'youth': 'Youth Ministry | Messiah Fellowship Vijayawada'
   };
+  /* hidden page H1 (see tools/add-h1.pl) for pages whose design has no H1;
+     other pages have their own, so the hidden one is removed there */
+  var H1 = {
+    '': 'Messiah Fellowship – Full Gospel Pentecostal Church in Vijayawada',
+    'contact': 'Contact Messiah Fellowship',
+    'events': 'Events at Messiah Fellowship',
+    'floodrelief': 'Flood Relief',
+    'give': 'Tithes & Offerings',
+    'kamalaarts': 'Kamala Arts & Craft',
+    'medical': 'Medical Ministry & Free Health Camps',
+    'men': 'Men’s Ministry: Morning Prayer & Breakfast',
+    'widowcare': 'Widow Care Ministry'
+  };
   function syncTitle() {
     var key = location.pathname.replace(/^\/+|\/+$/g, '');
     if (TITLES.hasOwnProperty(key)) document.title = TITLES[key];
+    if (!TITLES.hasOwnProperty(key) || key === 'pastors') return;   // static pages / 404: leave as is
+    var h = document.getElementById('page-h1');
+    if (H1.hasOwnProperty(key)) {
+      if (!h) { h = document.createElement('h1'); h.id = 'page-h1'; h.className = 'sr-only'; document.body.insertBefore(h, document.body.firstChild); }
+      h.textContent = H1[key];
+    } else if (h) { h.remove(); }
   }
+
+  /* ---------- Links that only worked with a mouse / weren't links ---------- */
+  var MAPS = 'https://www.google.com/maps/search/?api=1&query=Messiah+Fellowship+Autonagar+Gate+Vijayawada';
+  function asLink(el, label) {
+    if (!el || el.dataset.mfLink) return;
+    el.dataset.mfLink = '1';
+    el.setAttribute('role', 'link');
+    el.setAttribute('tabindex', '0');
+    if (label) el.setAttribute('aria-label', label);
+  }
+  function enhance() {
+    // footer "Plan Your Visit" / "Volunteer" → Contact (routerlink attr = same look as the other footer links)
+    document.querySelectorAll('app-footer .footer-col p:not([routerlink])').forEach(function (p) {
+      var t = p.textContent.trim();
+      if (t === 'Plan Your Visit' || t === 'Volunteer') { p.setAttribute('routerlink', '/contact'); p.dataset.mfGo = '/contact'; asLink(p); }
+    });
+    // phone & email (Contact page + footer) → tap to call / email
+    document.querySelectorAll('.contact-info span, app-footer p.contact').forEach(function (el) {
+      var t = el.textContent.trim();
+      if (/^\+?[\d\s-]{8,}$/.test(t)) { el.dataset.mfHref = 'tel:' + t.replace(/[^\d+]/g, ''); asLink(el, 'Call ' + t); }
+      else if (/^[^@\s]+@[^@\s]+\.[a-z]+$/i.test(t)) { el.dataset.mfHref = 'mailto:' + t; asLink(el, 'Email ' + t); }
+    });
+    // Contact page map → Google Maps directions
+    var map = document.querySelector('.contact-left .map-img');
+    if (map && !map.dataset.mfLink) { map.dataset.mfOpen = MAPS; asLink(map, 'Open directions to Messiah Fellowship in Google Maps'); map.alt = 'Map: Messiah Fellowship, 100 Feet Road, Autonagar Gate, Vijayawada'; }
+  }
+  document.addEventListener('click', function (e) {
+    var el = e.target.closest && e.target.closest('[data-mf-href],[data-mf-open],[data-mf-go]');
+    if (!el) return;
+    if (el.dataset.mfHref) { location.href = el.dataset.mfHref; return; }
+    if (el.dataset.mfOpen) { window.open(el.dataset.mfOpen, '_blank', 'noopener'); return; }
+    var a = document.querySelector('.nav-links a[href="' + el.dataset.mfGo + '"]');
+    if (a) a.click(); else location.href = el.dataset.mfGo;
+    window.scrollTo(0, 0);
+  });
+  // keyboard: Enter opens cards / footer links / the links above (they're not <a>)
+  document.addEventListener('keydown', function (e) {
+    if (e.key !== 'Enter' || !e.target.matches) return;
+    if (e.target.matches('.outreach-card, [routerlink]:not(a), [data-mf-link]')) { e.preventDefault(); e.target.click(); }
+  });
+  var queued = false;
+  new MutationObserver(function () {
+    if (queued) return; queued = true;
+    requestAnimationFrame(function () { queued = false; enhance(); });
+  }).observe(document.documentElement, { childList: true, subtree: true });
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', enhance); else enhance();
   ['pushState', 'replaceState'].forEach(function (m) {
     var orig = history[m];
     history[m] = function () { var r = orig.apply(this, arguments); setTimeout(syncTitle, 0); return r; };

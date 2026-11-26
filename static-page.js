@@ -23,6 +23,12 @@
     });
   }
 
+  /* ---------- footer links (written for the app as <p routerlink="...">) ---------- */
+  document.addEventListener("click", function (e) {
+    var p = e.target.closest("[routerlink]:not(a)");
+    if (p && !p.dataset.mfGo) location.href = p.getAttribute("routerlink");
+  });
+
   /* ---------- footer prayer form ---------- */
   var form = document.querySelector('form.prayer-form');
   if (!form) return;
