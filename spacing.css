@@ -461,3 +461,74 @@ section.outreach > .row, section.outreach > .row1, section.outreach > .rows,
 /* "A Place to Grow in Faith" cards: no lift on hover (the 6px jump felt jumpy) */
 .ministries-section:not(#_) .card:hover,
 .ministries-section:not(#_) .card1:hover { transform: none !important; }
+
+/* =====================================================================
+   Home > Pastor Sajja Eliazer: text left · photo right, the photo breaks
+   56px into the maroon "A Place to Grow in Faith" section below.
+   - fixed overlap (--founder-overlap), photo anchored to the bottom, so the
+     break-out sits on the same line whatever the text length
+   - the maroon section gets that much extra top padding (nothing is covered)
+   - ≤900px: stacked (photo first), no overlap
+   ===================================================================== */
+:root { --founder-overlap: 56px; }
+.pastors-section:not(#_) { position: relative; z-index: 2; }
+.pastors-section:not(#_) .pastor-rows.reverse {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 440px);
+  column-gap: var(--sp-8, 64px);
+  align-items: end;
+  margin: 0 !important;
+  padding: var(--section-y, 80px) max(var(--gutter, 20px), calc((100% - var(--container, 1200px)) / 2)) 0 !important;
+  box-sizing: border-box;
+}
+.pastors-section:not(#_) .pastor-contents-1 {
+  width: auto !important;
+  max-width: 620px;
+  padding: 0 0 var(--section-y, 80px) !important;
+  margin: 0 !important;
+  align-self: center;
+}
+.pastors-section:not(#_) .pastor-contents-1 > br { display: none !important; }
+.pastors-section:not(#_) .pastor-founder {
+  margin: var(--sp-2, 8px) 0 var(--sp-5, 24px) !important;
+  font-size: var(--fs-lead, 18px) !important; font-weight: 400 !important; line-height: 1.4 !important;
+  color: var(--color-muted, #5c5c5c) !important;
+}
+.pastors-section:not(#_) .pastor-text-content p {
+  margin: 0 0 var(--sp-4, 16px) !important;
+  font-size: var(--fs-body, 16px) !important; font-weight: 400 !important; line-height: 1.7 !important;
+  color: var(--color-text, #333) !important;
+}
+.pastors-section:not(#_) .pastor-text-content .pastor-name { font-weight: 600 !important; color: var(--color-ink, #111) !important; }
+.pastors-section:not(#_) .pastor-more { margin: var(--sp-5, 24px) 0 0 !important; }
+.pastors-section:not(#_) .pastor-more a {
+  font-weight: 600; color: var(--color-maroon-700, #6e0f4a); text-decoration: none;
+  border-bottom: 1.5px solid var(--color-maroon-100, #f1dde8); padding-bottom: 2px;
+}
+.pastors-section:not(#_) .pastor-more a:hover { border-bottom-color: var(--color-maroon-700, #6e0f4a); }
+.pastors-section:not(#_) .pastor-image-2 {
+  width: auto !important;
+  margin: 0 0 calc(-1 * var(--founder-overlap)) !important;
+}
+.pastors-section:not(#_) .pastor-image-2 img {
+  display: block;
+  width: 100% !important; height: auto !important;
+  aspect-ratio: 4 / 5; object-fit: cover; object-position: center top;
+  border-radius: 24px !important;
+  box-shadow: 0 32px 64px -32px rgba(17, 17, 17, .45);
+}
+/* make room for the photo's break-out in the maroon section */
+.ministries-section:not(#_) { padding-top: calc(var(--section-y, 80px) + var(--founder-overlap)) !important; }
+
+/* laptops: a slightly narrower photo column */
+@media (max-width: 1280px) {
+  .pastors-section:not(#_) .pastor-rows.reverse { grid-template-columns: minmax(0, 1fr) minmax(0, 380px); column-gap: var(--sp-7, 48px); }
+}
+/* tablets & phones: stacked, photo first, no overlap */
+@media (max-width: 900px) {
+  :root { --founder-overlap: 0px; }
+  .pastors-section:not(#_) .pastor-rows.reverse { grid-template-columns: 1fr; row-gap: var(--sp-6, 32px); padding-left: var(--gutter, 20px) !important; padding-right: var(--gutter, 20px) !important; }
+  .pastors-section:not(#_) .pastor-image-2 { order: -1; margin: 0 !important; }
+  .pastors-section:not(#_) .pastor-image-2 img { aspect-ratio: 4 / 3.6; max-height: 560px; border-radius: 16px !important; }
+  .pastors-section:not(#_) .pastor-contents-1 { max-width: none; }
+}
