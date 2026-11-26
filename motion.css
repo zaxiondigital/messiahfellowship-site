@@ -1,0 +1,46 @@
+/* =====================================================================
+   Messiah Fellowship – motion
+   1. Scroll reveal: blocks below the fold fade + rise in as they scroll into
+      view (motion.js marks them; uses `translate`, so blocks that already have
+      their own transform keep it). Nothing is hidden if motion.js doesn't run.
+   2. Page banner title rises in on load.
+   3. Soft fade between pages (in-app links and full page loads).
+   Everything is off for visitors who ask their device for reduced motion.
+   No hover movement anywhere.
+   ===================================================================== */
+
+@keyframes mf-rise {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: none; }
+}
+@keyframes mf-fade {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+
+  /* ---------- 1. Scroll reveal ---------- */
+  [data-mf="wait"] { opacity: 0; translate: 0 40px; }
+  [data-mf="in"] {
+    opacity: 1; translate: 0 0;
+    transition: opacity .7s ease-out, translate .8s cubic-bezier(.2, .7, .2, 1);
+  }
+  [data-mf="in"][data-mf-d="1"] { transition-delay: .1s; }
+  [data-mf="in"][data-mf-d="2"] { transition-delay: .2s; }
+  [data-mf="in"][data-mf-d="3"] { transition-delay: .3s; }
+  [data-mf="in"][data-mf-d="4"] { transition-delay: .4s; }
+
+  /* ---------- 2. Banner title ---------- */
+  router-outlet + * .main-heading,
+  router-outlet + * .hero-content,
+  router-outlet + * .hero-bar-text {
+    animation: mf-rise .8s cubic-bezier(.2, .7, .2, 1) .15s both;
+  }
+
+  /* ---------- 3. Page transitions ---------- */
+  @view-transition { navigation: auto; }                       /* full page loads */
+  ::view-transition-old(root),
+  ::view-transition-new(root) { animation-duration: .3s; }
+  router-outlet + * { animation: mf-fade .4s ease-out both; }  /* in-app pages */
+}
