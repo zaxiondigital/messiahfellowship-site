@@ -380,5 +380,52 @@ app-footer:not(#_) .footer .prayer-card .desc { margin-bottom: var(--sp-5, 20px)
 }
 @media (min-width: 769px) {
   app-footer:not(#_) .footer .footer-social { justify-content: flex-end !important; gap: var(--sp-6, 32px) !important; }   /* row-reverse: flex-end = left edge */
-  app-footer:not(#_) .footer .footer-col.social { flex-wrap: nowrap !important; }
+  app-footer:not(#_) .footer .footer-col.social { flex-wrap: wrap !important; }
 }
+
+/* ---------- Wider prayer form, shorter footer ----------
+   "Follow us" sits above its buttons (like the column headings), so the left side
+   needs less width; the form takes the rest. Once the card is wide enough its
+   fields go side by side (details left, prayer request right). */
+@media (min-width: 769px) {
+  app-footer:not(#_) .footer .social-text { width: 100% !important; margin: 0 0 var(--sp-1, 4px) !important; }
+}
+@media (min-width: 1025px) {
+  app-footer:not(#_) .footer .footer-container {
+    grid-template-columns: max-content max-content max-content minmax(0, 1fr) !important;
+    grid-template-areas:
+      "brand brand brand form"
+      "line  line  line  form"
+      "info  min   inv   form" !important;
+    column-gap: 32px !important;
+  }
+  app-footer:not(#_) .footer .footer-form { margin-left: var(--sp-3, 16px) !important; }
+}
+app-footer:not(#_) .footer .prayer-card { container-type: inline-size; }
+@container (min-width: 440px) {
+  /* 2 x 2 details (Name | City, Email | Phone), prayer request full width below */
+  app-footer:not(#_) .footer .left-fields {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) !important;
+    grid-template-rows: repeat(6, auto) !important;
+    column-gap: var(--sp-5, 20px) !important;
+    row-gap: 0 !important;
+    align-items: start !important;
+  }
+  app-footer:not(#_) .footer .left-fields > [for^="f-name-"]  { grid-area: 1 / 1; }
+  app-footer:not(#_) .footer .left-fields > [name="name"]     { grid-area: 2 / 1; }
+  app-footer:not(#_) .footer .left-fields > [name="name"] + div  { grid-area: 3 / 1; }
+  app-footer:not(#_) .footer .left-fields > [for^="f-email-"] { grid-area: 4 / 1; }
+  app-footer:not(#_) .footer .left-fields > [name="email"]    { grid-area: 5 / 1; }
+  app-footer:not(#_) .footer .left-fields > [name="email"] + div { grid-area: 6 / 1; }
+  app-footer:not(#_) .footer .left-fields > [for^="f-city-"]  { grid-area: 1 / 2; }
+  app-footer:not(#_) .footer .left-fields > [name="city"]     { grid-area: 2 / 2; }
+  app-footer:not(#_) .footer .left-fields > [name="city"] + div  { grid-area: 3 / 2; }
+  app-footer:not(#_) .footer .left-fields > [for^="f-phone-"] { grid-area: 4 / 2; }
+  app-footer:not(#_) .footer .left-fields > .phone-group      { grid-area: 5 / 2; }
+  app-footer:not(#_) .footer .left-fields > .phone-group + div { grid-area: 6 / 2; }
+  app-footer:not(#_) .footer .prayer-form textarea { min-height: 96px !important; }
+  app-footer:not(#_) .footer .prayer-form .phone-group select { width: 72px !important; flex: 0 0 72px !important; padding: 0 4px 0 8px !important; }
+  app-footer:not(#_) .footer .prayer-form .phone-group { gap: 6px !important; }
+}
+
