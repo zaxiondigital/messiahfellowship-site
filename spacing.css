@@ -596,7 +596,7 @@ section.outreach > .row, section.outreach > .row1, section.outreach > .rows,
 .mt-home:not(#_) .mt-home-media { position: relative; min-height: 360px; }
 .mt-home:not(#_) .mt-home-img {
   position: absolute; inset: 0; width: 100% !important; height: 100% !important;
-  object-fit: cover; object-position: 62% 78%; border-radius: 0 !important;
+  object-fit: cover; object-position: 50% 45%; border-radius: 0 !important;
 }
 @media (max-width: 900px) {
   .mt-home:not(#_) .mt-home-card { grid-template-columns: 1fr; }
