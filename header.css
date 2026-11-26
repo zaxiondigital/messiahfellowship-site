@@ -441,3 +441,33 @@ app-header .navbar { background: transparent !important; }
 @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
   app-header { background: rgba(255, 255, 255, .96) !important; }   /* no blur support: keep text readable */
 }
+
+/* Smooth drop-downs on desktop (2026-11-26): the panel fades in while sliding down
+   a few pixels instead of popping in, and fades out the same way. Same triggers as
+   before (hover / keyboard focus); closing after a link is chosen stays instant.
+   Visitors who ask for reduced motion get an instant open/close. */
+@media (min-width: 1101px) {
+  .navbar-ministries .ministries-content {
+    display: flex !important;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+  .navbar-ministries:hover .ministries-content,
+  .navbar-ministries:focus-within .ministries-content {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+  }
+}
+@media (min-width: 1101px) and (prefers-reduced-motion: no-preference) {
+  .navbar-ministries .ministries-content {
+    transform: translateY(-8px);
+    transition: opacity .18s ease, transform .22s cubic-bezier(.2, .7, .2, 1), visibility 0s linear .22s;
+  }
+  .navbar-ministries:hover .ministries-content,
+  .navbar-ministries:focus-within .ministries-content {
+    transform: none;
+    transition: opacity .2s ease, transform .24s cubic-bezier(.2, .7, .2, 1), visibility 0s;
+  }
+}
