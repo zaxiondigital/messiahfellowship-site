@@ -660,3 +660,11 @@ app-bible-college:not(#_) .hero-content p {
 /* Contact banner: the pastors' faces are near the top of the photo – frame from the top
    so heads are never cut off on wide screens. */
 img.main-imgs[src*="contact-img"]:not(#_) { object-position: 50% 0% !important; }
+
+/* Inner page banners: maroon wash (option B, chosen 2026-11-26) instead of the grey/black
+   overlay – photos keep their colour, the white title stays readable. The overlay is the
+   box right after the banner photo on every inner page (About, Contact, ministries, Give…). */
+img.main-imgs:not(#_) + div {
+  background: linear-gradient(180deg, rgba(79, 8, 52, .30) 0%, rgba(79, 8, 52, .50) 55%, rgba(60, 6, 40, .68) 100%) !important;
+}
+.main-heading:not(#_) { text-shadow: 0 2px 16px rgba(40, 4, 26, .45); }
