@@ -25,7 +25,7 @@ my %PAGES = (
   matrimony => {
     title => 'Telugu Christian Matrimony | Messiah Fellowship Vijayawada',
     desc  => 'Free Telugu Christian matrimony service at Messiah Fellowship, Vijayawada. Matrimony drives at the church, open to Christians from all castes. Call 9494 7676 33.',
-    image => 'family-blessing.jpg',
+    image => 'matrimony-hero.jpg',
     css   => ['pastors.css', 'matrimony.css'],
     js    => [],
   },
