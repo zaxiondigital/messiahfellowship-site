@@ -59,6 +59,16 @@
     if (e.target.closest && e.target.closest('.meet-pastor')) { e.preventDefault(); location.href = '/pastors/'; }
   });
 
+  /* ---------- "Find Out More" (home welcome section) opens About ----------
+     Uses the About menu link so it stays in-app (no reload), then starts at the top. */
+  document.addEventListener('click', function (e) {
+    if (!(e.target.closest && e.target.closest('.cta-btn'))) return;
+    e.preventDefault();
+    var about = document.querySelector('.nav-links a[href="/about"]');
+    if (about) about.click(); else location.href = '/about';
+    window.scrollTo(0, 0);
+  });
+
   /* ---------- Page title follows in-app navigation ----------
      The app never set titles, so after moving between pages the tab kept the
      first page's title. Same titles as each page's own <title>. */
