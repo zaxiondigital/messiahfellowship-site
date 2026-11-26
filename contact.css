@@ -121,3 +121,10 @@
   .contact-section:not(#_) .contact-left img { aspect-ratio: 4 / 3.4; }
   .contact-section:not(#_) .contact-right form button { align-self: stretch; }
 }
+
+/* contact form: visible labels above each field (added by /forms.js) */
+.contact-section:not(#_) .contact-right .fld-label {
+  display: block; margin: 0 0 -8px; padding: 0;
+  font-size: 14px; font-weight: 600; line-height: 1.3; color: var(--color-ink, #111);
+}
+.contact-section:not(#_) .contact-right .fld-label b { color: var(--color-maroon-700, #6e0f4a); }
