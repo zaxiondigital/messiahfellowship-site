@@ -117,6 +117,24 @@
   window.addEventListener('scroll', function () { if (!scrolledQueued) { scrolledQueued = true; requestAnimationFrame(markScrolled); } }, { passive: true });
   markScrolled();
 
+  /* ---------- Home hero video: make sure it autoplays ----------
+     Browsers only autoplay videos that are muted. When the app creates or
+     updates the <video>, the HTML "muted" attribute does not switch the sound
+     off (the .muted property stays false), so the video stayed frozen.
+     Set it in script and start playback; re-run when the home page is redrawn. */
+  function heroVideo() {
+    var v = document.querySelector('.hero-video video');
+    if (!v || v.dataset.mfAuto) return;
+    v.dataset.mfAuto = '1';
+    v.muted = true; v.defaultMuted = true; v.playsInline = true; v.loop = true;
+    v.setAttribute('muted', ''); v.setAttribute('playsinline', '');
+    var go = function () { if (v.paused) { var p = v.play(); if (p && p.catch) p.catch(function () {}); } };
+    if (v.readyState >= 2) go(); else v.addEventListener('canplay', go, { once: true });
+    go();
+  }
+  new MutationObserver(heroVideo).observe(document.documentElement, { childList: true, subtree: true });
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', heroVideo); else heroVideo();
+
   /* ---------- Page title follows in-app navigation ----------
      The app never set titles, so after moving between pages the tab kept the
      first page's title. Same titles as each page's own <title>. */
