@@ -135,6 +135,40 @@
   new MutationObserver(heroVideo).observe(document.documentElement, { childList: true, subtree: true });
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', heroVideo); else heroVideo();
 
+  /* ---------- Home outreach cards: "Know More ›" is a real link ----------
+     The whole card already opens the page in-app; the link gives it a real
+     destination (right-click → new tab, hover preview, screen readers).
+     - plain click / Enter: let the card do its fast in-app navigation
+     - Ctrl/Cmd/Shift/middle click: browser opens the link; the card must not also navigate */
+  var KNOW_MORE = {
+    'WIDOW CARE MINISTRY': '/widowcare', 'MEDICAL MINISTRY': '/medical', 'FLOOD RELIEF': '/floodrelief',
+    'KAMALA ARTS & CRAFT': '/kamalaarts', 'VEGETABLE DISTRIBUTION': '/vegetables'
+  };
+  function knowMoreLinks() {
+    document.querySelectorAll('.outreach-card').forEach(function (card) {
+      var a = card.querySelector('.date-know a'), t = card.querySelector('.date-know span');
+      if (!a || !t) return;
+      var href = KNOW_MORE[t.textContent.trim()];
+      if (!href) return;
+      if (a.getAttribute('href') !== href) a.setAttribute('href', href);
+      if (!a.hasAttribute('aria-label')) {
+        a.setAttribute('aria-label', 'Know more about ' + t.textContent.trim().toLowerCase().replace(/\b\w/g, function (c) { return c.toUpperCase(); }));
+      }
+      if (card.getAttribute('tabindex') !== '-1') card.setAttribute('tabindex', '-1');   // the link is the one tab stop
+    });
+  }
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('.outreach-card .date-know a[href]');
+    if (!a) return;
+    if (e.ctrlKey || e.metaKey || e.shiftKey || e.button !== 0) { e.stopPropagation(); return; }   // new tab/window
+    e.preventDefault();                                     // the card's own in-app navigation runs
+  }, true);
+  document.addEventListener('auxclick', function (e) {
+    if (e.target.closest && e.target.closest('.outreach-card .date-know a[href]')) e.stopPropagation();
+  }, true);
+  new MutationObserver(function () { knowMoreLinks(); }).observe(document.documentElement, { childList: true, subtree: true });
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', knowMoreLinks); else knowMoreLinks();
+
   /* ---------- Page title follows in-app navigation ----------
      The app never set titles, so after moving between pages the tab kept the
      first page's title. Same titles as each page's own <title>. */

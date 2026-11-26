@@ -8,8 +8,9 @@ local $/;
 my ($jsf) = glob('main-*.js');
 open my $f, '<:raw', $jsf or die $!; my $s = <$f>; close $f;
 # patterns exactly as they must appear inside a JS string literal (backslashes doubled)
-my $IN = '^\\\\s*0?[6-9](?:[\\\\s-]*\\\\d){9}\\\\s*$';
-my $WW = '^\\\\s*\\\\(?(?:\\\\d[\\\\s().-]*){6,15}$';
+# (- ( ) . escaped inside [ ]: browsers also read this as an HTML pattern in strict "v" mode)
+my $IN = '^\\\\s*0?[6-9](?:[\\\\s\\\\-]*\\\\d){9}\\\\s*$';
+my $WW = '^\\\\s*\\\\(?(?:\\\\d[\\\\s\\\\(\\\\)\\\\.\\\\-]*){6,15}$';
 my $OLD_IN = '^[6-9]\\\\d{9}$';
 
 sub splice_once {
