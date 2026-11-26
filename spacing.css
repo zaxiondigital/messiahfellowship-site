@@ -457,3 +457,7 @@ section.outreach > .row, section.outreach > .row1, section.outreach > .rows,
   align-items: flex-start !important;
 }
 .mission-box .mission-content > :last-child { margin-bottom: 0 !important; }
+
+/* "A Place to Grow in Faith" cards: no lift on hover (the 6px jump felt jumpy) */
+.ministries-section:not(#_) .card:hover,
+.ministries-section:not(#_) .card1:hover { transform: none !important; }
