@@ -309,3 +309,27 @@
 }
 @media (prefers-reduced-motion: reduce) { .wa-float { transition: none; } .wa-float:hover { transform: none; } }
 @media print { .wa-float { display: none; } }
+
+/* welcome bar: "Service Times" button (scrolls to the schedule) = solid white */
+.hero-btn-services { background: #fff; border-color: #fff; color: var(--color-ink, #111); }
+.hero-btn-services:hover { background: var(--color-gold-400, #c8a23a); border-color: var(--color-gold-400, #c8a23a); color: var(--color-ink, #111); }
+/* keep the buttons clear of the round WhatsApp icon (bottom-right) */
+@media (min-width: 901px) { .hero-bar-actions { margin-right: 84px; } }
+
+/* home schedule: the weekday meetings under the 3 Sunday cards */
+.about-section:not(#_) .services-more {
+  max-width: 720px;
+  margin: var(--sp-5, 24px) auto var(--sp-7, 48px) !important;
+  font-size: 15px !important;
+  line-height: 1.6 !important;
+  text-align: center;
+  color: var(--color-muted, #5c5c5c) !important;
+}
+
+/* phones: the top bar shows only the Sunday times (one line, no swipe);
+   Prayer Tower hours are in the home schedule line and on the Prayer Tower page */
+@media (max-width: 600px) {
+  .top-bar span + span { display: none !important; }
+  .top-bar { justify-content: center !important; -webkit-mask-image: none !important; mask-image: none !important; }
+  .top-bar span:last-child { padding-right: 0 !important; }
+}

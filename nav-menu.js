@@ -92,6 +92,18 @@
     location.href = url;
   }, true);
 
+  /* ---------- Welcome bar "Service Times" → the Sunday schedule on the home page ---------- */
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('.hero-btn-services');
+    if (!a) return;
+    e.preventDefault();
+    var t = document.querySelector('.about-section .sub-heading') || document.querySelector('.about-section');
+    if (!t) return;
+    var y = t.getBoundingClientRect().top + window.scrollY - 24;
+    var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+    window.scrollTo({ top: y, behavior: reduce ? 'auto' : 'smooth' });
+  });
+
   /* ---------- Page title follows in-app navigation ----------
      The app never set titles, so after moving between pages the tab kept the
      first page's title. Same titles as each page's own <title>. */
