@@ -461,6 +461,9 @@ section.outreach > .row, section.outreach > .row1, section.outreach > .rows,
 /* "A Place to Grow in Faith" cards: no lift on hover (the 6px jump felt jumpy) */
 .ministries-section:not(#_) .card:hover,
 .ministries-section:not(#_) .card1:hover { transform: none !important; }
+/* About page value + belief cards: same – no lift or pop-out shadow on hover */
+.values-section:not(#_) .value-card:hover,
+.belief-section:not(#_) .belief-card:hover { transform: none !important; box-shadow: none !important; }
 
 /* =====================================================================
    Home > Pastor Sajja Eliazer: text left · photo right, the photo breaks
