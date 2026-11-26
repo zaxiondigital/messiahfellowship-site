@@ -45,13 +45,13 @@
   form.addEventListener('submit', function (e) {
     e.preventDefault();
     if (!form.checkValidity()) { form.reportValidity(); return; }
-    var data = {};
+    var data = { access_key: '6be91bf5-bbfb-4ccf-ab0d-9f123fd31acd', from_name: 'Messiah Fellowship website', subject: 'Prayer request from the website' };
     Array.prototype.forEach.call(form.elements, function (el) { if (el.name) data[el.name] = el.value; });
     btn.disabled = true;
     msg.textContent = 'Message sending please wait...';
-    fetch('https://messiah-backend-20.onrender.com/send-email', {
+    fetch('https://api.web3forms.com/submit', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
       body: JSON.stringify(data)
     }).then(function (r) {
       if (!r.ok) throw new Error('Failed to send');

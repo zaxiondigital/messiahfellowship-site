@@ -8,7 +8,8 @@
   'use strict';
   var form = document.getElementById('apply-form');
   if (!form) return;
-  var ENDPOINT = 'https://messiah-backend-20.onrender.com/send-email';
+  var ENDPOINT = 'https://api.web3forms.com/submit';
+  var W3F_KEY = '6be91bf5-bbfb-4ccf-ab0d-9f123fd31acd';
   var course = form.elements.course, qual = form.elements.qualification;
   var hint = document.getElementById('ap-course-hint');
   var status = form.querySelector('.ap-status');
@@ -117,6 +118,7 @@
       'Why they would like to join:', val('why') || '–'
     ];
     var data = {
+      access_key: W3F_KEY, from_name: 'Messiah Fellowship website',
       name: val('name'), email: val('email'), countryCode: val('countryCode'), phone: val('phone'),
       city: val('city'), subject: 'Bible College application – ' + val('course'),
       message: lines.join('\n')
@@ -124,8 +126,8 @@
     btn.disabled = true;
     btn.textContent = 'Sending…';
     status.className = 'ap-status';
-    status.textContent = 'Sending your application. This can take up to 30 seconds, please keep this page open.';
-    fetch(ENDPOINT, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data) })
+    status.textContent = 'Sending your application…';
+    fetch(ENDPOINT, { method: 'POST', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }, body: JSON.stringify(data) })
       .then(function (r) { if (!r.ok) throw new Error(r.status); })
       .then(function () {
         var done = document.querySelector('.ap-done');

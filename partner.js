@@ -7,7 +7,8 @@
    Opens only on click; Esc / ✕ / clicking outside closes; phones get a bottom sheet. */
 (function () {
   'use strict';
-  var ENDPOINT = 'https://messiah-backend-20.onrender.com/send-email';
+  var ENDPOINT = 'https://api.web3forms.com/submit';
+  var W3F_KEY = '6be91bf5-bbfb-4ccf-ab0d-9f123fd31acd';
   var PAGES = {
     floodrelief: 'Flood Relief', medical: 'Medical Ministry', widowcare: 'Widow Care Ministry',
     kamalaarts: 'Kamala Arts & Craft', vegetables: 'Vegetable Distribution'
@@ -138,10 +139,11 @@
     ];
     var btn = form.querySelector('.pt-submit');
     btn.disabled = true; btn.textContent = 'Sending…';
-    setStatus('Sending… this can take up to 30 seconds, please keep this open.');
+    setStatus('Sending…');
     fetch(ENDPOINT, {
-      method: 'POST', headers: { 'Content-Type': 'application/json' },
+      method: 'POST', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
       body: JSON.stringify({
+        access_key: W3F_KEY, from_name: 'Messiah Fellowship website',
         name: el.name.value.trim(), email: el.email.value.trim(),
         countryCode: el.countryCode.value, phone: el.phone.value.trim(),
         city: '', subject: 'Partner in Service – ' + m, message: lines.join('\n')
