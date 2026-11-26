@@ -668,3 +668,15 @@ img.main-imgs:not(#_) + div {
   background: linear-gradient(180deg, rgba(79, 8, 52, .30) 0%, rgba(79, 8, 52, .50) 55%, rgba(60, 6, 40, .68) 100%) !important;
 }
 .main-heading:not(#_) { text-shadow: 0 2px 16px rgba(40, 4, 26, .45); }
+
+/* Banner framing per photo (2026-11-26): on wide screens a banner shows only about half
+   of the photo's height, so each photo gets its own focus point (default is 40% down).
+   Checked with a contact sheet of every banner; Contact (0%) is set above. */
+img.main-imgs[src*="biblecollege"]:not(#_)            { object-position: 50% 0% !important; }   /* Apply: graduation caps */
+img.main-imgs[src*="kamalaarts"]:not(#_)              { object-position: 50% 15% !important; }  /* back rows of the group */
+img.main-imgs[src*="about-img"]:not(#_)               { object-position: 50% 20% !important; }  /* About, Privacy: stage + hall */
+img.main-imgs[src*="children-ministries"]:not(#_)     { object-position: 50% 25% !important; }  /* children on the stage */
+img.main-imgs[src*="vegetable-programining"]:not(#_)  { object-position: 50% 25% !important; }  /* people at the back */
+img.main-imgs[src*="floodrelief"]:not(#_)             { object-position: 50% 30% !important; }
+img.main-imgs[src*="prayer-tower1"]:not(#_)           { object-position: 50% 30% !important; }  /* pastor's raised hand */
+img.main-imgs[src*="matrimony-hero"]:not(#_)          { object-position: 50% 90% !important; }  /* Bible, rings and candles */
