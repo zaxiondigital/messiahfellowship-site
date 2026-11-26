@@ -28,7 +28,6 @@
       '<div class="pt-sheet">' +
         '<button type="button" class="pt-close" aria-label="Close">×</button>' +
         '<div class="pt-body">' +
-          '<span class="pt-eyebrow" id="pt-ministry"></span>' +
           '<h2 id="pt-title">Partner in service</h2>' +
           '<p class="pt-intro">Thank you for wanting to serve with us. Share a few details and our team will get in touch.</p>' +
           '<form novalidate>' +
@@ -77,7 +76,6 @@
     if (!dlg) build();
     lastFocus = from || document.activeElement;
     var m = ministry();
-    dlg.querySelector('#pt-ministry').textContent = m;
     dlg.dataset.ministry = m;
     form.hidden = false;
     dlg.querySelector('.pt-done').hidden = true;
