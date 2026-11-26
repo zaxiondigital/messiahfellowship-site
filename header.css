@@ -432,3 +432,12 @@ html.is-scrolled app-header { --hdr-pad: 10px; --logo-h: 44px; --dd-gap: 23px; }
   .about-section:not(#_) .service-card .svc-day { grid-area: day; }
   .about-section:not(#_) .service-card .svc-name { grid-area: name; }
 }
+
+/* header background at 90% opacity with a soft blur ("frosted glass"):
+   content shows through gently while the logo and menu stay fully crisp.
+   Drop-downs and the phone menu panel stay solid white for readability. */
+app-header { background: rgba(255, 255, 255, .9) !important; -webkit-backdrop-filter: saturate(1.4) blur(12px); backdrop-filter: saturate(1.4) blur(12px); }
+app-header .navbar { background: transparent !important; }
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  app-header { background: rgba(255, 255, 255, .96) !important; }   /* no blur support: keep text readable */
+}
