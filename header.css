@@ -232,3 +232,59 @@
 
 /* phone, email and map act as links (see /nav-menu.js): show the link cursor */
 [data-mf-link] { cursor: pointer; }
+
+/* =====================================================================
+   Home hero: welcome bar on the video (who · when · where + 2 actions)
+   Desktop/laptop: along the bottom of the video over a dark fade, so the
+   video's own title (centre) stays clear. Phones/tablets: a dark strip
+   directly under the video (the video is too short to carry text).
+   ===================================================================== */
+.hero-video { position: relative; display: block; background: #0b0709; }
+.hero-video > video { display: block; width: 100%; height: auto; max-height: calc(100vh - 106px); object-fit: cover; }   /* 106px = top bar + header: the welcome bar stays on the first screen */
+.hero-bar {
+  position: absolute; left: 0; right: 0; bottom: 0;
+  display: flex; align-items: flex-end; justify-content: space-between; gap: var(--sp-6, 32px);
+  padding: 96px max(var(--gutter, 20px), calc((100% - var(--container, 1200px)) / 2)) 40px;
+  background: linear-gradient(180deg, rgba(11, 7, 9, 0) 0%, rgba(11, 7, 9, .72) 45%, rgba(11, 7, 9, .92) 100%);
+  color: #fff;
+}
+.hero-bar:not(#_) .hero-eyebrow {
+  display: block; margin: 0 0 6px;
+  font-size: 13px !important; font-weight: 600 !important; letter-spacing: .14em !important; text-transform: uppercase;
+  color: var(--color-gold-400, #c8a23a) !important;
+}
+.hero-bar:not(#_) .hero-title {
+  margin: 0 0 6px !important;
+  font-family: var(--font-heading) !important; font-size: clamp(28px, 3vw, 40px) !important; font-weight: 500 !important;
+  line-height: 1.15 !important; color: #fff !important;
+}
+.hero-bar:not(#_) .hero-times { margin: 0 !important; font-size: 16px !important; line-height: 1.5 !important; color: rgba(255, 255, 255, .88) !important; }
+.hero-bar-actions { display: flex; flex-wrap: wrap; gap: var(--sp-3, 12px); flex: 0 0 auto; }
+.hero-btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-height: 48px; padding: 0 28px;
+  border: 1.5px solid #fff; border-radius: 999px;
+  font-size: 14px; font-weight: 600; letter-spacing: .04em; text-transform: uppercase;
+  text-decoration: none; white-space: nowrap;
+  transition: background .2s, color .2s, border-color .2s;
+}
+.hero-btn-live { background: #ff0000; border-color: #ff0000; color: #fff; }
+.hero-btn-live:hover { background: #cc0000; border-color: #cc0000; color: #fff; }
+.hero-btn-dir { background: transparent; color: #fff; }
+.hero-btn-dir:hover { background: #fff; color: var(--color-maroon-700, #6e0f4a); }
+.hero-btn:focus-visible { outline: 3px solid var(--color-gold-400, #c8a23a); outline-offset: 3px; }
+
+@media (max-width: 1100px) {
+  .hero-bar { padding-top: 72px; padding-bottom: 28px; }
+}
+/* tablets & phones: below the video */
+@media (max-width: 900px) {
+  .hero-bar {
+    position: static;
+    flex-direction: column; align-items: flex-start; gap: var(--sp-5, 20px);
+    padding: var(--sp-6, 28px) var(--gutter, 20px) var(--sp-7, 32px);
+    background: #0b0709;
+  }
+  .hero-bar-actions { width: 100%; }
+  .hero-btn { flex: 1 1 0; padding: 0 16px; }
+}
