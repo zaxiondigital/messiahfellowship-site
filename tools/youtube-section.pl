@@ -57,7 +57,7 @@ my $newblk = join '',
   'c(161,"p",79),d(162,"', jsq($T{times}), '"),u(),',
   'c(163,"div",80)(164,"a",81),d(165,"', jsq($T{live}), '"),u(),c(166,"a",82),d(167,"', jsq($T{sub}), '"),u()(),',
   'c(168,"a",83),d(169,"', jsq($T{vids}), '"),u()(),',
-  'g(170,"a",84),u()';
+  'g(170,"a",84),u()()';   # closes yt-card (152) and its wrapper (151)
 # shift everything after the block first (old numbers >= 163 -> +8)
 $tpl =~ s{\((\d+),"}{'(' . ($1 >= 163 ? $1 + 8 : $1) . ',"'}ge;
 $tpl =~ s{d\((\d+),`}{'d(' . ($1 >= 163 ? $1 + 8 : $1) . ',`'}ge;
