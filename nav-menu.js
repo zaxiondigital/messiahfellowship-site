@@ -149,10 +149,10 @@
     if (label) el.setAttribute('aria-label', label);
   }
   function enhance() {
-    // footer "Plan Your Visit" / "Volunteer" → Contact (routerlink attr = same look as the other footer links)
+    // footer "Volunteer" → Contact (routerlink attr = same look as the other footer links)
     document.querySelectorAll('app-footer .footer-col p:not([routerlink])').forEach(function (p) {
       var t = p.textContent.trim();
-      if (t === 'Plan Your Visit' || t === 'Volunteer') { p.setAttribute('routerlink', '/contact'); p.dataset.mfGo = '/contact'; asLink(p); }
+      if (t === 'Volunteer') { p.setAttribute('routerlink', '/contact'); p.dataset.mfGo = '/contact'; asLink(p); }
     });
     // phone & email (Contact page + footer) → tap to call / email
     document.querySelectorAll('.contact-info span, app-footer p.contact').forEach(function (el) {
