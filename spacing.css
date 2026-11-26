@@ -532,3 +532,78 @@ section.outreach > .row, section.outreach > .row1, section.outreach > .rows,
   .pastors-section:not(#_) .pastor-image-2 img { aspect-ratio: 4 / 3.6; max-height: 560px; border-radius: 16px !important; }
   .pastors-section:not(#_) .pastor-contents-1 { max-width: none; }
 }
+
+/* =====================================================================
+   Home: Telugu Christian Matrimony feature (between YouTube and the
+   Bible College). Split card: text left · rings photo right (mirrors the
+   Bible College box below). Warm cream card with a gold top edge.
+   ≤900px: stacked, photo on top.
+   ===================================================================== */
+.mt-home:not(#_) {
+  display: block;
+  padding: var(--section-y, 80px) max(var(--gutter, 20px), calc((100% - var(--container, 1200px)) / 2)) 0;
+  background: #fff;
+}
+.mt-home:not(#_) .mt-home-card {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  overflow: hidden;
+  border-radius: 16px;
+  background: var(--color-cream, #fffbf0);
+  border-top: 3px solid var(--color-gold-400, #c8a23a);
+  box-shadow: 0 24px 48px -36px rgba(17, 17, 17, .35);
+}
+.mt-home:not(#_) .mt-home-text { padding: var(--pad-box, 48px); align-self: center; }
+.mt-home:not(#_) .mt-home-tag {
+  display: inline-block; margin: 0 0 var(--sp-4, 16px);
+  padding: 5px 12px; border-radius: 999px;
+  background: var(--color-maroon-700, #6e0f4a); color: #fff;
+  font-size: 12px !important; font-weight: 600 !important; letter-spacing: .1em !important; text-transform: uppercase;
+}
+.mt-home:not(#_) h2 {
+  margin: 0 0 var(--sp-2, 8px) !important;
+  font-family: var(--font-heading) !important; font-size: var(--fs-h2) !important; font-weight: 500 !important;
+  line-height: var(--lh-heading, 1.15) !important; color: var(--color-ink, #111) !important;
+}
+.mt-home:not(#_) .mt-home-te {
+  margin: 0 0 var(--sp-4, 16px) !important;
+  font-size: 20px !important; font-weight: 600 !important; line-height: 1.5 !important;
+  color: var(--color-maroon-700, #6e0f4a) !important;
+}
+.mt-home:not(#_) .mt-home-text > p:not(.mt-home-te) {
+  margin: 0 0 var(--sp-5, 24px) !important;
+  font-size: var(--fs-body, 16px) !important; line-height: 1.65 !important; color: var(--color-text, #333) !important;
+}
+.mt-home:not(#_) .mt-home-points { list-style: none; margin: 0 0 var(--sp-6, 32px); padding: 0; display: flex; flex-wrap: wrap; gap: 8px 20px; }
+.mt-home:not(#_) .mt-home-points li { position: relative; padding-left: 24px; font-size: 15px; font-weight: 500; color: var(--color-ink, #111); }
+.mt-home:not(#_) .mt-home-points li::before {
+  content: ""; position: absolute; left: 3px; top: 4px; width: 6px; height: 11px;
+  border-right: 2px solid var(--color-gold-700, #876b22); border-bottom: 2px solid var(--color-gold-700, #876b22);
+  transform: rotate(45deg);
+}
+.mt-home:not(#_) .mt-home-actions { display: flex; flex-wrap: wrap; gap: var(--sp-3, 12px); }
+.mt-home:not(#_) .mt-btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-height: 48px; padding: 0 28px; border: 1.5px solid var(--color-maroon-700, #6e0f4a); border-radius: 999px;
+  font-size: 14px; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; text-decoration: none;
+  transition: background .2s, color .2s, border-color .2s;
+}
+.mt-home:not(#_) .mt-btn-primary { background: var(--color-maroon-700, #6e0f4a); color: #fff; }
+.mt-home:not(#_) .mt-btn-primary:hover { background: var(--color-maroon-900, #4f0834); border-color: var(--color-maroon-900, #4f0834); color: #fff; }
+.mt-home:not(#_) .mt-btn-outline { background: transparent; color: var(--color-maroon-700, #6e0f4a); }
+.mt-home:not(#_) .mt-btn-outline:hover { background: var(--color-maroon-700, #6e0f4a); color: #fff; }
+.mt-home:not(#_) .mt-btn:focus-visible { outline: 3px solid var(--color-gold-400, #c8a23a); outline-offset: 3px; }
+.mt-home:not(#_) .mt-home-media { position: relative; min-height: 360px; }
+.mt-home:not(#_) .mt-home-img {
+  position: absolute; inset: 0; width: 100% !important; height: 100% !important;
+  object-fit: cover; object-position: 62% 78%; border-radius: 0 !important;
+}
+@media (max-width: 900px) {
+  .mt-home:not(#_) .mt-home-card { grid-template-columns: 1fr; }
+  .mt-home:not(#_) .mt-home-media { order: -1; min-height: 0; aspect-ratio: 16 / 9; }
+}
+@media (max-width: 600px) {
+  .mt-home:not(#_) .mt-home-text { padding: var(--sp-6, 32px) var(--sp-5, 20px); }
+  .mt-home:not(#_) .mt-btn { flex: 1 1 100%; }
+  .mt-home:not(#_) .mt-home-points { flex-direction: column; }
+}
