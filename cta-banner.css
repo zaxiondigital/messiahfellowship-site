@@ -216,115 +216,92 @@ app-medicalministries:not(#_) .quote-section .button-outline {
 app-medicalministries:not(#_) .quote-section .quote-small,
 app-medicalministries:not(#_) .quote-section .quote-main { text-align: left !important; }
 
-/* =====================================================================
-   Home: "Worship with us on YouTube" (replaces Family Blessing Prayer)
-   Same banner-card frame. Photo of a Sunday service, maroon gradient from
-   the left so the text reads on any part of the photo; a large YouTube-red
-   play button on the photo side (desktop). Primary action = Watch Live,
-   secondary = Subscribe, tertiary = Browse all videos.
-   ===================================================================== */
-.yt-card:not(#_) {
-  position: relative !important;
-  overflow: hidden !important;
-  min-height: 440px !important;
-  display: flex !important;
-  align-items: stretch !important;
-  isolation: isolate;
-}
-.yt-card:not(#_) > img {
-  position: absolute !important;
-  inset: 0 !important;
-  width: 100% !important;
-  height: 100% !important;
-  object-fit: cover !important;
-  object-position: center 35% !important;
-  border-radius: 0 !important;
-  z-index: -2;
-  transition: transform .6s ease;
-}
-.yt-card:not(#_):hover > img { transform: scale(1.03); }
-.yt-card:not(#_) .overlays {
-  position: relative !important;
-  inset: auto !important;
-  box-sizing: border-box !important;
-  width: 100% !important;
-  display: flex !important;
-  flex-direction: column !important;
-  justify-content: center !important;
-  align-items: flex-start !important;
-  padding: var(--pad-box, 48px) !important;
-  background: linear-gradient(90deg, rgba(17, 1, 11, .94) 0%, rgba(79, 8, 52, .86) 38%, rgba(79, 8, 52, .35) 68%, rgba(17, 1, 11, .10) 100%) !important;
-  z-index: -1;
-}
-.yt-card:not(#_) .overlays > * { max-width: 560px; position: relative; z-index: 1; }
 
-/* eyebrow with a red "live" dot */
-.yt-card:not(#_) .yt-eyebrow {
-  display: inline-flex !important;
-  align-items: center !important;
-  gap: 10px !important;
-  margin: 0 0 var(--sp-4, 16px) !important;
-  padding: 6px 14px 6px 12px !important;
-  border-radius: 999px !important;
-  background: rgba(255, 255, 255, .12) !important;
+/* =====================================================================
+   Home: "Worship with us on YouTube" – its own section (light background)
+   between "A Place to Grow in Faith" (maroon) and the Bible College.
+   Desktop: text left · video-style photo right (16:10, play button, badge)
+   Tablet/phone: one column, text first, photo below, full-width buttons.
+   Actions: Watch Live (YouTube red, primary) · Subscribe (secondary
+   maroon outline) · Browse all videos (text link).
+   ===================================================================== */
+.yt-section:not(#_) {
+  display: block;
+  background: var(--color-surface, #f5f5f5);
+  padding: var(--section-y, 80px) max(var(--gutter, 20px), calc((100% - var(--container, 1200px)) / 2));
+}
+.yt-section:not(#_) .yt-wrap {
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
+  gap: var(--sp-8, 64px);
+  align-items: center;
+}
+
+/* ---------- text ---------- */
+.yt-section:not(#_) .yt-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 0 var(--sp-4, 16px);
+  padding: 6px 14px 6px 12px;
+  border: 1px solid var(--color-border, #e5e5e5);
+  border-radius: 999px;
+  background: #fff;
   font-size: 13px !important;
   font-weight: 600 !important;
   letter-spacing: .12em !important;
-  text-transform: uppercase !important;
-  color: #fff !important;
+  text-transform: uppercase;
+  color: var(--color-ink, #111) !important;
 }
-.yt-card:not(#_) .yt-eyebrow::before {
+.yt-section:not(#_) .yt-eyebrow::before {
   content: "";
   width: 8px; height: 8px;
   border-radius: 50%;
-  background: #ff3b30;
-  box-shadow: 0 0 0 0 rgba(255, 59, 48, .6);
+  background: #ff0000;
   animation: yt-pulse 2s ease-out infinite;
 }
-@keyframes yt-pulse { 0% { box-shadow: 0 0 0 0 rgba(255, 59, 48, .6); } 70%, 100% { box-shadow: 0 0 0 8px rgba(255, 59, 48, 0); } }
-@media (prefers-reduced-motion: reduce) { .yt-card .yt-eyebrow::before { animation: none; } .yt-card > img { transition: none; } }
+@keyframes yt-pulse { 0% { box-shadow: 0 0 0 0 rgba(255, 0, 0, .5); } 70%, 100% { box-shadow: 0 0 0 8px rgba(255, 0, 0, 0); } }
 
-.yt-card:not(#_) h3 {
+.yt-section:not(#_) h2 {
   margin: 0 0 var(--sp-4, 16px) !important;
   font-family: var(--font-heading) !important;
   font-size: var(--fs-h2) !important;
-  font-style: normal !important;
   font-weight: 500 !important;
+  font-style: normal !important;
   line-height: var(--lh-heading, 1.15) !important;
-  color: #fff !important;
+  color: var(--color-ink, #111) !important;
 }
-.yt-card:not(#_) .overlays p {
-  margin: 0 0 var(--sp-4, 16px) !important;
+.yt-section:not(#_) .yt-text > p {
+  margin: 0 0 var(--sp-5, 24px) !important;
   font-size: var(--fs-lead, 18px) !important;
-  font-weight: 400 !important;
   line-height: 1.6 !important;
-  color: rgba(255, 255, 255, .88) !important;
+  color: var(--color-text, #333) !important;
 }
-.yt-card:not(#_) .overlays .yt-times {
-  display: inline-flex !important;
-  align-items: center !important;
-  gap: 8px !important;
+.yt-section:not(#_) .yt-text > .yt-times {
+  display: flex !important;
+  align-items: flex-start !important;
+  gap: 10px !important;
   margin: 0 0 var(--sp-6, 32px) !important;
   font-size: 15px !important;
   font-weight: 600 !important;
-  color: var(--color-gold-400, #c8a23a) !important;
+  line-height: 1.5 !important;
+  color: var(--color-maroon-700, #6e0f4a) !important;
 }
-.yt-card:not(#_) .overlays .yt-times::before {
+.yt-section:not(#_) .yt-times::before {
   content: "";
-  flex: 0 0 18px; width: 18px; height: 18px;
-  background: url("/images/icons/calendar-clock-white.svg") center / contain no-repeat;
+  flex: 0 0 20px; width: 20px; height: 20px;
+  background: url("/images/icons/calendar-clock.svg") center / contain no-repeat;
 }
 
-/* buttons (site button system: 48px pill, uppercase 14px) */
-.yt-card:not(#_) .yt-actions { display: flex !important; flex-wrap: wrap !important; gap: var(--sp-3, 12px) !important; }
-.yt-card:not(#_) .yt-btn {
+/* ---------- actions (site button system: 48px pill, uppercase 14px) ---------- */
+.yt-section:not(#_) .yt-actions { display: flex; flex-wrap: wrap; gap: var(--sp-3, 12px); }
+.yt-section:not(#_) .yt-btn {
   display: inline-flex !important;
   align-items: center !important;
   justify-content: center !important;
-  gap: 8px !important;
   min-height: 48px !important;
   padding: 0 28px !important;
-  border: 1.5px solid #fff !important;
+  border: 1.5px solid transparent !important;
   border-radius: 999px !important;
   font-size: 14px !important;
   font-weight: 600 !important;
@@ -333,55 +310,92 @@ app-medicalministries:not(#_) .quote-section .quote-main { text-align: left !imp
   text-decoration: none !important;
   transition: background .2s, color .2s, border-color .2s !important;
 }
-.yt-card:not(#_) .yt-btn-live { background: #ff0000 !important; border-color: #ff0000 !important; color: #fff !important; }
-.yt-card:not(#_) .yt-btn-live:hover { background: #cc0000 !important; border-color: #cc0000 !important; }
-.yt-card:not(#_) .yt-btn-sub { background: transparent !important; color: #fff !important; }
-.yt-card:not(#_) .yt-btn-sub:hover { background: #fff !important; color: var(--color-maroon-700, #6e0f4a) !important; }
-.yt-card:not(#_) .yt-link {
-  margin-top: var(--sp-5, 24px) !important;
+.yt-section:not(#_) .yt-btn-live { background: #ff0000 !important; border-color: #ff0000 !important; color: #fff !important; }
+.yt-section:not(#_) .yt-btn-live:hover { background: #cc0000 !important; border-color: #cc0000 !important; }
+.yt-section:not(#_) .yt-btn-sub { background: transparent !important; border-color: var(--color-maroon-700, #6e0f4a) !important; color: var(--color-maroon-700, #6e0f4a) !important; }
+.yt-section:not(#_) .yt-btn-sub:hover { background: var(--color-maroon-700, #6e0f4a) !important; color: #fff !important; }
+.yt-section:not(#_) .yt-link {
+  display: inline-block;
+  margin-top: var(--sp-5, 24px);
   font-size: 15px !important;
-  font-weight: 500 !important;
-  color: #fff !important;
+  font-weight: 600 !important;
+  color: var(--color-maroon-700, #6e0f4a) !important;
   text-decoration: none !important;
-  border-bottom: 1px solid rgba(255, 255, 255, .4) !important;
-  padding-bottom: 2px !important;
+  border-bottom: 1.5px solid var(--color-maroon-100, #f1dde8);
+  padding-bottom: 2px;
 }
-.yt-card:not(#_) .yt-link:hover { border-bottom-color: #fff !important; }
-.yt-card:not(#_) a:focus-visible { outline: 3px solid var(--color-gold-400, #c8a23a) !important; outline-offset: 3px !important; }
+.yt-section:not(#_) .yt-link:hover { border-bottom-color: var(--color-maroon-700, #6e0f4a); }
+.yt-section:not(#_) a:focus-visible { outline: 3px solid var(--color-gold-400, #c8a23a); outline-offset: 3px; }
 
-/* big play button on the photo side */
-.yt-card:not(#_) .yt-play {
+/* ---------- video-style photo ---------- */
+.yt-section:not(#_) .yt-media {
+  position: relative;
+  display: block;
+  aspect-ratio: 16 / 10;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #111;
+  box-shadow: 0 32px 64px -32px rgba(17, 17, 17, .45);
+}
+.yt-section:not(#_) .yt-media::after {     /* soft shade so the play button and badge read */
+  content: "";
+  position: absolute; inset: 0;
+  background: linear-gradient(180deg, rgba(17, 17, 17, .05) 40%, rgba(17, 17, 17, .55) 100%);
+}
+.yt-section:not(#_) .yt-thumb {
   position: absolute !important;
-  top: 50% !important;
-  left: 74% !important;
-  width: 96px !important;
-  height: 96px !important;
-  margin: -48px 0 0 -48px !important;
-  border-radius: 50% !important;
-  background: rgba(255, 0, 0, .92) !important;
-  box-shadow: 0 0 0 10px rgba(255, 255, 255, .18), 0 16px 40px rgba(0, 0, 0, .35) !important;
-  transition: transform .2s ease, background .2s ease !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  border-radius: 0 !important;
+  transition: transform .6s ease;
+}
+.yt-section:not(#_) .yt-media:hover .yt-thumb { transform: scale(1.04); }
+.yt-section:not(#_) .yt-play {
+  position: absolute;
+  top: 50%; left: 50%;
+  width: 84px; height: 84px;
+  margin: -42px 0 0 -42px;
+  border-radius: 50%;
+  background: #ff0000;
+  box-shadow: 0 0 0 10px rgba(255, 255, 255, .25), 0 16px 40px rgba(0, 0, 0, .35);
+  transition: transform .2s ease;
   z-index: 1;
 }
-.yt-card:not(#_) .yt-play::before {
+.yt-section:not(#_) .yt-play::before {
   content: "";
   position: absolute;
   top: 50%; left: 50%;
-  margin: -16px 0 0 -10px;
+  margin: -14px 0 0 -8px;
   border-style: solid;
-  border-width: 16px 0 16px 28px;
+  border-width: 14px 0 14px 24px;
   border-color: transparent transparent transparent #fff;
 }
-.yt-card:not(#_) .yt-play:hover { transform: scale(1.08); background: #ff0000 !important; }
+.yt-section:not(#_) .yt-media:hover .yt-play { transform: scale(1.08); }
+.yt-section:not(#_) .yt-badge {
+  position: absolute;
+  left: 16px; bottom: 16px;
+  z-index: 1;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, .94);
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  color: var(--color-ink, #111) !important;
+}
+@media (prefers-reduced-motion: reduce) {
+  .yt-section .yt-eyebrow::before { animation: none; }
+  .yt-section .yt-thumb, .yt-section .yt-play { transition: none; }
+}
 
-/* tablet & phone: text over a darker full-width overlay, no play button */
-@media (max-width: 900px) {
-  .yt-card:not(#_) .yt-play { display: none !important; }
-  .yt-card:not(#_) .overlays { background: linear-gradient(180deg, rgba(79, 8, 52, .78) 0%, rgba(17, 1, 11, .92) 100%) !important; }
+/* ---------- tablet & phone ---------- */
+@media (max-width: 960px) {
+  .yt-section:not(#_) .yt-wrap { grid-template-columns: 1fr; gap: var(--sp-7, 48px); }
+  .yt-section:not(#_) .yt-text { max-width: 640px; }
 }
 @media (max-width: 600px) {
-  .yt-card:not(#_) { min-height: 0 !important; }
-  .yt-card:not(#_) .overlays { padding: var(--sp-7, 48px) var(--sp-5, 20px) !important; }
-  .yt-card:not(#_) .overlays .yt-times { align-items: flex-start !important; }
-  .yt-card:not(#_) .yt-actions, .yt-card:not(#_) .yt-btn { width: 100% !important; }
+  .yt-section:not(#_) .yt-actions .yt-btn { flex: 1 1 100%; }
+  .yt-section:not(#_) .yt-play { width: 68px; height: 68px; margin: -34px 0 0 -34px; }
+  .yt-section:not(#_) .yt-media { border-radius: 12px; }
 }
