@@ -55,7 +55,7 @@ my $church = {
     { '@type' => 'ContactPoint', telephone => '+91-94947-67733', contactType => 'customer support', availableLanguage => ['English', 'Telugu'] },
   ],
   sameAs => [
-    'https://www.facebook.com/share/1CdXpVx2pq/',
+    'https://www.facebook.com/messiahfellowship1/',
     'https://www.instagram.com/messiahfellowshipchurch',
     'https://youtube.com/@messiahfellowship',
   ],
