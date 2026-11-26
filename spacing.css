@@ -607,3 +607,5 @@ section.outreach > .row, section.outreach > .row1, section.outreach > .rows,
   .mt-home:not(#_) .mt-btn { flex: 1 1 100%; }
   .mt-home:not(#_) .mt-home-points { flex-direction: column; }
 }
+/* matrimony card now sits inside the outreach container, after the Bible College box */
+.outreach-section .mt-home:not(#_) { padding: 0; margin: 0 0 var(--section-y, 80px); background: transparent; }
