@@ -1,0 +1,182 @@
+/* =====================================================================
+   Messiah Fellowship – Our Pastors page (/pastors/)
+   Uses the site tokens (spacing.css, typography.css, colors.css).
+   Layout: intro → pastors (photo | text) → founder (text | photo, grey band,
+   key facts, story) → maroon "visit us" call to action.
+   ===================================================================== */
+
+.pf { display: block; color: var(--color-text, #333); }
+.pf section { scroll-margin-top: 24px; }
+
+/* ---------- shared text pieces ---------- */
+.pf-eyebrow {
+  display: block;
+  margin: 0 0 var(--sp-3, 12px);
+  font-family: var(--font-body);
+  font-size: var(--fs-eyebrow, 14px);
+  font-weight: 600;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--color-maroon-700, #6e0f4a);
+}
+.pf h1, .pf h2 {
+  margin: 0 0 var(--sp-5, 24px);
+  font-family: var(--font-heading);
+  font-weight: 600;
+  line-height: var(--lh-heading, 1.15);
+  color: var(--color-ink, #111);
+}
+.pf h1 { font-size: var(--fs-h1); }
+.pf h2 { font-size: var(--fs-h2); }
+.pf p { margin: 0 0 var(--sp-4, 16px); font-size: var(--fs-body, 16px); line-height: var(--lh-body, 1.65); }
+.pf p:last-child { margin-bottom: 0; }
+.pf .pf-lead { font-size: var(--fs-lead, 18px); line-height: 1.55; color: var(--color-ink, #111); }
+
+/* ---------- content column ---------- */
+.pf-intro,
+.pf-person,
+.pf-cta {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: calc(var(--container, 1200px) + 2 * var(--gutter, 20px));
+  margin: 0 auto;
+  padding: var(--section-y, 80px) var(--gutter, 20px);
+}
+
+/* ---------- intro ---------- */
+.pf-intro { text-align: center; padding-bottom: var(--sp-7, 48px); }
+.pf-intro h1 { max-width: 760px; margin-left: auto; margin-right: auto; }
+.pf-intro .pf-lead { max-width: 720px; margin: 0 auto; }
+.pf-jump {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--sp-2, 8px) var(--sp-3, 12px);
+  margin-top: var(--sp-6, 32px);
+}
+.pf-jump a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 40px;
+  padding: 0 var(--sp-5, 20px);
+  border: 1.5px solid var(--color-border-strong, #ccc);
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--color-ink, #111);
+  text-decoration: none;
+  transition: border-color .2s, color .2s, background .2s;
+}
+.pf-jump a:hover { border-color: var(--color-maroon-700, #6e0f4a); color: var(--color-maroon-700, #6e0f4a); background: var(--color-maroon-50, #f8eef4); }
+
+/* ---------- person blocks: photo | text ---------- */
+.pf-person,
+.pf-alt .pf-inner {
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  gap: var(--sp-8, 64px);
+  align-items: center;
+}
+.pf-photo img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  object-position: center top;
+  border-radius: 16px;
+  box-shadow: 0 24px 48px -24px rgba(17, 17, 17, .35);
+}
+.pf-text { max-width: 640px; }
+
+/* founder: grey full-width band, photo on the right */
+.pf-alt {
+  display: block;
+  max-width: none;
+  background: var(--color-surface, #f5f5f5);
+  padding-left: max(var(--gutter, 20px), calc((100% - var(--container, 1200px)) / 2));
+  padding-right: max(var(--gutter, 20px), calc((100% - var(--container, 1200px)) / 2));
+}
+.pf-alt .pf-inner { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); }
+.pf-alt .pf-photo { order: 2; }
+
+/* key facts */
+.pf-facts {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--sp-5, 24px);
+  margin: var(--sp-8, 64px) 0 0;
+  padding: 0;
+}
+.pf-facts li {
+  padding: var(--pad-card, 24px);
+  background: #fff;
+  border-radius: 12px;
+  border-top: 3px solid var(--color-gold-400, #c8a23a);
+}
+.pf-facts strong {
+  display: block;
+  margin-bottom: var(--sp-1, 4px);
+  font-family: var(--font-heading);
+  font-size: var(--fs-h4, 22px);
+  font-weight: 600;
+  line-height: 1.25;
+  color: var(--color-maroon-700, #6e0f4a);
+}
+.pf-facts span { font-size: 15px; line-height: 1.5; color: var(--color-muted, #5c5c5c); }
+
+/* the rest of the story, comfortable reading width */
+.pf-story { max-width: 760px; margin: var(--sp-8, 64px) auto 0; }
+
+/* ---------- call to action ---------- */
+.pf-cta {
+  max-width: none;
+  text-align: center;
+  color: #fff;
+  background: linear-gradient(135deg, var(--color-maroon-900, #4f0834) 0%, var(--color-maroon-700, #6e0f4a) 100%);
+}
+.pf-cta .pf-eyebrow { color: var(--color-gold-400, #c8a23a); }
+.pf-cta h2 { color: #fff; }
+.pf-cta p { max-width: 640px; margin: 0 auto; color: rgba(255, 255, 255, .88); }
+.pf-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: var(--sp-3, 12px); margin-top: var(--sp-6, 32px); }
+
+.pf-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 0 28px;
+  border: 1.5px solid #fff;
+  border-radius: 999px;
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: background .2s, color .2s;
+}
+.pf-btn-light { background: #fff; color: var(--color-maroon-700, #6e0f4a); }
+.pf-btn-light:hover { background: transparent; color: #fff; }
+.pf-btn-outline { background: transparent; color: #fff; }
+.pf-btn-outline:hover { background: #fff; color: var(--color-maroon-700, #6e0f4a); }
+.pf a:focus-visible { outline: 3px solid var(--color-gold-400, #c8a23a); outline-offset: 3px; }
+
+/* ---------- tablet ---------- */
+@media (max-width: 960px) {
+  .pf-person,
+  .pf-alt .pf-inner { gap: var(--sp-7, 48px); }
+  .pf-facts { grid-template-columns: 1fr; gap: var(--sp-3, 12px); }
+}
+
+/* ---------- phones & portrait tablets: stack, photo first ---------- */
+@media (max-width: 768px) {
+  .pf-person,
+  .pf-alt .pf-inner { grid-template-columns: 1fr; gap: var(--sp-6, 32px); }
+  .pf-alt .pf-photo { order: 0; }
+  .pf-photo img { aspect-ratio: 4 / 3.4; max-height: 520px; }
+  .pf-text { max-width: none; }
+  .pf-facts { margin-top: var(--sp-7, 48px); }
+  .pf-story { margin-top: var(--sp-7, 48px); }
+  .pf-actions .pf-btn { flex: 1 1 100%; }
+}

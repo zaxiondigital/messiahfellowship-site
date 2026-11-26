@@ -53,6 +53,12 @@
       e.preventDefault(); goHome();
     }
   });
+  /* ---------- "Meet Our Pastors" (home) opens the Our Pastors page ----------
+     /pastors/ is a separate page (not part of the app), so this is a normal page load. */
+  document.addEventListener('click', function (e) {
+    if (e.target.closest && e.target.closest('.meet-pastor')) { e.preventDefault(); location.href = '/pastors/'; }
+  });
+
   /* ---------- Page title follows in-app navigation ----------
      The app never set titles, so after moving between pages the tab kept the
      first page's title. Same titles as each page's own <title>. */
@@ -67,6 +73,7 @@
     'give': 'Give & Tithe Online | Messiah Fellowship',
     'inthenews': 'In the News | Messiah Fellowship Vijayawada',
     'kamalaarts': 'Kamala Arts | Messiah Fellowship Vijayawada',
+    'pastors': 'Our Pastors | Messiah Fellowship Vijayawada',
     'medical': 'Medical Ministry & Free Health Camps | Messiah Fellowship',
     'men': "Men's Ministry | Messiah Fellowship Vijayawada",
     'prayer': 'Global Prayer Tower | Messiah Fellowship',
