@@ -627,3 +627,7 @@ section.outreach > .row, section.outreach > .row1, section.outreach > .rows,
 /* Bible College banner (heading, text and a button on the photo) */
 app-bible-college:not(#_) .hero { height: clamp(440px, 62vh, 540px) !important; min-height: 0 !important; }
 @media (max-width: 600px) { app-bible-college:not(#_) .hero { height: auto !important; min-height: 440px !important; } }
+
+/* Contact banner: the pastors' faces are near the top of the photo – frame from the top
+   so heads are never cut off on wide screens. */
+img.main-imgs[src*="contact-img"]:not(#_) { object-position: 50% 0% !important; }
