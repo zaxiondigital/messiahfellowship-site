@@ -99,10 +99,17 @@
     e.preventDefault();
     var t = document.querySelector('.about-section .sub-heading') || document.querySelector('.about-section');
     if (!t) return;
-    var y = t.getBoundingClientRect().top + window.scrollY - 24;
+    var hdr = document.querySelector('app-header');
+    var y = t.getBoundingClientRect().top + window.scrollY - (hdr ? hdr.offsetHeight : 0) - 24;
     var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
     window.scrollTo({ top: y, behavior: reduce ? 'auto' : 'smooth' });
   });
+
+  /* ---------- Sticky header: soft shadow once the page is scrolled ---------- */
+  var scrolledQueued = false;
+  function markScrolled() { scrolledQueued = false; document.documentElement.classList.toggle('is-scrolled', window.scrollY > 4); }
+  window.addEventListener('scroll', function () { if (!scrolledQueued) { scrolledQueued = true; requestAnimationFrame(markScrolled); } }, { passive: true });
+  markScrolled();
 
   /* ---------- Page title follows in-app navigation ----------
      The app never set titles, so after moving between pages the tab kept the

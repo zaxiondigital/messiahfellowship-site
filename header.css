@@ -240,7 +240,7 @@
    directly under the video (the video is too short to carry text).
    ===================================================================== */
 .hero-video { position: relative; display: block; background: #0b0709; }
-.hero-video > video { display: block; width: 100%; height: auto; max-height: calc(100vh - 106px); object-fit: cover; }   /* 106px = top bar + header: the welcome bar stays on the first screen */
+.hero-video > video { display: block; width: 100%; height: auto; max-height: calc(100vh - 74px); object-fit: cover; }   /* 74px = header: the welcome bar stays on the first screen */
 .hero-bar {
   position: absolute; left: 0; right: 0; bottom: 0;
   display: flex; align-items: flex-end; justify-content: space-between; gap: var(--sp-6, 32px);
@@ -333,3 +333,23 @@
   .top-bar { justify-content: center !important; -webkit-mask-image: none !important; mask-image: none !important; }
   .top-bar span:last-child { padding-right: 0 !important; }
 }
+
+/* =====================================================================
+   Sticky header (logo + menu stay at the top while scrolling)
+   body had overflow-x:hidden, which stops position:sticky working →
+   overflow-x:clip still prevents sideways scroll but keeps sticky.
+   ===================================================================== */
+html, body { overflow-x: clip !important; }
+app-header {
+  position: sticky !important;
+  top: 0;
+  z-index: 10000;
+  display: block;
+  background: #fff;
+  transition: box-shadow .2s ease;
+}
+html.is-scrolled app-header { box-shadow: 0 2px 16px rgba(17, 17, 17, .08); }
+/* in-page jumps (#links) land below the header */
+html { scroll-padding-top: 88px; }
+/* phone menu panel: fills the screen under the header */
+@media (max-width: 1100px) { .nav-links { max-height: calc(100vh - 64px) !important; } }
