@@ -26,8 +26,22 @@
   line-height: var(--lh-heading, 1.15);
   color: var(--color-ink, #111);
 }
-.pf h1 { font-size: var(--fs-h1); }
-.pf h2 { font-size: var(--fs-h2); }
+/* same heading styles as the rest of the site (typography.css H1 / H2);
+   !important because typography.css sets Inter on everything with !important */
+.pf h1 {
+  font-family: var(--font-heading) !important;
+  font-size: var(--fs-h1) !important;
+  font-weight: 400 !important;
+  line-height: 1.1 !important;
+  letter-spacing: -0.02em !important;
+}
+.pf h2 {
+  font-family: var(--font-heading) !important;
+  font-size: var(--fs-h2) !important;
+  font-weight: 500 !important;
+  line-height: var(--lh-heading, 1.15) !important;
+  letter-spacing: var(--ls-heading, -0.01em) !important;
+}
 .pf p { margin: 0 0 var(--sp-4, 16px); font-size: var(--fs-body, 16px); line-height: var(--lh-body, 1.65); }
 .pf p:last-child { margin-bottom: 0; }
 .pf .pf-lead { font-size: var(--fs-lead, 18px); line-height: 1.55; color: var(--color-ink, #111); }
@@ -117,10 +131,10 @@
 .pf-facts strong {
   display: block;
   margin-bottom: var(--sp-1, 4px);
-  font-family: var(--font-heading);
+  font-family: var(--font-heading) !important;   /* site H4 (card titles) */
   font-size: var(--fs-h4, 22px);
   font-weight: 600;
-  line-height: 1.25;
+  line-height: 1.3;
   color: var(--color-maroon-700, #6e0f4a);
 }
 .pf-facts span { font-size: 15px; line-height: 1.5; color: var(--color-muted, #5c5c5c); }
