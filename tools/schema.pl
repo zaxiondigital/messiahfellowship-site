@@ -2,8 +2,8 @@
 # Structured data (schema.org JSON-LD) for Google: church details, service times,
 # pastors and the Bible College. Re-runnable: replaces the block each time.
 #   perl tools/schema.pl
-# Postal code is left out until the church confirms it (website says 520007,
-# Google Maps says 520010) – add 'postalCode' to %ADDR then and re-run.
+# Postal code 520007 confirmed 2026-11-26 (The Hindu office next door is 55-1-4,
+# 520007). The Google Maps listing wrongly says 520010 – the church should fix it there.
 use strict; use warnings; use utf8;
 use JSON::PP;
 local $/;
@@ -11,7 +11,8 @@ local $/;
 my $SITE = 'https://messiahfellowship.net';
 my %ADDR = (
   '@type' => 'PostalAddress',
-  streetAddress   => '100 Feet Road, Near Autonagar Gate, Auto Nagar',
+  streetAddress   => '55-1-5, 100 Feet Road, Near Autonagar Gate, Auto Nagar',
+  postalCode      => '520007',
   addressLocality => 'Vijayawada',
   addressRegion   => 'Andhra Pradesh',
   addressCountry  => 'IN',
