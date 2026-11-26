@@ -22,6 +22,21 @@ my %PAGES = (
     css   => ['pastors.css', 'apply.css'],
     js    => ['apply.js'],
   },
+  matrimony => {
+    title => 'Telugu Christian Matrimony | Messiah Fellowship Vijayawada',
+    desc  => 'Free Telugu Christian matrimony service at Messiah Fellowship, Vijayawada. Matrimony drives at the church, open to Christians from all castes. Call 9494 7676 33.',
+    image => 'family-blessing.jpg',
+    css   => ['pastors.css', 'matrimony.css'],
+    js    => [],
+  },
+  'give-preview' => {   # private demo with SAMPLE details; never linked, never in the sitemap
+    title   => 'Give (Preview) | Messiah Fellowship',
+    desc    => 'Preview of the Give page with sample details.',
+    image   => 'tithe.jpg',
+    css     => ['pastors.css', 'give.css'],
+    js      => ['give.js'],
+    noindex => 1,
+  },
 );
 my @which = @ARGV ? @ARGV : sort keys %PAGES;
 local $/;
@@ -40,6 +55,7 @@ for my $slug (@which) {
   $h =~ s{(<meta property="og:url" content=")[^"]*}{$1$url} or die 'ogurl';
   $h =~ s{<meta property="og:image" content="[^"]*"}{<meta property="og:image" content="https://messiahfellowship.net/images/$p->{image}"} or die 'ogimg';
   $h =~ s{<app-about\b.*?</app-about>}{$body}s or die 'body';
+  $h =~ s{(<meta name="viewport"[^>]*>)}{$1\n  <meta name="robots" content="noindex, nofollow">} or die 'robots' if $p->{noindex};
   # no Angular on static pages
   $h =~ s{<script src="polyfills-[^"]+"[^>]*></script>}{}g;
   $h =~ s{<script src="main-[^"]+"[^>]*></script>}{}g;
