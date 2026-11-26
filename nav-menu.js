@@ -69,6 +69,29 @@
     window.scrollTo(0, 0);
   });
 
+  /* ---------- "Apply" buttons open the admission form (/apply/) ----------
+     Home "Apply for Admission", Bible College hero "Apply for Admission" and
+     each course's "Apply Now" (that one preselects its course).
+     Capture phase, so the home college box's own link to /bible-college
+     doesn't win. /apply/ is a separate page, so this is a normal page load. */
+  var COURSES = ['bth', 'dipth', 'cth'];   // same order as the course cards
+  document.addEventListener('click', function (e) {
+    var t = e.target;
+    if (!t.closest) return;
+    var url = null, b;
+    if (t.closest('.college-box .btn-outline') || t.closest('app-bible-college .hero-content button')) {
+      url = '/apply/';
+    } else if ((b = t.closest('app-bible-college .course-container .card button'))) {
+      var cards = Array.prototype.slice.call(document.querySelectorAll('app-bible-college .course-container .card'));
+      var key = COURSES[cards.indexOf(b.closest('.card'))];
+      url = '/apply/' + (key ? '?course=' + key : '');
+    }
+    if (!url) return;
+    e.preventDefault();
+    e.stopPropagation();
+    location.href = url;
+  }, true);
+
   /* ---------- Page title follows in-app navigation ----------
      The app never set titles, so after moving between pages the tab kept the
      first page's title. Same titles as each page's own <title>. */

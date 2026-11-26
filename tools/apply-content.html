@@ -1,0 +1,152 @@
+<app-apply><div _ngcontent-ng-c2460926229 class="about-contents"><img _ngcontent-ng-c2460926229 src="images/biblecollege.jpg" class="main-imgs" alt=""><div _ngcontent-ng-c2460926229 class="about-image"></div><div _ngcontent-ng-c2460926229 class="about-text"><div _ngcontent-ng-c2460926229 class="main-heading">ADMISSIONS</div></div></div>
+<main class="pf ap">
+
+  <section class="pf-intro ap-intro">
+    <span class="pf-eyebrow">Messiah Bible College</span>
+    <h1>Apply for Admission</h1>
+    <p class="pf-lead">Fill in the form below. It takes about 3 minutes. Our admissions team will contact you with the next steps.</p>
+  </section>
+
+  <section class="ap-wrap">
+    <div class="ap-card">
+      <form id="apply-form" novalidate>
+
+        <fieldset>
+          <legend><span class="ap-step">1</span> Course</legend>
+          <div class="ap-field">
+            <label for="ap-course">Which course are you interested in? <b aria-hidden="true">*</b></label>
+            <select id="ap-course" name="course" required>
+              <option value="">Select a course</option>
+              <option value="Bachelor of Theology (B.Th)" data-key="bth" data-min="inter">Bachelor of Theology (B.Th)</option>
+              <option value="Diploma in Theology (Dip.Th)" data-key="dipth" data-min="inter">Diploma in Theology (Dip.Th)</option>
+              <option value="Certificate in Theology (C.Th)" data-key="cth" data-min="ssc">Certificate in Theology (C.Th)</option>
+            </select>
+            <p class="ap-hint" id="ap-course-hint" aria-live="polite"></p>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend><span class="ap-step">2</span> About you</legend>
+          <div class="ap-field">
+            <label for="ap-name">Student’s full name <b aria-hidden="true">*</b></label>
+            <input id="ap-name" name="name" type="text" autocomplete="name" required>
+          </div>
+          <div class="ap-row">
+            <div class="ap-field">
+              <label for="ap-dob">Date of birth <b aria-hidden="true">*</b></label>
+              <input id="ap-dob" name="dob" type="date" required>
+            </div>
+            <div class="ap-field">
+              <span class="ap-label" id="ap-gender-label">Gender <b aria-hidden="true">*</b></span>
+              <div class="ap-choices" role="radiogroup" aria-labelledby="ap-gender-label">
+                <label><input type="radio" name="gender" value="Male" required> Male</label>
+                <label><input type="radio" name="gender" value="Female"> Female</label>
+              </div>
+            </div>
+          </div>
+          <div class="ap-field">
+            <label for="ap-qual">Highest qualification <b aria-hidden="true">*</b></label>
+            <select id="ap-qual" name="qualification" required>
+              <option value="">Select qualification</option>
+              <option value="SSC / 10th" data-level="ssc">SSC / 10th class</option>
+              <option value="Intermediate / 12th" data-level="inter">Intermediate / 12th class</option>
+              <option value="Diploma" data-level="inter">Diploma</option>
+              <option value="Degree" data-level="inter">Degree (Graduate)</option>
+              <option value="Post-graduate" data-level="inter">Post-graduate</option>
+              <option value="Other" data-level="other">Other</option>
+            </select>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend><span class="ap-step">3</span> Contact details</legend>
+          <div class="ap-field">
+            <label for="ap-phone">Mobile number <b aria-hidden="true">*</b></label>
+            <div class="ap-phone">
+              <select name="countryCode" aria-label="Country code">
+                <option value="+91">+91</option>
+                <option value="+1">+1</option>
+                <option value="+44">+44</option>
+                <option value="+61">+61</option>
+              </select>
+              <input id="ap-phone" name="phone" type="tel" inputmode="numeric" autocomplete="tel-national" required>
+            </div>
+            <p class="ap-hint">We’ll call or WhatsApp you on this number.</p>
+          </div>
+          <div class="ap-field">
+            <label for="ap-email">Email <b aria-hidden="true">*</b></label>
+            <input id="ap-email" name="email" type="email" autocomplete="email" required>
+          </div>
+          <div class="ap-row">
+            <div class="ap-field">
+              <label for="ap-city">City / Town <b aria-hidden="true">*</b></label>
+              <input id="ap-city" name="city" type="text" autocomplete="address-level2" required>
+            </div>
+            <div class="ap-field">
+              <label for="ap-state">State</label>
+              <input id="ap-state" name="state" type="text" autocomplete="address-level1">
+            </div>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend><span class="ap-step">4</span> A little more <span class="ap-optional">(optional)</span></legend>
+          <div class="ap-field">
+            <label for="ap-church">Your church and pastor’s name</label>
+            <input id="ap-church" name="church" type="text">
+          </div>
+          <div class="ap-field">
+            <span class="ap-label" id="ap-hostel-label">Do you need hostel accommodation?</span>
+            <div class="ap-choices" role="radiogroup" aria-labelledby="ap-hostel-label">
+              <label><input type="radio" name="hostel" value="Yes"> Yes</label>
+              <label><input type="radio" name="hostel" value="No"> No</label>
+            </div>
+          </div>
+          <div class="ap-field">
+            <label for="ap-why">Why would you like to join Messiah Bible College?</label>
+            <textarea id="ap-why" name="why" rows="4"></textarea>
+          </div>
+        </fieldset>
+
+        <div class="ap-submit">
+          <button type="submit" class="pf-btn ap-btn">Submit Application</button>
+          <p class="ap-status" role="status" aria-live="polite"></p>
+        </div>
+      </form>
+
+      <div class="ap-done" hidden tabindex="-1">
+        <div class="ap-done-icon" aria-hidden="true">✓</div>
+        <h2>Thank you!</h2>
+        <p>Your application has been received. Our admissions team will contact you soon by phone or email.</p>
+        <a class="pf-btn ap-btn" href="/bible-college">Back to Bible College</a>
+      </div>
+    </div>
+
+    <aside class="ap-side">
+      <div class="ap-box">
+        <h2 class="ap-box-title">Courses offered</h2>
+        <ul class="ap-courses">
+          <li><strong>Bachelor of Theology (B.Th)</strong><span>3 years · Qualification: Inter</span></li>
+          <li><strong>Diploma in Theology (Dip.Th)</strong><span>2 years · Qualification: Inter</span></li>
+          <li><strong>Certificate in Theology (C.Th)</strong><span>1 year · Qualification: SSC</span></li>
+        </ul>
+      </div>
+      <div class="ap-box">
+        <h2 class="ap-box-title">On campus</h2>
+        <ul class="ap-ticks">
+          <li>Separate hostel for boys &amp; girls</li>
+          <li>Spacious campus &amp; A/C classrooms</li>
+          <li>World-class library</li>
+          <li>Experienced faculty</li>
+        </ul>
+      </div>
+      <div class="ap-box ap-help">
+        <h2 class="ap-box-title">Questions?</h2>
+        <p>We’re happy to help with admissions.</p>
+        <a href="tel:+919494767633">+91 94947 67633</a>
+        <a href="mailto:ratnaksajja@gmail.com">ratnaksajja@gmail.com</a>
+      </div>
+    </aside>
+  </section>
+
+</main></app-apply>

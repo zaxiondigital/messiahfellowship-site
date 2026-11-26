@@ -1,0 +1,190 @@
+/* =====================================================================
+   Messiah Fellowship – Bible College admission form (/apply/)
+   Builds on pastors.css (pf-eyebrow, headings, pf-btn) and the site tokens.
+   Form rules: visible labels above every field, 48px inputs, required *
+   in maroon, errors shown under the field, one column on phones.
+   ===================================================================== */
+
+.ap-intro { padding-bottom: var(--sp-7, 48px); }
+
+/* ---------- layout: form | side panel ---------- */
+.ap-wrap {
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: minmax(0, 7fr) minmax(0, 4fr);
+  gap: var(--sp-7, 48px);
+  align-items: start;
+  width: 100%;
+  max-width: calc(var(--container, 1200px) + 2 * var(--gutter, 20px));
+  margin: 0 auto;
+  padding: 0 var(--gutter, 20px) var(--section-y, 80px);
+}
+.ap-card {
+  background: #fff;
+  border: 1px solid var(--color-border, #e5e5e5);
+  border-radius: 16px;
+  padding: var(--pad-box, 48px);
+  box-shadow: 0 24px 48px -32px rgba(17, 17, 17, .25);
+}
+
+/* ---------- sections ---------- */
+.ap fieldset { border: 0; margin: 0 0 var(--sp-7, 48px); padding: 0; min-width: 0; }
+.ap legend {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3, 12px);
+  width: 100%;
+  margin: 0 0 var(--sp-5, 24px);
+  padding: 0 0 var(--sp-3, 12px);
+  border-bottom: 1px solid var(--color-border, #e5e5e5);
+  font-family: var(--font-heading) !important;
+  font-size: var(--fs-h4, 22px);
+  font-weight: 600;
+  color: var(--color-ink, #111);
+}
+.ap-step {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  flex: 0 0 32px;
+  border-radius: 50%;
+  background: var(--color-maroon-700, #6e0f4a);
+  color: #fff;
+  font-family: var(--font-body) !important;
+  font-size: 14px;
+  font-weight: 600;
+}
+.ap-optional { font-family: var(--font-body) !important; font-size: 14px; font-weight: 400; color: var(--color-muted, #5c5c5c); }
+
+/* ---------- fields ---------- */
+.ap-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0 var(--sp-5, 24px); }
+.ap-field { margin: 0 0 var(--sp-5, 24px); min-width: 0; }
+.ap-field:last-child { margin-bottom: 0; }
+.ap-row .ap-field:last-child { margin-bottom: var(--sp-5, 24px); }
+.ap fieldset > .ap-row:last-child .ap-field { margin-bottom: 0; }
+
+.ap label, .ap-label {
+  display: block;
+  margin: 0 0 var(--sp-2, 8px);
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.4;
+  color: var(--color-ink, #111);
+}
+.ap label b, .ap-label b { color: var(--color-maroon-700, #6e0f4a); font-weight: 600; }
+
+.ap input[type="text"], .ap input[type="email"], .ap input[type="tel"], .ap input[type="date"],
+.ap select, .ap textarea {
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
+  min-height: 48px;
+  margin: 0;
+  padding: 10px 14px;
+  border: 1.5px solid var(--color-border-strong, #ccc);
+  border-radius: 10px;
+  background: #fff;
+  font-size: 16px;                 /* 16px stops phones zooming in */
+  line-height: 1.4;
+  color: var(--color-ink, #111);
+  transition: border-color .15s, box-shadow .15s;
+}
+.ap textarea { min-height: 120px; resize: vertical; }
+.ap select {
+  appearance: none;
+  -webkit-appearance: none;
+  padding-right: 40px;
+  background: #fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1.5l5 5 5-5' fill='none' stroke='%23333' stroke-width='1.6'/%3E%3C/svg%3E") no-repeat right 14px center;
+}
+.ap input:focus, .ap select:focus, .ap textarea:focus {
+  outline: none;
+  border-color: var(--color-maroon-700, #6e0f4a);
+  box-shadow: 0 0 0 3px var(--color-maroon-100, #f1dde8);
+}
+.ap .is-invalid input, .ap .is-invalid select, .ap .is-invalid textarea { border-color: var(--color-error, #b91c1c); }
+.ap-error { margin: var(--sp-2, 8px) 0 0; font-size: 14px; color: var(--color-error, #b91c1c); }
+
+.ap-phone { display: grid; grid-template-columns: 96px minmax(0, 1fr); gap: var(--sp-2, 8px); }
+
+.ap-choices { display: flex; gap: var(--sp-2, 8px); max-width: 320px; }
+.ap-choices label {
+  flex: 1 1 0;
+  min-width: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-2, 8px);
+  min-height: 48px;
+  margin: 0;
+  padding: 0 14px;
+  border: 1.5px solid var(--color-border-strong, #ccc);
+  border-radius: 10px;
+  font-weight: 400;
+  cursor: pointer;
+}
+.ap-choices label:has(input:checked) { border-color: var(--color-maroon-700, #6e0f4a); background: var(--color-maroon-50, #f8eef4); }
+.ap-choices input { width: 18px; height: 18px; margin: 0; accent-color: var(--color-maroon-700, #6e0f4a); }
+.ap-choices label:has(input:focus-visible) { box-shadow: 0 0 0 3px var(--color-maroon-100, #f1dde8); }
+
+.ap-hint { margin: var(--sp-2, 8px) 0 0 !important; font-size: 14px !important; line-height: 1.5 !important; color: var(--color-muted, #5c5c5c); }
+.ap-hint:empty { display: none; }
+.ap-hint.is-warn { color: var(--color-notice, #c2410c); }
+
+/* ---------- submit ---------- */
+.ap .ap-btn { background: var(--color-maroon-700, #6e0f4a); border-color: var(--color-maroon-700, #6e0f4a); color: #fff; cursor: pointer; }
+.ap .ap-btn:hover { background: var(--color-maroon-900, #4f0834); border-color: var(--color-maroon-900, #4f0834); color: #fff; }
+.ap .ap-btn:disabled { opacity: .6; cursor: progress; }
+.ap-submit .ap-btn { width: 100%; }
+.ap-status { margin: var(--sp-3, 12px) 0 0 !important; font-size: 15px !important; text-align: center; }
+.ap-status:empty { display: none; }
+.ap-status.is-error { color: var(--color-error, #b91c1c); }
+
+/* ---------- thank-you ---------- */
+.ap-done { text-align: center; padding: var(--sp-7, 48px) 0; outline: none; }
+.ap-done-icon {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 64px; height: 64px; margin-bottom: var(--sp-5, 24px);
+  border-radius: 50%;
+  background: var(--color-maroon-50, #f8eef4);
+  color: var(--color-maroon-700, #6e0f4a);
+  font-size: 30px;
+}
+.ap-done p { max-width: 440px; margin: 0 auto var(--sp-6, 32px) !important; }
+
+/* ---------- side panel ---------- */
+.ap-side { display: grid; gap: var(--sp-5, 24px); position: sticky; top: 24px; }
+.ap-box { padding: var(--pad-card, 24px); background: var(--color-surface, #f5f5f5); border-radius: 16px; }
+.ap .ap-box-title {
+  margin: 0 0 var(--sp-4, 16px) !important;
+  font-size: var(--fs-h4, 22px) !important;
+  font-weight: 600 !important;
+}
+.ap-courses, .ap-ticks { list-style: none; margin: 0; padding: 0; }
+.ap-courses li { padding: var(--sp-3, 12px) 0; border-top: 1px solid var(--color-border, #e5e5e5); }
+.ap-courses li:first-child { padding-top: 0; border-top: 0; }
+.ap-courses strong { display: block; font-size: 15px; font-weight: 600; color: var(--color-ink, #111); }
+.ap-courses span { font-size: 14px; color: var(--color-muted, #5c5c5c); }
+.ap-ticks li { position: relative; padding: 0 0 var(--sp-2, 8px) 28px; font-size: 15px; line-height: 1.5; }
+.ap-ticks li::before {
+  content: ""; position: absolute; left: 2px; top: 5px;
+  width: 6px; height: 11px;
+  border-right: 2px solid var(--color-maroon-700, #6e0f4a);
+  border-bottom: 2px solid var(--color-maroon-700, #6e0f4a);
+  transform: rotate(45deg);
+}
+.ap-help { background: var(--color-maroon-50, #f8eef4); }
+.ap-help p { margin-bottom: var(--sp-3, 12px) !important; }
+.ap-help a { display: block; padding: var(--sp-1, 4px) 0; font-weight: 600; color: var(--color-maroon-700, #6e0f4a); text-decoration: none; word-break: break-word; }
+.ap-help a:hover { text-decoration: underline; }
+
+/* ---------- tablet & phone ---------- */
+@media (max-width: 960px) {
+  .ap-wrap { grid-template-columns: 1fr; }
+  .ap-side { position: static; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+}
+@media (max-width: 600px) {
+  .ap-card { padding: var(--sp-6, 32px) var(--sp-5, 20px); border-radius: 12px; }
+  .ap-row { grid-template-columns: 1fr; }
+  .ap fieldset { margin-bottom: var(--sp-6, 32px); }
+}
