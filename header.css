@@ -42,8 +42,8 @@
   .top-bar span:last-child { padding-right: var(--gutter, 20px); }
 }
 
-/* ☰ menu for phones AND portrait tablets (the full bar is cramped below ~960px) */
-@media (max-width: 960px) {
+/* ☰ menu for phones, tablets and small laptops (the full menu needs ~1100px) */
+@media (max-width: 1100px) {
 
   /* ---------- Header row ---------- */
   .navbar { position: relative !important; min-height: 64px !important; }
@@ -151,14 +151,14 @@
   padding-right: max(var(--gutter, 20px), calc((100% - var(--container, 1200px)) / 2)) !important;
   box-sizing: border-box !important;
 }
-@media (max-width: 960px) {
+@media (max-width: 1100px) {
   .nav-links { padding-left: var(--gutter, 20px) !important; padding-right: var(--gutter, 20px) !important; }
 }
 
 /* =====================================================================
-   Desktop (≥961px) menu bar refinements
+   Desktop (≥1101px) menu bar refinements
    ===================================================================== */
-@media (min-width: 961px) {
+@media (min-width: 1101px) {
   /* top bar: slightly tighter dividers so it stays on one line from 1025px */
   .top-bar span + span::before { margin: 0 10px; }
 
@@ -209,11 +209,6 @@
     background: var(--color-maroon-50, #f8eef4) !important;
     color: var(--color-maroon-700, #6e0f4a) !important;
   }
-}
-/* the header row is 70px tall at 961–1024px (74px above) */
-@media (min-width: 961px) and (max-width: 1024px) {
-  .navbar-ministries::after { height: 27px; }
-  .navbar-ministries .ministries-content { top: calc(100% + 27px) !important; }
 }
 
 /* a drop-down closes as soon as one of its links is chosen (see /nav-menu.js) */
