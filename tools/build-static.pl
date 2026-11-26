@@ -29,6 +29,13 @@ my %PAGES = (
     css   => ['pastors.css', 'matrimony.css'],
     js    => [],
   },
+  privacy => {
+    title => 'Privacy Policy | Messiah Fellowship Vijayawada',
+    desc  => 'How Messiah Fellowship, Vijayawada collects, uses and protects the information you share through our website, including prayer requests and applications.',
+    image => 'share.jpg',
+    css   => ['pastors.css', 'privacy.css'],
+    js    => [],
+  },
   'give-preview' => {   # private demo with SAMPLE details; never linked, never in the sitemap
     title   => 'Give (Preview) | Messiah Fellowship',
     desc    => 'Preview of the Give page with sample details.',

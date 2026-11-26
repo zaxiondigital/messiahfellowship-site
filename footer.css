@@ -429,3 +429,8 @@ app-footer:not(#_) .footer .prayer-card { container-type: inline-size; }
   app-footer:not(#_) .footer .prayer-form .phone-group { gap: 6px !important; }
 }
 
+
+/* Privacy Policy link in the bottom bar (added by nav-menu.js) */
+app-footer:not(#_) .footer-bottom .mf-legal a { color: inherit !important; text-decoration: underline !important; text-underline-offset: 2px; }
+app-footer:not(#_) .footer-bottom .mf-legal a:hover,
+app-footer:not(#_) .footer-bottom .mf-legal a:focus-visible { color: #fff !important; }

@@ -268,5 +268,26 @@
   window.addEventListener('popstate', function () { setTimeout(syncTitle, 0); });
 
   new MutationObserver(prepareLogo).observe(document.documentElement, { childList: true, subtree: true });
+
+  // footer bottom bar: "· Privacy Policy" link. On app pages it is added only once the
+  // app has taken over the footer (hydration), so the app never sees an unexpected node.
+  var IS_APP = !!document.querySelector('script[src*="main-"]');
+  function privacyLink() {
+    var fb = document.querySelector('app-footer .footer-bottom');
+    if (!fb || fb.querySelector('.mf-legal')) return true;
+    if (IS_APP && fb.__ngContext__ === undefined) return false;
+    var s = document.createElement('span');
+    s.className = 'mf-legal';
+    s.appendChild(document.createTextNode(' · '));
+    var a = document.createElement('a');
+    a.href = '/privacy/';
+    a.textContent = 'Privacy Policy';
+    s.appendChild(a);
+    fb.appendChild(s);
+    return true;
+  }
+  var legalTries = 0, legalTimer = setInterval(function () {
+    if (privacyLink() || ++legalTries > 40) clearInterval(legalTimer);
+  }, 250);
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', prepareLogo); else prepareLogo();
 })();
