@@ -163,7 +163,7 @@
   .top-bar span + span::before { margin: 0 10px; }
 
   /* readable hover colour (gold on white was ~2.3:1) */
-  .nav-links a:hover, .nav-links .drop-btn:hover { color: var(--color-maroon-700, #6e0f4a) !important; }
+  .nav-links a:not(.watch-btn):hover, .nav-links .drop-btn:hover { color: var(--color-maroon-700, #6e0f4a) !important; }
 
   /* drop-down groups: chevron so they read as menus */
   .navbar-ministries { position: relative !important; top: -2px !important; }   /* optical: matches other items */
