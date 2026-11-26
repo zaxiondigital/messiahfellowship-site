@@ -680,3 +680,14 @@ img.main-imgs[src*="vegetable-programining"]:not(#_)  { object-position: 50% 25%
 img.main-imgs[src*="floodrelief"]:not(#_)             { object-position: 50% 30% !important; }
 img.main-imgs[src*="prayer-tower1"]:not(#_)           { object-position: 50% 30% !important; }  /* pastor's raised hand */
 img.main-imgs[src*="matrimony-hero"]:not(#_)          { object-position: 50% 90% !important; }  /* Bible, rings and candles */
+
+/* Banner titles: all capitals on every page (some were in mixed case), and long titles
+   wrap into balanced lines instead of running edge to edge (the title box spans the
+   whole banner). Short titles look the same as before. */
+.main-heading:not(#_) {
+  text-transform: uppercase;
+  max-width: min(1100px, 88vw);
+  margin-left: auto !important;
+  margin-right: auto !important;
+  text-wrap: balance;
+}
