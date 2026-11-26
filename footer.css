@@ -351,3 +351,34 @@ app-footer:not(#_) .footer .prayer-card .desc { margin-bottom: var(--sp-5, 20px)
   app-footer:not(#_) .footer .prayer-form textarea { min-height: 96px !important; }
   app-footer:not(#_) .footer .prayer-card h2 { margin-bottom: var(--sp-2, 8px) !important; }
 }
+
+/* ---------- Compact left side (desktop + tablet) ----------
+   Link columns take only the width they need and sit close together;
+   social links sit right next to the logo instead of at the far edge. */
+@media (min-width: 1025px) {
+  app-footer:not(#_) .footer .footer-container {
+    grid-template-columns: max-content max-content max-content minmax(0, 1fr) minmax(360px, 440px) !important;
+    grid-template-areas:
+      "brand brand brand brand form"
+      "line  line  line  line  form"
+      "info  min   inv   .     form" !important;
+    column-gap: var(--sp-7, 40px) !important;
+    row-gap: var(--sp-5, 24px) !important;
+  }
+}
+@media (min-width: 769px) and (max-width: 1024px) {
+  app-footer:not(#_) .footer .footer-container {
+    grid-template-columns: max-content max-content max-content minmax(0, 1fr) !important;
+    grid-template-areas:
+      "brand brand brand brand"
+      "line  line  line  line"
+      "info  min   inv   ."
+      "form  form  form  form" !important;
+    column-gap: var(--sp-7, 40px) !important;
+    row-gap: var(--sp-5, 24px) !important;
+  }
+}
+@media (min-width: 769px) {
+  app-footer:not(#_) .footer .footer-social { justify-content: flex-end !important; gap: var(--sp-6, 32px) !important; }   /* row-reverse: flex-end = left edge */
+  app-footer:not(#_) .footer .footer-col.social { flex-wrap: nowrap !important; }
+}
