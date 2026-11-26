@@ -107,7 +107,13 @@
 
   /* ---------- Sticky header: soft shadow once the page is scrolled ---------- */
   var scrolledQueued = false;
-  function markScrolled() { scrolledQueued = false; document.documentElement.classList.toggle('is-scrolled', window.scrollY > 4); }
+  // on after 48px, off again only near the very top: the header changes height,
+  // so a single threshold would make it flicker on and off
+  function markScrolled() {
+    scrolledQueued = false;
+    var el = document.documentElement, y = window.scrollY;
+    if (y > 48) el.classList.add('is-scrolled'); else if (y < 8) el.classList.remove('is-scrolled');
+  }
   window.addEventListener('scroll', function () { if (!scrolledQueued) { scrolledQueued = true; requestAnimationFrame(markScrolled); } }, { passive: true });
   markScrolled();
 
