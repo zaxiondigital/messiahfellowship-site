@@ -240,7 +240,7 @@
    directly under the video (the video is too short to carry text).
    ===================================================================== */
 .hero-video { position: relative; display: block; background: #0b0709; }
-.hero-video > video { display: block; width: 100%; height: auto; max-height: calc(100vh - 88px); object-fit: cover; }   /* 88px = header at the top of the page: the welcome bar stays on the first screen */
+.hero-video > video { display: block; width: 100%; height: auto; max-height: calc(100vh - 88px); object-fit: cover; object-position: 50% 0%; }  /* when the screen is shorter than the video, crop the bottom (under the welcome bar), never heads at the top */   /* 88px = header at the top of the page: the welcome bar stays on the first screen */
 .hero-bar {
   position: absolute; left: 0; right: 0; bottom: 0;
   display: flex; align-items: flex-end; justify-content: space-between; gap: var(--sp-6, 32px);
