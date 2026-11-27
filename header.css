@@ -163,7 +163,7 @@
   .top-bar span + span::before { margin: 0 10px; }
 
   /* readable hover colour (gold on white was ~2.3:1) */
-  .nav-links a:not(.watch-btn):hover, .nav-links .drop-btn:hover { color: var(--color-maroon-700, #6e0f4a) !important; }
+  .nav-links a:not(.watch-btn):hover, .nav-links .drop-btn:hover { color: var(--color-maroon-700, #6a1c44) !important; }
 
   /* drop-down groups: chevron so they read as menus */
   .navbar-ministries { position: relative !important; top: -2px !important; }   /* optical: matches other items */
@@ -194,7 +194,7 @@
     padding: 8px 0 !important;
     background: #fff !important;
     border: 1px solid var(--color-border, #e5e5e5) !important;
-    border-top: 2px solid var(--color-maroon-700, #6e0f4a) !important;
+    border-top: 2px solid var(--color-maroon-700, #6a1c44) !important;
     border-radius: 0 0 12px 12px !important;
     box-shadow: 0 16px 32px rgba(0, 0, 0, .10) !important;
   }
@@ -206,8 +206,8 @@
     color: var(--color-text, #333) !important;
   }
   .navbar-ministries .ministries-content a:hover {
-    background: var(--color-maroon-50, #f8eef4) !important;
-    color: var(--color-maroon-700, #6e0f4a) !important;
+    background: var(--color-maroon-50, #f6eef2) !important;
+    color: var(--color-maroon-700, #6a1c44) !important;
   }
 }
 
@@ -217,7 +217,7 @@
 
 /* header logo links to Home (behaviour in /nav-menu.js) */
 .navbar .logo { cursor: pointer; border-radius: 6px; }
-.navbar .logo:focus-visible { outline: 3px solid var(--color-gold-400, #c8a23a); outline-offset: 4px; }
+.navbar .logo:focus-visible { outline: 3px solid var(--color-gold-400, #bf9f55); outline-offset: 4px; }
 
 /* visually hidden text: read by screen readers and search engines, not shown
    (used for the page H1 on pages whose design has no visible H1) */
@@ -240,7 +240,7 @@
    directly under the video (the video is too short to carry text).
    ===================================================================== */
 .hero-video { position: relative; display: block; background: #0b0709; }
-.hero-video > video { display: block; width: 100%; height: auto; max-height: calc(100vh - 88px); object-fit: cover; object-position: 50% 0%; }  /* when the screen is shorter than the video, crop the bottom (under the welcome bar), never heads at the top */   /* 88px = header at the top of the page: the welcome bar stays on the first screen */
+.hero-video > video { display: block; width: 100%; height: auto; max-height: calc(100vh - 100px); object-fit: cover; object-position: 50% 0%; }  /* when the screen is shorter than the video, crop the bottom (under the welcome bar), never heads at the top */   /* 100px = header at the top of the page: the welcome bar stays on the first screen */
 .hero-bar {
   position: absolute; left: 0; right: 0; bottom: 0;
   display: flex; align-items: flex-end; justify-content: space-between; gap: var(--sp-6, 32px);
@@ -251,7 +251,7 @@
 .hero-bar:not(#_) .hero-eyebrow {
   display: block; margin: 0 0 6px;
   font-size: 13px !important; font-weight: 600 !important; letter-spacing: .14em !important; text-transform: uppercase;
-  color: var(--color-gold-400, #c8a23a) !important;
+  color: var(--color-gold-400, #bf9f55) !important;
 }
 .hero-bar:not(#_) .hero-title {
   margin: 0 0 6px !important;
@@ -271,8 +271,8 @@
 .hero-btn-live { background: #ff0000; border-color: #ff0000; color: #fff; }
 .hero-btn-live:hover { background: #cc0000; border-color: #cc0000; color: #fff; }
 .hero-btn-dir { background: transparent; color: #fff; }
-.hero-btn-dir:hover { background: #fff; color: var(--color-maroon-700, #6e0f4a); }
-.hero-btn:focus-visible { outline: 3px solid var(--color-gold-400, #c8a23a); outline-offset: 3px; }
+.hero-btn-dir:hover { background: #fff; color: var(--color-maroon-700, #6a1c44); }
+.hero-btn:focus-visible { outline: 3px solid var(--color-gold-400, #bf9f55); outline-offset: 3px; }
 
 @media (max-width: 1100px) {
   .hero-bar { padding-top: 72px; padding-bottom: 28px; }
@@ -302,7 +302,7 @@
 .wa-float .wa-label { display: none; }
 .wa-float svg { width: 34px; height: 34px; }
 .wa-float:hover { background: #1ebe5b; color: #fff; transform: translateY(-2px); box-shadow: 0 14px 32px rgba(0, 0, 0, .26); }
-.wa-float:focus-visible { outline: 3px solid var(--color-gold-400, #c8a23a); outline-offset: 3px; }
+.wa-float:focus-visible { outline: 3px solid var(--color-gold-400, #bf9f55); outline-offset: 3px; }
 @media (max-width: 600px) {
   .wa-float { right: 16px; bottom: 16px; width: 56px; height: 56px; }
   .wa-float svg { width: 32px; height: 32px; }
@@ -312,7 +312,7 @@
 
 /* welcome bar: "Service Times" button (scrolls to the schedule) = solid white */
 .hero-btn-services { background: #fff; border-color: #fff; color: var(--color-ink, #111); }
-.hero-btn-services:hover { background: var(--color-gold-400, #c8a23a); border-color: var(--color-gold-400, #c8a23a); color: var(--color-ink, #111); }
+.hero-btn-services:hover { background: var(--color-gold-400, #bf9f55); border-color: var(--color-gold-400, #bf9f55); color: var(--color-ink, #111); }
 /* keep the buttons clear of the round WhatsApp icon (bottom-right) */
 @media (min-width: 901px) { .hero-bar-actions { margin-right: 84px; } }
 
@@ -356,19 +356,19 @@ html { scroll-padding-top: 88px; }
 
 /* =====================================================================
    Header shrinks on scroll
-   Top of the page: roomy (desktop 88px, logo 60px) · scrolled: slim (64px, logo 44px)
+   Top of the page: roomy (desktop 100px, logo 72px) · scrolled: slim (72px, logo 52px)
    Phones: 70px → 60px. Class html.is-scrolled is set by /nav-menu.js.
    --dd-gap keeps the desktop drop-downs opening exactly at the header's bottom edge.
    ===================================================================== */
-app-header { --hdr-pad: 14px; --logo-h: 60px; --dd-gap: 35px; }
-html.is-scrolled app-header { --hdr-pad: 10px; --logo-h: 44px; --dd-gap: 23px; }
+app-header { --hdr-pad: 14px; --logo-h: 72px; --dd-gap: 41px; }          /* round badge logo (2026-11-27): header 100px */
+html.is-scrolled app-header { --hdr-pad: 10px; --logo-h: 52px; --dd-gap: 27px; }   /* scrolled: 72px */
 @media (min-width: 1101px) {
   .navbar { padding-top: var(--hdr-pad) !important; padding-bottom: var(--hdr-pad) !important; transition: padding .25s ease; }
 }
 .navbar .logo img { height: var(--logo-h) !important; width: auto !important; transition: height .25s ease; }
 @media (max-width: 1100px) {
-  app-header { --logo-h: 50px; }
-  html.is-scrolled app-header { --logo-h: 40px; }
+  app-header { --logo-h: 56px; }
+  html.is-scrolled app-header { --logo-h: 44px; }
   html.is-scrolled .navbar { min-height: 60px !important; }
 }
 @media (prefers-reduced-motion: reduce) { .navbar, .navbar .logo img { transition: none !important; } }
@@ -394,8 +394,8 @@ html.is-scrolled app-header { --hdr-pad: 10px; --logo-h: 44px; --dd-gap: 23px; }
   text-align: center;
   box-sizing: border-box;
 }
-.about-section:not(#_) .service-card.is-sunday { background: var(--color-gold-700, #876b22) !important; border: 1.5px solid var(--color-gold-700, #876b22); color: #fff !important; }
-.about-section:not(#_) .service-card.is-week { background: #fff !important; border: 1.5px solid var(--color-gold-400, #c8a23a); color: var(--color-ink, #111) !important; }
+.about-section:not(#_) .service-card.is-sunday { background: var(--color-gold-700, #85693a) !important; border: 1.5px solid var(--color-gold-700, #85693a); color: #fff !important; }
+.about-section:not(#_) .service-card.is-week { background: #fff !important; border: 1.5px solid var(--color-gold-400, #bf9f55); color: var(--color-ink, #111) !important; }
 
 .about-section:not(#_) .service-card .svc-day {
   display: block;
@@ -413,7 +413,7 @@ html.is-scrolled app-header { --hdr-pad: 10px; --logo-h: 44px; --dd-gap: 23px; }
 }
 .about-section:not(#_) .is-sunday .svc-day { color: rgba(255, 255, 255, .82); }
 .about-section:not(#_) .is-sunday .svc-name { color: rgba(255, 255, 255, .95); }
-.about-section:not(#_) .is-week .svc-day { color: var(--color-gold-700, #876b22); }
+.about-section:not(#_) .is-week .svc-day { color: var(--color-gold-700, #85693a); }
 .about-section:not(#_) .is-week .svc-name { color: var(--color-text, #333); }
 
 /* phones: one column of compact rows — time on the left, day + name on the right */

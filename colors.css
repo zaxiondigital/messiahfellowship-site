@@ -4,13 +4,13 @@
    colours (≈80 shades) are mapped onto it by colors-map.css.
 
    BRAND
-     maroon-900  #4F0834  large maroon bands, info boxes, hover of maroon buttons
-     maroon-700  #6E0F4A  primary brand colour: buttons, links, quotes, accents
-     maroon-100  #F1DDE8  light maroon tint (badges, soft highlights)
-     maroon-50   #F8EEF4  lightest tint (subtle backgrounds)
-     gold-700    #876B22  gold backgrounds (bands, boxes, badges) – passes contrast with white text
-     gold-600    #A3832E  gold text on dark backgrounds (footer headings), banner titles
-     gold-400    #C8A23A  gold on dark backgrounds, nav hover, focus ring
+     maroon-900  #4c1532  large maroon bands, info boxes, hover of maroon buttons
+     maroon-700  #6a1c44  primary brand colour: buttons, links, quotes, accents
+     maroon-100  #efdfe6  light maroon tint (badges, soft highlights)
+     maroon-50   #f6eef2  lightest tint (subtle backgrounds)
+     gold-700    #85693a  gold backgrounds (bands, boxes, badges) – passes contrast with white text
+     gold-600    #a0823f  gold text on dark backgrounds (footer headings), banner titles
+     gold-400    #bf9f55  gold on dark backgrounds, nav hover, focus ring
      cream       #FFFBF0  text/borders on gold
 
    NEUTRALS
@@ -31,13 +31,13 @@
    ===================================================================== */
 
 :root {
-  --color-maroon-900: #4f0834;
-  --color-maroon-700: #6e0f4a;
-  --color-maroon-100: #f1dde8;
-  --color-maroon-50:  #f8eef4;
-  --color-gold-700:   #876b22;
-  --color-gold-600:   #a3832e;
-  --color-gold-400:   #c8a23a;
+  --color-maroon-900: #4c1532;
+  --color-maroon-700: #6a1c44;
+  --color-maroon-100: #efdfe6;
+  --color-maroon-50:  #f6eef2;
+  --color-gold-700:   #85693a;
+  --color-gold-600:   #a0823f;
+  --color-gold-400:   #bf9f55;
   --color-cream:      #fffbf0;
 
   --color-ink:           #111111;

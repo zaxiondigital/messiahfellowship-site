@@ -372,7 +372,7 @@ section.outreach > .row, section.outreach > .row1, section.outreach > .rows,
 
 /* Home: the Bible College box is the link to the Bible College page */
 .outreach-section .college-box { cursor: pointer; }
-.outreach-section .college-box:focus-visible { outline: 3px solid var(--color-gold-400, #c8a23a); outline-offset: 4px; }
+.outreach-section .college-box:focus-visible { outline: 3px solid var(--color-gold-400, #bf9f55); outline-offset: 4px; }
 
 
 /* =====================================================================
@@ -421,7 +421,7 @@ section.outreach > .row, section.outreach > .row1, section.outreach > .rows,
   height: 100% !important;
   overflow: hidden !important;
   border-radius: 16px !important;
-  background: var(--color-maroon-900, #4f0834) !important;   /* no white behind the info panel */
+  background: var(--color-maroon-900, #4c1532) !important;   /* no white behind the info panel */
   box-shadow: 0 8px 24px rgba(0, 0, 0, .12) !important;
 }
 .faculty-card > img {
@@ -505,10 +505,10 @@ section.outreach > .row, section.outreach > .row1, section.outreach > .rows,
 .pastors-section:not(#_) .pastor-text-content .pastor-name { font-weight: 600 !important; color: var(--color-ink, #111) !important; }
 .pastors-section:not(#_) .pastor-more { margin: var(--sp-5, 24px) 0 0 !important; }
 .pastors-section:not(#_) .pastor-more a {
-  font-weight: 600; color: var(--color-maroon-700, #6e0f4a); text-decoration: none;
-  border-bottom: 1.5px solid var(--color-maroon-100, #f1dde8); padding-bottom: 2px;
+  font-weight: 600; color: var(--color-maroon-700, #6a1c44); text-decoration: none;
+  border-bottom: 1.5px solid var(--color-maroon-100, #efdfe6); padding-bottom: 2px;
 }
-.pastors-section:not(#_) .pastor-more a:hover { border-bottom-color: var(--color-maroon-700, #6e0f4a); }
+.pastors-section:not(#_) .pastor-more a:hover { border-bottom-color: var(--color-maroon-700, #6a1c44); }
 .pastors-section:not(#_) .pastor-image-2 {
   width: auto !important;
   margin: 0 0 calc(-1 * var(--founder-overlap)) !important;
@@ -553,14 +553,14 @@ section.outreach > .row, section.outreach > .row1, section.outreach > .rows,
   overflow: hidden;
   border-radius: 16px;
   background: var(--color-cream, #fffbf0);
-  border-top: 3px solid var(--color-gold-400, #c8a23a);
+  border-top: 3px solid var(--color-gold-400, #bf9f55);
   box-shadow: 0 24px 48px -36px rgba(17, 17, 17, .35);
 }
 .mt-home:not(#_) .mt-home-text { padding: var(--pad-box, 48px); align-self: center; }
 .mt-home:not(#_) .mt-home-tag {
   display: inline-block; margin: 0 0 var(--sp-4, 16px);
   padding: 5px 12px; border-radius: 999px;
-  background: var(--color-maroon-700, #6e0f4a); color: #fff;
+  background: var(--color-maroon-700, #6a1c44); color: #fff;
   font-size: 12px !important; font-weight: 600 !important; letter-spacing: .1em !important; text-transform: uppercase;
 }
 .mt-home:not(#_) h2 {
@@ -571,7 +571,7 @@ section.outreach > .row, section.outreach > .row1, section.outreach > .rows,
 .mt-home:not(#_) .mt-home-te {
   margin: 0 0 var(--sp-4, 16px) !important;
   font-size: 20px !important; font-weight: 600 !important; line-height: 1.5 !important;
-  color: var(--color-maroon-700, #6e0f4a) !important;
+  color: var(--color-maroon-700, #6a1c44) !important;
 }
 .mt-home:not(#_) .mt-home-text > p:not(.mt-home-te) {
   margin: 0 0 var(--sp-5, 24px) !important;
@@ -581,21 +581,21 @@ section.outreach > .row, section.outreach > .row1, section.outreach > .rows,
 .mt-home:not(#_) .mt-home-points li { position: relative; padding-left: 24px; font-size: 15px; font-weight: 500; color: var(--color-ink, #111); }
 .mt-home:not(#_) .mt-home-points li::before {
   content: ""; position: absolute; left: 3px; top: 4px; width: 6px; height: 11px;
-  border-right: 2px solid var(--color-gold-700, #876b22); border-bottom: 2px solid var(--color-gold-700, #876b22);
+  border-right: 2px solid var(--color-gold-700, #85693a); border-bottom: 2px solid var(--color-gold-700, #85693a);
   transform: rotate(45deg);
 }
 .mt-home:not(#_) .mt-home-actions { display: flex; flex-wrap: wrap; gap: var(--sp-3, 12px); }
 .mt-home:not(#_) .mt-btn {
   display: inline-flex; align-items: center; justify-content: center;
-  min-height: 48px; padding: 0 28px; border: 1.5px solid var(--color-maroon-700, #6e0f4a); border-radius: 999px;
+  min-height: 48px; padding: 0 28px; border: 1.5px solid var(--color-maroon-700, #6a1c44); border-radius: 999px;
   font-size: 14px; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; text-decoration: none;
   transition: background .2s, color .2s, border-color .2s;
 }
-.mt-home:not(#_) .mt-btn-primary { background: var(--color-maroon-700, #6e0f4a); color: #fff; }
-.mt-home:not(#_) .mt-btn-primary:hover { background: var(--color-maroon-900, #4f0834); border-color: var(--color-maroon-900, #4f0834); color: #fff; }
-.mt-home:not(#_) .mt-btn-outline { background: transparent; color: var(--color-maroon-700, #6e0f4a); }
-.mt-home:not(#_) .mt-btn-outline:hover { background: var(--color-maroon-700, #6e0f4a); color: #fff; }
-.mt-home:not(#_) .mt-btn:focus-visible { outline: 3px solid var(--color-gold-400, #c8a23a); outline-offset: 3px; }
+.mt-home:not(#_) .mt-btn-primary { background: var(--color-maroon-700, #6a1c44); color: #fff; }
+.mt-home:not(#_) .mt-btn-primary:hover { background: var(--color-maroon-900, #4c1532); border-color: var(--color-maroon-900, #4c1532); color: #fff; }
+.mt-home:not(#_) .mt-btn-outline { background: transparent; color: var(--color-maroon-700, #6a1c44); }
+.mt-home:not(#_) .mt-btn-outline:hover { background: var(--color-maroon-700, #6a1c44); color: #fff; }
+.mt-home:not(#_) .mt-btn:focus-visible { outline: 3px solid var(--color-gold-400, #bf9f55); outline-offset: 3px; }
 .mt-home:not(#_) .mt-home-media { position: relative; min-height: 360px; }
 .mt-home:not(#_) .mt-home-img {
   position: absolute; inset: 0; width: 100% !important; height: 100% !important;
@@ -665,7 +665,7 @@ img.main-imgs[src*="contact-img"]:not(#_) { object-position: 50% 0% !important; 
    overlay – photos keep their colour, the white title stays readable. The overlay is the
    box right after the banner photo on every inner page (About, Contact, ministries, Give…). */
 img.main-imgs:not(#_) + div {
-  background: linear-gradient(180deg, rgba(79, 8, 52, .30) 0%, rgba(79, 8, 52, .50) 55%, rgba(60, 6, 40, .68) 100%) !important;
+  background: linear-gradient(180deg, rgba(76, 21, 50, .30) 0%, rgba(76, 21, 50, .50) 55%, rgba(58, 16, 38, .68) 100%) !important;
 }
 .main-heading:not(#_) { text-shadow: 0 2px 16px rgba(40, 4, 26, .45); }
 

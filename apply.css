@@ -50,7 +50,7 @@
   height: 32px;
   flex: 0 0 32px;
   border-radius: 50%;
-  background: var(--color-maroon-700, #6e0f4a);
+  background: var(--color-maroon-700, #6a1c44);
   color: #fff;
   font-family: var(--font-body) !important;
   font-size: 14px;
@@ -73,7 +73,7 @@
   line-height: 1.4;
   color: var(--color-ink, #111);
 }
-.ap label b, .ap-label b { color: var(--color-maroon-700, #6e0f4a); font-weight: 600; }
+.ap label b, .ap-label b { color: var(--color-maroon-700, #6a1c44); font-weight: 600; }
 
 .ap input[type="text"], .ap input[type="email"], .ap input[type="tel"], .ap input[type="date"],
 .ap select, .ap textarea {
@@ -100,8 +100,8 @@
 }
 .ap input:focus, .ap select:focus, .ap textarea:focus {
   outline: none;
-  border-color: var(--color-maroon-700, #6e0f4a);
-  box-shadow: 0 0 0 3px var(--color-maroon-100, #f1dde8);
+  border-color: var(--color-maroon-700, #6a1c44);
+  box-shadow: 0 0 0 3px var(--color-maroon-100, #efdfe6);
 }
 .ap .is-invalid input, .ap .is-invalid select, .ap .is-invalid textarea { border-color: var(--color-error, #b91c1c); }
 .ap-error { margin: var(--sp-2, 8px) 0 0; font-size: 14px; color: var(--color-error, #b91c1c); }
@@ -123,17 +123,17 @@
   font-weight: 400;
   cursor: pointer;
 }
-.ap-choices label:has(input:checked) { border-color: var(--color-maroon-700, #6e0f4a); background: var(--color-maroon-50, #f8eef4); }
-.ap-choices input { width: 18px; height: 18px; margin: 0; accent-color: var(--color-maroon-700, #6e0f4a); }
-.ap-choices label:has(input:focus-visible) { box-shadow: 0 0 0 3px var(--color-maroon-100, #f1dde8); }
+.ap-choices label:has(input:checked) { border-color: var(--color-maroon-700, #6a1c44); background: var(--color-maroon-50, #f6eef2); }
+.ap-choices input { width: 18px; height: 18px; margin: 0; accent-color: var(--color-maroon-700, #6a1c44); }
+.ap-choices label:has(input:focus-visible) { box-shadow: 0 0 0 3px var(--color-maroon-100, #efdfe6); }
 
 .ap-hint { margin: var(--sp-2, 8px) 0 0 !important; font-size: 14px !important; line-height: 1.5 !important; color: var(--color-muted, #5c5c5c); }
 .ap-hint:empty { display: none; }
 .ap-hint.is-warn { color: var(--color-notice, #c2410c); }
 
 /* ---------- submit ---------- */
-.ap .ap-btn { background: var(--color-maroon-700, #6e0f4a); border-color: var(--color-maroon-700, #6e0f4a); color: #fff; cursor: pointer; }
-.ap .ap-btn:hover { background: var(--color-maroon-900, #4f0834); border-color: var(--color-maroon-900, #4f0834); color: #fff; }
+.ap .ap-btn { background: var(--color-maroon-700, #6a1c44); border-color: var(--color-maroon-700, #6a1c44); color: #fff; cursor: pointer; }
+.ap .ap-btn:hover { background: var(--color-maroon-900, #4c1532); border-color: var(--color-maroon-900, #4c1532); color: #fff; }
 .ap .ap-btn:disabled { opacity: .6; cursor: progress; }
 .ap-submit .ap-btn { width: 100%; }
 .ap-status { margin: var(--sp-3, 12px) 0 0 !important; font-size: 15px !important; text-align: center; }
@@ -146,8 +146,8 @@
   display: inline-flex; align-items: center; justify-content: center;
   width: 64px; height: 64px; margin-bottom: var(--sp-5, 24px);
   border-radius: 50%;
-  background: var(--color-maroon-50, #f8eef4);
-  color: var(--color-maroon-700, #6e0f4a);
+  background: var(--color-maroon-50, #f6eef2);
+  color: var(--color-maroon-700, #6a1c44);
   font-size: 30px;
 }
 .ap-done p { max-width: 440px; margin: 0 auto var(--sp-6, 32px) !important; }
@@ -169,13 +169,13 @@
 .ap-ticks li::before {
   content: ""; position: absolute; left: 2px; top: 5px;
   width: 6px; height: 11px;
-  border-right: 2px solid var(--color-maroon-700, #6e0f4a);
-  border-bottom: 2px solid var(--color-maroon-700, #6e0f4a);
+  border-right: 2px solid var(--color-maroon-700, #6a1c44);
+  border-bottom: 2px solid var(--color-maroon-700, #6a1c44);
   transform: rotate(45deg);
 }
-.ap-help { background: var(--color-maroon-50, #f8eef4); }
+.ap-help { background: var(--color-maroon-50, #f6eef2); }
 .ap-help p { margin-bottom: var(--sp-3, 12px) !important; }
-.ap-help a { display: block; padding: var(--sp-1, 4px) 0; font-weight: 600; color: var(--color-maroon-700, #6e0f4a); text-decoration: none; word-break: break-word; }
+.ap-help a { display: block; padding: var(--sp-1, 4px) 0; font-weight: 600; color: var(--color-maroon-700, #6a1c44); text-decoration: none; word-break: break-word; }
 .ap-help a:hover { text-decoration: underline; }
 
 /* ---------- tablet & phone ---------- */

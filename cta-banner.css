@@ -9,7 +9,7 @@
    ===================================================================== */
 
 :root {
-  --cta-overlay: linear-gradient(135deg, rgba(79, 8, 52, .92) 0%, rgba(110, 15, 74, .80) 55%, rgba(17, 17, 17, .78) 100%);
+  --cta-overlay: linear-gradient(135deg, rgba(76, 21, 50, .92) 0%, rgba(106, 28, 68, .80) 55%, rgba(17, 17, 17, .78) 100%);
   --cta-radius: 20px;
 }
 
@@ -28,7 +28,7 @@ app-kamalaarts:not(#_) .quote-section,
   padding: var(--sp-9, 80px) var(--sp-7, 48px) !important;
   text-align: center !important;
   color: #fff !important;
-  background-color: var(--color-maroon-900, #4f0834) !important;
+  background-color: var(--color-maroon-900, #4c1532) !important;
   background-size: cover !important;
   background-position: center !important;
   background-repeat: no-repeat !important;
@@ -67,7 +67,7 @@ app-medicalministries:not(#_) .relief-section + .quote-section { margin-top: 0 !
 /* ---------- Text ---------- */
 /* eyebrow ("Join us") */
 app-medicalministries:not(#_) .quote-section .quote-small {
-  color: var(--color-gold-400, #c8a23a) !important;
+  color: var(--color-gold-400, #bf9f55) !important;
   margin: 0 0 var(--sp-4, 16px) !important;
 }
 /* scripture line above the statement */
@@ -97,7 +97,7 @@ app-kamalaarts:not(#_) .quote-section .quote-main::after,
   width: 48px;
   height: 2px;
   margin: var(--sp-5, 24px) auto 0;
-  background: var(--color-gold-400, #c8a23a);
+  background: var(--color-gold-400, #bf9f55);
   border-radius: 2px;
 }
 
@@ -110,7 +110,7 @@ app-medicalministries:not(#_) .quote-section .button-outline {
 }
 app-medicalministries:not(#_) .quote-section .button-outline:hover {
   background: #fff !important;
-  color: var(--color-maroon-700, #6e0f4a) !important;
+  color: var(--color-maroon-700, #6a1c44) !important;
 }
 
 /* ---------- Tablet & phone ---------- */
@@ -125,7 +125,7 @@ app-medicalministries:not(#_) .quote-section .button-outline:hover {
 }
 /* phones: stronger overlay – busy photos (signs, printed text) must not compete with the copy */
 @media (max-width: 768px) {
-  :root { --cta-overlay: linear-gradient(160deg, rgba(79, 8, 52, .95) 0%, rgba(110, 15, 74, .90) 60%, rgba(17, 17, 17, .88) 100%); }
+  :root { --cta-overlay: linear-gradient(160deg, rgba(76, 21, 50, .95) 0%, rgba(106, 28, 68, .90) 60%, rgba(17, 17, 17, .88) 100%); }
 }
 
 /* =====================================================================
@@ -160,7 +160,7 @@ app-medicalministries:not(#_) .quote-section > * {
 }
 app-medicalministries:not(#_) .quote-section .quote-small {
   grid-row: 2 !important;
-  color: var(--color-maroon-700, #6e0f4a) !important;
+  color: var(--color-maroon-700, #6a1c44) !important;
   margin-bottom: var(--sp-3, 12px) !important;
 }
 app-medicalministries:not(#_) .quote-section .quote-main {
@@ -182,11 +182,11 @@ app-medicalministries:not(#_) .quote-section .button-outline {
   grid-row: 4 !important;
   margin-top: 0 !important;
   background: transparent !important;
-  border-color: var(--color-maroon-700, #6e0f4a) !important;
-  color: var(--color-maroon-700, #6e0f4a) !important;
+  border-color: var(--color-maroon-700, #6a1c44) !important;
+  color: var(--color-maroon-700, #6a1c44) !important;
 }
 app-medicalministries:not(#_) .quote-section .button-outline:hover {
-  background: var(--color-maroon-700, #6e0f4a) !important;
+  background: var(--color-maroon-700, #6a1c44) !important;
   color: #fff !important;
 }
 
@@ -285,7 +285,7 @@ app-medicalministries:not(#_) .quote-section .quote-main { text-align: left !imp
   font-size: 15px !important;
   font-weight: 600 !important;
   line-height: 1.5 !important;
-  color: var(--color-maroon-700, #6e0f4a) !important;
+  color: var(--color-maroon-700, #6a1c44) !important;
 }
 .yt-section:not(#_) .yt-times::before {
   content: "";
@@ -312,20 +312,20 @@ app-medicalministries:not(#_) .quote-section .quote-main { text-align: left !imp
 }
 .yt-section:not(#_) .yt-btn-live { background: #ff0000 !important; border-color: #ff0000 !important; color: #fff !important; }
 .yt-section:not(#_) .yt-btn-live:hover { background: #cc0000 !important; border-color: #cc0000 !important; }
-.yt-section:not(#_) .yt-btn-sub { background: transparent !important; border-color: var(--color-maroon-700, #6e0f4a) !important; color: var(--color-maroon-700, #6e0f4a) !important; }
-.yt-section:not(#_) .yt-btn-sub:hover { background: var(--color-maroon-700, #6e0f4a) !important; color: #fff !important; }
+.yt-section:not(#_) .yt-btn-sub { background: transparent !important; border-color: var(--color-maroon-700, #6a1c44) !important; color: var(--color-maroon-700, #6a1c44) !important; }
+.yt-section:not(#_) .yt-btn-sub:hover { background: var(--color-maroon-700, #6a1c44) !important; color: #fff !important; }
 .yt-section:not(#_) .yt-link {
   display: inline-block;
   margin-top: var(--sp-5, 24px);
   font-size: 15px !important;
   font-weight: 600 !important;
-  color: var(--color-maroon-700, #6e0f4a) !important;
+  color: var(--color-maroon-700, #6a1c44) !important;
   text-decoration: none !important;
-  border-bottom: 1.5px solid var(--color-maroon-100, #f1dde8);
+  border-bottom: 1.5px solid var(--color-maroon-100, #efdfe6);
   padding-bottom: 2px;
 }
-.yt-section:not(#_) .yt-link:hover { border-bottom-color: var(--color-maroon-700, #6e0f4a); }
-.yt-section:not(#_) a:focus-visible { outline: 3px solid var(--color-gold-400, #c8a23a); outline-offset: 3px; }
+.yt-section:not(#_) .yt-link:hover { border-bottom-color: var(--color-maroon-700, #6a1c44); }
+.yt-section:not(#_) a:focus-visible { outline: 3px solid var(--color-gold-400, #bf9f55); outline-offset: 3px; }
 
 /* ---------- video-style photo ---------- */
 .yt-section:not(#_) .yt-media {

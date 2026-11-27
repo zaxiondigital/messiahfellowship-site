@@ -23,12 +23,12 @@
 .mt .mt-telugu {
   margin: calc(-1 * var(--sp-3, 12px)) 0 var(--sp-5, 24px) !important;
   font-size: clamp(20px, 2vw, 26px) !important; font-weight: 600 !important; line-height: 1.5 !important;
-  color: var(--color-maroon-700, #6e0f4a) !important;
+  color: var(--color-maroon-700, #6a1c44) !important;
 }
 .mt-badges { list-style: none; margin: var(--sp-6, 32px) 0 0; padding: 0; display: flex; flex-wrap: wrap; justify-content: center; gap: var(--sp-3, 12px); }
 .mt-badges li {
   padding: 8px 16px; border-radius: 999px;
-  background: var(--color-maroon-50, #f8eef4); color: var(--color-maroon-700, #6e0f4a);
+  background: var(--color-maroon-50, #f6eef2); color: var(--color-maroon-700, #6a1c44);
   font-size: 14px; font-weight: 600;
 }
 
@@ -38,25 +38,25 @@
 .mt-verse {
   margin: 0; padding: var(--pad-box, 48px) var(--pad-card, 32px);
   border-radius: 16px; background: var(--color-surface, #f5f5f5); text-align: center;
-  border-top: 3px solid var(--color-gold-400, #c8a23a);
+  border-top: 3px solid var(--color-gold-400, #bf9f55);
 }
 .mt .mt-verse p {
   margin: 0 0 var(--sp-4, 16px) !important;
   font-family: var(--font-heading) !important; font-size: var(--fs-quote-s, 22px) !important; font-style: italic;
   line-height: 1.45 !important; color: var(--color-ink, #111) !important;
 }
-.mt-verse cite { font-style: normal; font-size: 14px; font-weight: 600; letter-spacing: .06em; color: var(--color-maroon-700, #6e0f4a); }
+.mt-verse cite { font-style: normal; font-size: 14px; font-weight: 600; letter-spacing: .06em; color: var(--color-maroon-700, #6a1c44); }
 
 /* open to all castes */
 .mt-open-card {
   max-width: 880px; margin: 0 auto; padding: var(--pad-box, 48px);
   border-radius: 16px; text-align: center;
-  background: var(--color-maroon-50, #f8eef4);
+  background: var(--color-maroon-50, #f6eef2);
 }
 .mt .mt-open-card h2 { margin-bottom: var(--sp-4, 16px) !important; }
 .mt .mt-open-card p { max-width: 680px; margin-left: auto !important; margin-right: auto !important; }
 .mt .mt-ref { margin-top: var(--sp-5, 24px) !important; font-family: var(--font-heading) !important; font-style: italic; color: var(--color-ink, #111) !important; }
-.mt-ref span { display: block; margin-top: 4px; font-family: var(--font-body) !important; font-style: normal; font-size: 14px; font-weight: 600; color: var(--color-maroon-700, #6e0f4a); }
+.mt-ref span { display: block; margin-top: 4px; font-family: var(--font-body) !important; font-style: normal; font-size: 14px; font-weight: 600; color: var(--color-maroon-700, #6a1c44); }
 
 /* how it works */
 .mt-how h2 { text-align: center; }
@@ -65,7 +65,7 @@
 .mt-no {
   display: inline-flex; align-items: center; justify-content: center;
   width: 36px; height: 36px; margin-bottom: var(--sp-4, 16px);
-  border-radius: 50%; background: var(--color-maroon-700, #6e0f4a); color: #fff; font-weight: 600;
+  border-radius: 50%; background: var(--color-maroon-700, #6a1c44); color: #fff; font-weight: 600;
 }
 .mt .mt-steps p { margin: 0 !important; font-size: 15px !important; }
 

@@ -28,7 +28,7 @@ html.pt-open { overflow: hidden; }
 .pt-eyebrow {
   display: block; margin: 0 0 8px;
   font-size: 13px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase;
-  color: var(--color-maroon-700, #6e0f4a);
+  color: var(--color-maroon-700, #6a1c44);
 }
 .pt-dialog h2 {
   margin: 0 0 8px !important;
@@ -46,7 +46,7 @@ html.pt-open { overflow: hidden; }
   display: block; margin: 0 0 8px; padding: 0;
   font-size: 15px; font-weight: 500; line-height: 1.4; color: var(--color-ink, #111);
 }
-.pt-dialog label b, .pt-ways legend b { color: var(--color-maroon-700, #6e0f4a); }
+.pt-dialog label b, .pt-ways legend b { color: var(--color-maroon-700, #6a1c44); }
 .pt-ways legend span, .pt-opt { font-weight: 400; color: var(--color-muted, #5c5c5c); }
 .pt-dialog input[type="text"], .pt-dialog input[type="email"], .pt-dialog input[type="tel"],
 .pt-dialog select, .pt-dialog textarea {
@@ -58,7 +58,7 @@ html.pt-open { overflow: hidden; }
 }
 .pt-dialog textarea { min-height: 96px; resize: vertical; }
 .pt-dialog input:focus, .pt-dialog select:focus, .pt-dialog textarea:focus {
-  outline: none; border-color: var(--color-maroon-700, #6e0f4a); box-shadow: 0 0 0 3px var(--color-maroon-100, #f1dde8);
+  outline: none; border-color: var(--color-maroon-700, #6a1c44); box-shadow: 0 0 0 3px var(--color-maroon-100, #efdfe6);
 }
 .pt-phone { display: grid; grid-template-columns: 92px minmax(0, 1fr); gap: 8px; }
 
@@ -69,9 +69,9 @@ html.pt-open { overflow: hidden; }
   border: 1.5px solid var(--color-border, #e5e5e5); border-radius: 10px;
   font-weight: 400 !important; cursor: pointer;
 }
-.pt-check input { flex: 0 0 auto; width: 18px; height: 18px; margin: 0; accent-color: var(--color-maroon-700, #6e0f4a); }
-.pt-check:has(input:checked) { border-color: var(--color-maroon-700, #6e0f4a); background: var(--color-maroon-50, #f8eef4); }
-.pt-check:has(input:focus-visible) { box-shadow: 0 0 0 3px var(--color-maroon-100, #f1dde8); }
+.pt-check input { flex: 0 0 auto; width: 18px; height: 18px; margin: 0; accent-color: var(--color-maroon-700, #6a1c44); }
+.pt-check:has(input:checked) { border-color: var(--color-maroon-700, #6a1c44); background: var(--color-maroon-50, #f6eef2); }
+.pt-check:has(input:focus-visible) { box-shadow: 0 0 0 3px var(--color-maroon-100, #efdfe6); }
 
 .is-invalid input, .is-invalid select, .is-invalid textarea, .pt-ways.is-invalid .pt-check { border-color: var(--color-error, #b91c1c) !important; }
 .pt-error { margin: 6px 0 0 !important; font-size: 14px !important; color: var(--color-error, #b91c1c); }
@@ -80,13 +80,13 @@ html.pt-open { overflow: hidden; }
 .pt-submit {
   display: inline-flex; align-items: center; justify-content: center;
   width: 100%; min-height: 48px; padding: 0 28px;
-  border: 1.5px solid var(--color-maroon-700, #6e0f4a); border-radius: 999px;
-  background: var(--color-maroon-700, #6e0f4a); color: #fff;
+  border: 1.5px solid var(--color-maroon-700, #6a1c44); border-radius: 999px;
+  background: var(--color-maroon-700, #6a1c44); color: #fff;
   font-size: 14px; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; cursor: pointer;
 }
-.pt-submit:hover { background: var(--color-maroon-900, #4f0834); border-color: var(--color-maroon-900, #4f0834); }
+.pt-submit:hover { background: var(--color-maroon-900, #4c1532); border-color: var(--color-maroon-900, #4c1532); }
 .pt-submit:disabled { opacity: .65; cursor: progress; }
-.pt-dialog button:focus-visible { outline: 3px solid var(--color-gold-400, #c8a23a); outline-offset: 2px; }
+.pt-dialog button:focus-visible { outline: 3px solid var(--color-gold-400, #bf9f55); outline-offset: 2px; }
 .pt-status { margin: 12px 0 0 !important; font-size: 14px !important; text-align: center; color: var(--color-muted, #5c5c5c); }
 .pt-status:empty { display: none; }
 .pt-status.is-error { color: var(--color-error, #b91c1c); }
@@ -96,7 +96,7 @@ html.pt-open { overflow: hidden; }
 .pt-done-icon {
   display: inline-flex; align-items: center; justify-content: center;
   width: 64px; height: 64px; margin-bottom: 16px; border-radius: 50%;
-  background: var(--color-maroon-50, #f8eef4); color: var(--color-maroon-700, #6e0f4a); font-size: 30px;
+  background: var(--color-maroon-50, #f6eef2); color: var(--color-maroon-700, #6a1c44); font-size: 30px;
 }
 .pt-done p { margin: 0 auto 24px !important; max-width: 360px; }
 
